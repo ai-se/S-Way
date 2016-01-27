@@ -13,13 +13,13 @@ from Release import Release
 
 class MONRP(jmoo_problem):
     def __init__(self, requirements, releases, clients, density, budget):
-        self.name = "NRP_" + str(requirements) + "_" + str(releases) + "_" + str(clients) + "_" +str(density) \
+        self.name = "MONRP_" + str(requirements) + "_" + str(releases) + "_" + str(clients) + "_" +str(density) \
                     + "_" + str(budget)
         names = ["x"+str(i+1) for i in range(requirements)] # |x_i + y_i|
         lows =  [-1 for i in xrange(requirements)]
         ups =   [(releases-1) for _ in xrange(requirements)]
         self.decisions = [jmoo_decision(names[i], lows[i], ups[i]) for i in range(requirements)]
-        self.objectives = [jmoo_objective("f1", False), jmoo_objective("f2", True), jmoo_objective("f3", False)]
+        self.objectives = [jmoo_objective("f1", True), jmoo_objective("f2", True), jmoo_objective("f3", True)]
         self.trequirements = requirements
         self.treleases = releases
         self.tclients = clients
@@ -30,7 +30,6 @@ class MONRP(jmoo_problem):
         self.release = None
         self.precedence = []
         self.generate_data()
-
 
     def generate_precedence(self):
         precedence = [[0 for _ in xrange(self.trequirements)] for _ in xrange(self.trequirements)]
@@ -94,8 +93,6 @@ class MONRP(jmoo_problem):
                                 return False
                     return True
 
-
-
     def evaluate(self, input = None):
 
         if input:
@@ -105,15 +102,9 @@ class MONRP(jmoo_problem):
             assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
             temp = self.constraint1(x_i, y_i)  # This is dirty need to know a better trick
             if temp != 0:
-                output = [temp, 1e32, 0]
-                for i, objective in enumerate(self.objectives):
-                    objective.value = output[i]
-                return output
+                return [1e32-temp, 1e32, 1e32]
             elif self.constraint2(x_i, y_i) is False:
-                output = [0, 1e32, 0]
-                for i, objective in enumerate(self.objectives):
-                    objective.value = output[i]
-                return output
+                return [1e32, 1e32, 1e32]
             else:
                 return_score = 0
                 cost = 0
@@ -131,11 +122,10 @@ class MONRP(jmoo_problem):
                         if y_i != 0:
                             satisfaction += self.client[c].importance[i]
 
-                output = [return_score, cost, satisfaction]
-                for i, objective in enumerate(self.objectives):
-                    objective.value = output[i]
-                return output
 
+
+
+                return [1e32-return_score, cost, 1e32-satisfaction]
         else:
             assert(False), "BOOM"
             exit()
@@ -145,7 +135,7 @@ class MONRP(jmoo_problem):
 
 
 if __name__ == "__main__":
-    problem = NRP(50, 5, 5, 0, 80)
+    problem = MONRP(50, 5, 5, 0, 80)
     problem.generate_data()
     problem.print_data()
 

@@ -51,12 +51,13 @@ def galeWHERE(problem, population, configuration, values_to_be_passed):
     return NDLeafs, numEval
 
 
+
+
 def galeMutate(problem, NDLeafs, configuration):
     #################
     # Mutation Phase
     #################
-
-    # Keep track of evals
+# Keep track of evals
     numEval = 0
 
     for leaf in NDLeafs:

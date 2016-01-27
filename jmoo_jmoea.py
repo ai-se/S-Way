@@ -27,10 +27,14 @@
 "Brief notes"
 "Standardized MOEA code for running any MOEA"
 
+from jmoo_algorithms import *
+from jmoo_stats_box import *
 from jmoo_properties import *
-
-
+from Algorithms.GALE.Fastmap.Moo import *
 # from pylab import *
+import jmoo_properties
+
+import os, sys, inspect
 
 
 
@@ -51,7 +55,7 @@ def read_file(problem, filename):
 
 def store_values(latestdir, generation_number, population):
     filename = latestdir + "/" + str(generation_number) + ".txt"
-    shorten_population = [pop for pop in population if pop.fitness.valid]
+    shorten_population = [pop for pop in population if pop.valid]
     try:
         values = [", ".join(map(str, pop.decisionValues + pop.fitness.fitness)) for pop in shorten_population]
     except:
@@ -105,7 +109,7 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
     # 1) Initialization #
     # # # # # # # # # # #
     stoppingCriteria = False                             # Just a flag for stopping criteria
-    statBox          = jmoo_stats_box(problem, algorithm) # Record keeping device
+    statBox          = jmoo_stats_box(problem,algorithm) # Record keeping device
     gen              = 0                                 # Just a number to track generations
     numeval = 0
     values_to_be_passed = {}
@@ -178,7 +182,6 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
 
         population, evals = algorithm.recombiner(problem, population, selectees, configurations)
 
-
         numNewEvals += evals
         assert(len(population) == configurations["Universal"]["Population_Size"]), \
             "Length of the population should be equal to MU"
@@ -215,3 +218,4 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
         #     "Length in the statBox should be equal to MU"
 
     return statBox
+

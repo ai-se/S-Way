@@ -28,13 +28,15 @@
 "Report on decision bins used."
 
 # from pylab import *
-import os
-import random
-import utility
-from time import *
-
+import csv
+from jmoo_problems import *
+from jmoo_algorithms import *
+from jmoo_stats_box import *
 from jmoo_properties import *
+import random, utility
 
+from time import *
+import os
 
 class histobin:
      def __init__(self, numBins, decision):

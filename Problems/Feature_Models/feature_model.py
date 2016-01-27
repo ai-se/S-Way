@@ -106,7 +106,7 @@ def if_exists(file_name):
 
 # three objectives at this time
 class FeatureTreeModel(jmoo_problem):
-    def __init__(self, name, valid_solutions=False, objnum=3, is_binary=False):
+    def __init__(self, name,  valid_solutions = False, objnum = 3):
         self.name = name
         self.valid_solutions = valid_solutions
         assert(if_exists(name) is True), "Check the filename"
@@ -121,7 +121,6 @@ class FeatureTreeModel(jmoo_problem):
         self.objectives = [jmoo_objective("number_of_features", True),
                            jmoo_objective("constrained_violated", True),
                            jmoo_objective("cost", True)]
-        self.is_binary = True
 
     def evaluate(self, input = None, return_fulfill=False):
         t = self.ft
@@ -147,10 +146,7 @@ class FeatureTreeModel(jmoo_problem):
             obj3 = sum([t.cost[i] for i,f in enumerate(t.features) if (fulfill[i] == 1 and f.node_type != 'g')])
 
             if return_fulfill is False:
-                output = [obj1, obj2, obj3]
-                for i, objective in enumerate(self.objectives):
-                    objective.value = output[i]
-                return output
+                return [obj1, obj2, obj3]
             else:
                 return [obj1, obj2, obj3], fulfill
         else:

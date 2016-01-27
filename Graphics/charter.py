@@ -186,8 +186,7 @@ def hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=m
                         if len(candidates) > 0:
                             repeat_dict[str(repeat)]["HyperVolume"] = function(reference_point, candidates)
                             if repeat_dict[str(repeat)]["HyperVolume"] == 0:
-                                import pdb
-                                pdb.set_trace()
+                                pass
                             repeat_dict[str(repeat)]["Evaluations"] = evaluations[algorithm.name][repeat]
                         else:
                             repeat_dict[str(repeat)]["HyperVolume"] = None
@@ -394,10 +393,10 @@ def statistic_reporter(problems, algorithms, Configurations,aggregate_measure=me
         draw(problem.name, average_evaluation, algorithm_name, "Evaluations")
 
 
-def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spread_scores,base_line, tag="Comparisions"):
+def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spread_scores, list_igd_scores, base_line, tag="Comparisions"):
     # TODO: write comment
 
-    for measure_name, list_xx_scores in zip(["HyperVolume", "Spread"], [list_hypervolume_scores, list_spread_scores]):
+    for measure_name, list_xx_scores in zip(["HyperVolume", "Spread", "IGD"], [list_hypervolume_scores, list_spread_scores, list_igd_scores]):
         # concatenating the dictionaries
         x_scores = list_xx_scores[0]
         for x_score in list_xx_scores: x_scores.update(x_score)
@@ -444,8 +443,6 @@ def igd_reporter(problems, algorithms, Configurations, aggregate_measure=mean, t
             unpacked_frontier = list(set(unpacked_frontier))
             if len(unpacked_frontier) - old == 0:
                 print "There are no duplicates!! check"
-                import pdb
-                pdb.set_trace()
 
             # Find the non dominated solutions
 
@@ -634,12 +631,12 @@ def hypervolume_approximate_ranking(problems, algorithms, Configurations, tag="h
 def charter_reporter(problems, algorithms, Configurations, tag=""):
     import sys
     sys.setrecursionlimit(10000)
-    # hypervolume_scores = hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=median)
-    # spread_scores = spread_graphs(problems, algorithms, Configurations, aggregate_measure=median)
+    hypervolume_scores = hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=median)
+    spread_scores = spread_graphs(problems, algorithms, Configurations, aggregate_measure=median)
     # joes_diagrams(problems, algorithms, Configurations)
-    # igd_reporter(problems, algorithms, Configurations)
-    hypervolume_approximate_ranking(problems, algorithms, Configurations)
-    # return [hypervolume_scores, spread_scores]
+    igd_scores = igd_reporter(problems, algorithms, Configurations)
+    # hypervolume_approximate_ranking(problems, algorithms, Configurations)
+    return [hypervolume_scores, spread_scores, igd_scores]
 
 
 

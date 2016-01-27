@@ -1,13 +1,11 @@
-import inspect
-import os
-import random
-import sys
+import os, inspect, sys, random
 
 cmd_subfolder = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe()))[0],"../../Techniques")))
 if cmd_subfolder not in sys.path:
     sys.path.insert(0, cmd_subfolder)
 
 from Techniques.euclidean_distance import euclidean_distance
+from ndimes import generate_direction
 from perpendicular_distance import perpendicular_distance
 from geometry import find_extreme_point, find_midpoint
 from better import rearrange
@@ -15,6 +13,7 @@ from better import rearrange
 cmd_subfolder = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe()))[0],"../../")))
 if cmd_subfolder not in sys.path:
     sys.path.insert(0, cmd_subfolder)
+import jmoo_properties
 from jmoo_individual import jmoo_individual
 
 
