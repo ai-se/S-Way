@@ -1,3 +1,4 @@
+### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -19,7 +20,7 @@ lib/
 lib64/
 parts/
 sdist/
-var/
+Problems/CPM/utilities/RahulTool/axe/var/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -43,7 +44,6 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
-.hypothesis/
 
 # Translations
 *.mo
@@ -57,3 +57,18 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Created by .ignore support plugin (hsz.mobi)
+
+#PyCharm
+.idea*
+
+#Mac
+.DS_Store
+
+#JMOO
+RawData/ExperimentalRecords/
+RawData/PopulationArchives/
+
+
+
