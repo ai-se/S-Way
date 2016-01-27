@@ -1,4 +1,5 @@
 ### More generations implies better results?  
+Reference: https://github.com/ai-se/storm/issues/20  
 GALE0 vs GALE  
 GALE0: Number of members in the population is 10X = 1000  
 GALE: Number of members in the population = 100 (Number of generations=20)  
@@ -21,4 +22,19 @@ GALE_NO_MUTATION: Gale but no mutation -> GALE who randomly generates solution e
 
 Conclusion. GALE0 and GALE are similiar. I.e. more generations does not implies better results
 
-### 
+### Mutation works?
+Reference: https://github.com/ai-se/storm/issues/21
+```
+{'Repeats': 5, 'Population_Size': 100, 'No_of_Generations': 20} {'EPSILON': 1.0, 'DELTA': 1, 'GAMMA': 0.15, 'LAMBDA': 3}
+```
+![screenshot 2015-11-11 16 47 54](https://cloud.githubusercontent.com/assets/6147456/11103984/119fe66e-8894-11e5-8758-34092daa2b4a.png)
+
+
+```
+{'Repeats': 5, 'Population_Size': 100, 'No_of_Generations': 20} {'EPSILON': 1.0, 'DELTA': 3, 'GAMMA': 0.15, 'LAMBDA': 3}
+```
+![screenshot 2015-11-11 16 48 32](https://cloud.githubusercontent.com/assets/6147456/11103988/16a550c2-8894-11e5-9d8c-d64a7d9e17ad.png)
+
+Conclusion: the mutation works. But the value of delta matters.
+TODO: 1. confirm this conclusion; 2. how to determine the delta; 3. does the shape of frontier matters?
+
