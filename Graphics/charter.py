@@ -404,6 +404,8 @@ def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spr
         for problem in problems:
             base_score = float(x_scores[problem.name][base_line])
             for algorithm in algorithms:
+                print measure_name, problem.name, algorithm.name, x_scores[problem.name][algorithm.name]/base_score
+
                 temp_score = (x_scores[problem.name][algorithm.name]/base_score) * 100
                 x_dpoints.append([algorithm.name, problem.name, temp_score])
 
