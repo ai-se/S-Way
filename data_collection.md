@@ -35,6 +35,27 @@ Reference: https://github.com/ai-se/storm/issues/21
 ```
 ![screenshot 2015-11-11 16 48 32](https://cloud.githubusercontent.com/assets/6147456/11103988/16a550c2-8894-11e5-9d8c-d64a7d9e17ad.png)
 
-Conclusion: the mutation works. But the value of delta matters.
-TODO: 1. confirm this conclusion; 2. how to determine the delta; 3. does the shape of frontier matters?
+Conclusion: the mutation works. But the value of delta matters.  
+TODO: 1. confirm this conclusion; 2. how to determine the delta; 3. does the shape of frontier matters?  
 
+### is Fastmap effecive?
+TODO:
+1. pick up one testing problem  
+2. randomly generate 1000 points  
+3. run where. Let the prunned result A, the rest points B  
+4. evaluate every points for A and B  
+5. compare the frontier for set A and set B  
+6. Try more problems. repeat sampling
+
+### why are good points not easy to survive?
+Reference: https://github.com/ai-se/storm/issues/29  
+GALE2 testing.  
+FeatureModels: [jfresult_feature_models.txt](https://github.com/ai-se/storm/files/50872/jfresult_feature_models.txt)
+Software Engineering Models: [jfresult_se_models.txt](https://github.com/ai-se/storm/files/50871/jfresult_se_models.txt)
+DTLZ*: [jfresult.txt](https://github.com/ai-se/storm/files/50873/jfresult.txt)
+
+
+Comment: 
+Best Case Scenario: DTLZ3_14_5: We see that atleast one mutant has survived all the generations
+
+What I see from the results are that the survival rate of the mutants have increased, but I won't consider it to be a substantial increase. All this being said we can't see any significant differences in the quality indicators like hypervolume and spread. 
