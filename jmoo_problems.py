@@ -75,8 +75,9 @@ def center_based_sampling(problem, dataset):
     from random import shuffle
     shuffle(opposing_dataset)
     shuffle(dataset)
-    resulting_population.extend(opposing_dataset[:(len(dataset)/2)])
-    resulting_population.extend(dataset[:(len(dataset)/2)])
+    opposing_fraction = 0.7
+    resulting_population.extend(opposing_dataset[:int(len(dataset) * opposing_fraction)])
+    resulting_population.extend(dataset[:int(len(dataset) * (1-opposing_fraction))])
     for i, pop in enumerate(resulting_population):
         assert(problem.validate(pop) is True), "Something is wrong"
     return resulting_population

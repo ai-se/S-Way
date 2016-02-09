@@ -59,11 +59,11 @@ algorithms = [
             # jmoo_NSGAIII(),
             # jmoo_NSGAII(),
             # jmoo_NSGAII_2()
-            jmoo_GALE0(),
+            # jmoo_GALE0(),
             # jmoo_NSGAII(),
             # jmoo_SPEA2(),
-            jmoo_GALE(),
-            # jmoo_GALE_no_mutation()
+            # jmoo_GALE(),
+            jmoo_GALE_no_mutation()
               ]
 
 problems =[
@@ -89,7 +89,7 @@ Configurations = {
     "Universal": {
         "Repeats" : 9,
         "Population_Size" : 100,
-        "No_of_Generations" : 20
+        "No_of_Generations" : 1
     },
     "NSGAIII": {
         "SBX_Probability": 1,
