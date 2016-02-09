@@ -258,6 +258,7 @@ def spread_graphs(problems, algorithms, Configurations,aggregate_measure=mean, t
         from PerformanceMeasures.DataFrame import ProblemFrame
         problem_dict = {}
         for problem in problems:
+            print problem.name
             data = ProblemFrame(problem, algorithms)
             extreme_point1, extreme_point2 = data.get_extreme_points(Configurations["Universal"]["Repeats"])
             generation_dict = {}
@@ -397,6 +398,11 @@ def comparision_reporter(problems, algorithms, list_hypervolume_scores, list_spr
     # TODO: write comment
 
     for measure_name, list_xx_scores in zip(["HyperVolume", "Spread", "IGD"], [list_hypervolume_scores, list_spread_scores, list_igd_scores]):
+
+        print measure_name
+        print list_xx_scores
+        print "---" * 20
+
         # concatenating the dictionaries
         x_scores = list_xx_scores[0]
         for x_score in list_xx_scores: x_scores.update(x_score)

@@ -60,10 +60,10 @@ algorithms = [
             # jmoo_NSGAII(),
             # jmoo_NSGAII_2()
             jmoo_GALE0(),
-            jmoo_NSGAII(),
-            jmoo_SPEA2(),
+            # jmoo_NSGAII(),
+            # jmoo_SPEA2(),
             jmoo_GALE(),
-            jmoo_GALE_no_mutation()
+            # jmoo_GALE_no_mutation()
               ]
 
 problems =[
@@ -75,9 +75,10 @@ problems =[
     ]
 
 problems =[
-    POM3A(), POM3B(), POM3C(), POM3D(),
+    POM3A(),
+    POM3B(), POM3C(), POM3D(),
     XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
-    NRP(50, 5, 5, 0, 80),
+    # NRP(50, 5, 5, 0, 80),
     # MONRP(50, 5, 5, 0, 80)
 
 ]
@@ -86,7 +87,7 @@ build_new_pop = False                                       # Whether or not to 
 
 Configurations = {
     "Universal": {
-        "Repeats" : 5,
+        "Repeats" : 9,
         "Population_Size" : 100,
         "No_of_Generations" : 20
     },

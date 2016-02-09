@@ -21,6 +21,7 @@ class ProblemFrame():
         from Techniques.flatten_list import flatten
         points = []
         points.extend(flatten([d.get_frontiers_collection(number_of_generations) for d in self.data]))
+        print len(points)
         objectives = [point.objectives for point in points]
         maps_objectives = [[-1 for _ in objectives] for _ in objectives]
         from Techniques.euclidean_distance import euclidean_distance
@@ -32,6 +33,7 @@ class ProblemFrame():
                 elif i == j:
                     maps_objectives[i][j] = 0
 
+        print maps_objectives
         max_distance = max([max(maps_objective) for maps_objective in maps_objectives])
         indexes = [[(i, j) for j, distance in enumerate(distances) if distance == max_distance] for i, distances in
                    enumerate(maps_objectives)]
@@ -106,6 +108,8 @@ class RepeatFrame():
         from os import listdir
         from os.path import isfile, join, getmtime
         files = sorted([join(self.foldername, f) for f in listdir(self.foldername) if isfile(join(self.foldername, f))], key=lambda x: getmtime(x))
+        if len(files) == 0:
+            print "len of files: ", len(files), self.foldername
         self.generations = [GenerationFrame(self.problem, file) for file in files]
 
     def get_frontier(self, number):
@@ -137,6 +141,9 @@ class GenerationFrame():
             self.solutions.append(SolutionFrame(content[:number_of_decisions], content[number_of_decisions:]))
         from Techniques.file_operations import count_number_of_lines
         self.evaluation = count_number_of_lines(self.filename)
+        if len(self.solutions) == 0:
+            import pdb
+            pdb.set_trace()
 
 
 class SolutionFrame():

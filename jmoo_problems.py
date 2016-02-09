@@ -38,12 +38,57 @@ from jmoo_stats_box import *
 def distance(in1, in2):
     return sum([abs(x-y) for x,y in zip(in1,in2)])**0.5
 
+
+def find_opposing_population(problem, dataset):
+    def find_opposite(point, center):
+        assert(len(point) == len(center)), "Something is wrong"
+        new_point = [0 for _ in xrange(len(point))]
+        for i in xrange(len(new_point)):
+            new_point[i] = center[i] + (center[i] - point[i])
+
+        if problem.validate(new_point) is False: exit()
+        return new_point
+
+    def find_center(problem):
+        center = [0 for _ in xrange(len(problem.decisions))]
+        for i, decision in enumerate(problem.decisions):
+            center[i] = decision.low + (decision.up - decision.low)/2
+        return center
+
+    CP = []
+    center = find_center(problem)
+    from random import random
+    for data in dataset:
+        opposite = find_opposite(data, center)
+        assert(len(opposite) == len(data)), "Something is wrong"
+        temp = [0 for _ in xrange(len(opposite))]
+        for count, (i, j) in enumerate(zip(data, opposite)):
+            if i <= center[count]: temp[count] = i + (j - i) * random()
+            else: temp[count] = j + (i - j) * random()
+        CP.append(temp)
+    return CP
+
+
+def center_based_sampling(problem, dataset):
+    resulting_population = []
+    opposing_dataset = find_opposing_population(problem, dataset)
+    from random import shuffle
+    shuffle(opposing_dataset)
+    shuffle(dataset)
+    resulting_population.extend(opposing_dataset[:(len(dataset)/2)])
+    resulting_population.extend(dataset[:(len(dataset)/2)])
+    for i, pop in enumerate(resulting_population):
+        assert(problem.validate(pop) is True), "Something is wrong"
+    return resulting_population
+
+
 def initialPopulation(problem, n, path=""):
     #generate dataset
     dataset = []
     for run in range(n):
-        dataset.append(problem.generateInput())
+        dataset.append(problem.generateInput(center=True))
 
+    dataset = center_based_sampling(problem, dataset)
 
     #write the dataset to file
     if path == "":

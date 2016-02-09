@@ -39,12 +39,16 @@ class jmoo_problem(object):
         prob.objectives = []
         prob.numEvals = 0
 
-    def generateInput(prob):
+    def generateInput(prob, center=False):
         "a way to generate decisions for this problem"
         while True: # repeat if we don't meet constraints
             temp_value = []
-            for decision in prob.decisions:
-                temp_value.append(random.uniform(decision.low, decision.up))
+            if center is True:
+                for decision in prob.decisions:
+                    temp_value.append(random.uniform(decision.low + (decision.up - decision.low)*0.2, decision.up - (decision.up - decision.low)*0.2 ))
+            else:
+                for decision in prob.decisions:
+                    temp_value.append(random.uniform(decision.low, decision.up))
             # if not prob.evalConstraints():
             #     break
             if prob.validate(temp_value) is True: break
@@ -120,7 +124,9 @@ class jmoo_problem(object):
         assert(len(decision_value) == len(prob.decisions)), "Something is wrong with the usage of validate function"
         for i, decision in enumerate(prob.decisions):
             if decision.low <= decision_value[i] <= decision.up: pass
-            else: return False
+            else:
+                print  decision.low , decision_value[i] , decision.up
+                return False
         return True
 
 
