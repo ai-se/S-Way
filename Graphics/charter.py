@@ -199,6 +199,8 @@ def hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=m
 
     from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
     result = get_data_from_archive(problems, algorithms, Configurations, get_hyper_volume)
+    import pdb
+    pdb.set_trace()
 
     date_folder_prefix = strftime("%m-%d-%Y")
 
