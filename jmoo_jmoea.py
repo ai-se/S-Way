@@ -88,7 +88,7 @@ def store_values_g4(latestdir, generation_number, population):
     f.close()
 
 
-def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
+def jmoo_evo(problem, algorithm, configurations, repeat=0, toStop = bstop):
     """
     ----------------------------------------------------------------------------
      Inputs:
@@ -139,9 +139,13 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
 
     # Generate a folder to store the population
     foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "/"
-    import os
-    all_subdirs = [foldername + d for d in os.listdir(foldername) if os.path.isdir(foldername + d)]
-    latest_subdir = sorted(all_subdirs, key=os.path.getmtime)[-1]
+    # import os
+    # all_subdirs = [foldername + d for d in os.listdir(foldername) if os.path.isdir(foldername + d)]
+    # latest_subdir = sorted(all_subdirs, key=os.path.getmtime)[-1]
+    # import pdb
+    # pdb.set_trace()
+    latest_subdir = foldername + str(repeat) + "/"
+    # print latest_subdir
 
 
     # # # # # # # # # # # # # # #
@@ -188,7 +192,7 @@ def jmoo_evo(problem, algorithm, configurations, toStop = bstop):
         # # # # # # # # # # #
         # 4d) Collect Stats #
         # # # # # # # # # # #
-        if algorithm.name == "GALE0" or algorithm.name == "GALE_no_mutation":
+        if algorithm.name == "SWAY5" or algorithm.name == "SWAY2":
             statBox.update(selectees, gen, numNewEvals, population_size=Configurations["Universal"]["Population_Size"])
             store_values(latest_subdir, gen, selectees)
         elif algorithm.name == "GALE4":

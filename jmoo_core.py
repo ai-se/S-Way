@@ -216,8 +216,6 @@ class JMOO:
             record_string += "<Problem name = '" + problem.name + "'>\n"
             
             for algorithm in self.tests.algorithms:
-                
-                
                 record_string += "<Algorithm name = '" + algorithm.name + "'>\n"
                 
                 print "#<------- " + problem.name + " + " + algorithm.name + " ------->#"
@@ -256,6 +254,7 @@ class JMOO:
                 for repeat in range(self.configurations["Universal"]["Repeats"]):
 
                     foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "/" + str(repeat)
+                    # print " >> ", foldername
                     import os
                     if not os.path.exists(foldername):
                         os.makedirs(foldername)
@@ -263,7 +262,7 @@ class JMOO:
                     record_string += "<Run id = '" + str(repeat+1) + "'>\n"
 
                     start = time.time()
-                    statBox = jmoo_evo(problem, algorithm, self.configurations)
+                    statBox = jmoo_evo(problem, algorithm, self.configurations, repeat)
                     end = time.time()
 
                     # Find best generation

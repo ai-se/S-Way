@@ -44,8 +44,8 @@ from Algorithms.MOEA_D.moead_components import *
 from Algorithms.NSGAIII.nsgaiii_components import *
 from Algorithms.STORM.storm_components import *
 from Algorithms.NSGAIII.nsgaiii_components import *
-from Algorithms.GALE0.gale_components import *
-from Algorithms.GALE_no_mutation.gale_components import *
+from Algorithms.SWAY5.gale_components import *
+from Algorithms.SWAY2.gale_components import *
 from Algorithms.GALE2.gale_components import *
 from Algorithms.GALE4.gale_components import *
 from Algorithms.GALE8.gale_components import *
@@ -111,9 +111,9 @@ class jmoo_GALE:
         self.type = '*'
 
 
-class jmoo_GALE0:
+class jmoo_SWAY5:
     def __init__(self, color="Brown"):
-        self.name = "GALE0"
+        self.name = "SWAY5"
         self.initializer = None
         self.selector = gale0WHERE
         self.adjustor = gale0Mutate
@@ -121,9 +121,9 @@ class jmoo_GALE0:
         self.color = color
         self.type = '*'
 
-class jmoo_GALE_no_mutation:
+class jmoo_SWAY2:
     def __init__(self, color="Orange"):
-        self.name = "GALE_no_mutation"
+        self.name = "SWAY2"
         self.initializer = None
         self.selector = gale_nm_WHERE
         self.adjustor = gale_nm_Mutate

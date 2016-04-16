@@ -37,7 +37,7 @@ for problem in problems:
 problems = [""]
 for problem in problems:
     print problem, ", ",
-    algorithms = ["GALE", "NSGAII", "SPEA2", "GALE_no_mutation"]
+    algorithms = ["GALE", "NSGAII", "SPEA2", "SWAY2"]
     for algorithm in algorithms:
         print data[problem][algorithm], ", " ,
     print

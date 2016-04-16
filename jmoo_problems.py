@@ -87,9 +87,9 @@ def initialPopulation(problem, n, path=""):
     #generate dataset
     dataset = []
     for run in range(n):
-        dataset.append(problem.generateInput(center=True))
+        dataset.append(problem.generateInput(center=False))
 
-    dataset = center_based_sampling(problem, dataset)
+    # dataset = center_based_sampling(problem, dataset)
 
     #write the dataset to file
     if path == "":

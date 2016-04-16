@@ -222,7 +222,7 @@ def hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=m
                 if len(hypervolume_list) > 0 and len(evaluation_list) > 0:
                     median_scores.append(aggregate_measure(hypervolume_list))
                     median_evals.append(aggregate_measure(old_evals))
-                    # if algorithm.name == "GALE_no_mutation":
+                    # if algorithm.name == "SWAY2":
                     #     # print hypervolume_list, aggregate_measure(hypervolume_list)
                     #     # print ">> ", old_evals, aggregate_measure(old_evals)
                     #     print "scores : ", median_scores
@@ -231,7 +231,7 @@ def hypervolume_graphs(problems, algorithms, Configurations, aggregate_measure=m
 
 
             scores[algorithm.name] = aggregate_measure(median_scores)
-            # if algorithm.name == "GALE_no_mutation":
+            # if algorithm.name == "SWAY2":
             #     print median_evals
             #     print ">> ", median_scores, id(median_scores)
             #     exit()
