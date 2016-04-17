@@ -67,8 +67,8 @@ problems =[
     ]
 
 problems =[
-    # POM3A(),
-    # POM3B(),
+    POM3A(),
+    POM3B(),
     POM3C(), POM3D(),
     XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight()
     # NRP(50, 5, 5, 0, 80),

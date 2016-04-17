@@ -122,8 +122,8 @@ class jmoo_chart_report:
     def doit(self, tagnote=""):
         igd_list = []
         for problem in self.tests.problems:
-            # print "HyperVolume"
-            # draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
+            print "HyperVolume"
+            draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
             print "Spread"
             draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
             # print "IGD"
