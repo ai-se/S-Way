@@ -325,6 +325,7 @@ def draw_hv(problem, algorithms, Configurations, tag):
                 print ".",
                 temp_igd_list = []
                 files = find_files_for_generations(problem[-1].name, algorithm.name, number_of_repeats, generation+1)
+                print files
                 for file in files:
                     temp_value = get_content(problem[-1], file, pop_size)
                     temp_igd_list.append(get_hyper_volume(reference_point, temp_value))
