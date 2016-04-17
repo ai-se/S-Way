@@ -14,13 +14,14 @@ def repeat_20_times(filename):
 
 
 def driver_repeat_20_times():
-    path = "/Users/viveknair/GIT/why_GALE_-really-_works/RawData/PopulationArchives"
+    path = "/Users/viveknair/tmp/why_GALE_-really-_works/RawData/PopulationArchives"
     from os import listdir
 
-    filter1 = lambda x: "SWAY5" in x
+    filter1 = lambda x: "SWAY2" in x
     map1 = lambda x: path + "/" + x
     filter2 = lambda x: len(listdir(x)) == 1
     list_of_dirs = filter(filter1, listdir(path))
+
     list_of_dirs = map(map1, list_of_dirs)
     print len(list_of_dirs)
     list_of_dirs = [list_of_dirs[i] + "/" + f for i, folder in enumerate(list_of_dirs) for f in listdir(folder)]

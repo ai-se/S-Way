@@ -214,8 +214,8 @@ def jmoo_evo(problem, algorithm, configurations, repeat=0, toStop = bstop):
         # # # # # # # # # # # # # # # # # #
         # 4e) Evaluate Stopping Criteria  #
         # # # # # # # # # # # # # # # # # #
-        if algorithm.name != "GALE4":
-            stoppingCriteria = toStop(statBox)
+        # if algorithm.name != "GALE4":
+        #     stoppingCriteria = toStop(statBox)
         # stoppingCriteria = False
 
         # assert(len(statBox.box[-1].population) == configurations["Universal"]["Population_Size"]), \

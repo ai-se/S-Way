@@ -51,21 +51,11 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            # jmoo_GALE(),
-            # jmoo_GALE64(),
-            # jmoo_GALE32(),
-            # jmoo_GALE8(),
-            # jmoo_GALE16(),
-            # jmoo_NSGAIII(),
-            # jmoo_NSGAII(),
-            # jmoo_NSGAII_2()
-            # jmoo_GALE0(),
-            # jmoo_NSGAII(),
-            # jmoo_SPEA2(),
-            # jmoo_GALE(),
-
-            # jmoo_SWAY2()
-    jmoo_SWAY5()
+            jmoo_NSGAII(),
+            jmoo_SPEA2(),
+            jmoo_GALE(),
+            jmoo_SWAY2(),
+            jmoo_SWAY5()
               ]
 
 problems =[
@@ -77,9 +67,10 @@ problems =[
     ]
 
 problems =[
-    POM3A(),
-    POM3B(), POM3C(), POM3D(),
-    XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
+    # POM3A(),
+    # POM3B(),
+    POM3C(), POM3D(),
+    XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight()
     # NRP(50, 5, 5, 0, 80),
     # MONRP(50, 5, 5, 0, 80)
 
@@ -89,9 +80,9 @@ build_new_pop = False                                       # Whether or not to 
 
 Configurations = {
     "Universal": {
-        "Repeats" : 20,
-        "Population_Size" : 10000,
-        "No_of_Generations" : 1
+        "Repeats" : 10,
+        "Population_Size" : 100,
+        "No_of_Generations" : 20
     },
     "NSGAIII": {
         "SBX_Probability": 1,

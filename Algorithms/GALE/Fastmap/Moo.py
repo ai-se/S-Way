@@ -36,6 +36,18 @@ class Moo(BinaryTree):
     i.east, i.west, i.c, i.x = None,None,None,None
     i.N = N
     i.problem = problem
+    i.distance_matrix = None
+
+  def generate_distance_matrix(i, dataset):
+    i.distance_matrix = []
+    dim = len(dataset[0])
+    for fi, fit_i in enumerate(dataset):
+        temp = []
+        for fj, fit_j in enumerate(dataset):
+            if not fi == fj:
+                temp.append(sum([abs(fit_i[k] - fit_j[k]) for k in range(dim)]))
+        i.distance_matrix.append(min(temp))
+    print "finished generating distance_matrix"
  
   def project(i,rows):
     "Uses the O(2N) Fastmap heuristic."
@@ -143,14 +155,17 @@ class Moo(BinaryTree):
       #stop if too small
       if cut < min_n or lastcut-cut < min_n: return cut,delta
 
+      if i.distance_matrix is None:
+          i.generate_distance_matrix([row.cells[:len(i.problem.decisions)] for row in rows])
+
       #segment left and right sides
       left = rows[:cut]
       right = rows[cut:]
       
       #get spreads (VARIANCE) of each side
       z = len(i.problem.decisions)
-      leftSpread = spacing([l.cells[:z] for l in left]) #var([l.x for l in left])
-      rightSpread = spacing([r.cells[:z] for r in right]) #var([r.x for r in right])
+      leftSpread = spacing([l.cells[:z] for l in left], i.distance_matrix[:cut]) #var([l.x for l in left])
+      rightSpread = spacing([r.cells[:z] for r in right], i.distance_matrix[cut:]) #var([r.x for r in right])
       delta = abs(leftSpread - rightSpread)
       #print delta, cut
       #recurse

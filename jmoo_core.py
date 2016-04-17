@@ -31,6 +31,7 @@ Random Stuff
 """
 
 import random
+from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
 from Graphics.charter import charter_reporter, statistic_reporter, comparision_reporter
 from Graphics.summary import generate_summary
 from jmoo_jmoea import jmoo_evo
@@ -119,15 +120,16 @@ class jmoo_chart_report:
         self.Configurations = Configurations
 
     def doit(self, tagnote=""):
-        generate_final_frontier_for_gale4(self.tests.problems, self.tests.algorithms, self.Configurations, tag=tagnote)
-        hv_spread =[]
+        igd_list = []
         for problem in self.tests.problems:
-            hv_spread.append(charter_reporter([problem], self.tests.algorithms, self.Configurations, tag=tagnote))
-        # statistic_reporter(self.tests.problems, self.tests.algorithms, self.Configurations, tag=tagnote)
-        comparision_reporter(self.tests.problems, self.tests.algorithms, [hvp[0] for hvp in hv_spread], [hvp[1] for hvp in hv_spread], [hvp[2] for hvp in hv_spread], "GALE")
-        # for problem in self.tests.problems:
-        #     hv_spread.append(charter_reporter([problem], self.tests.algorithms, self.Configurations, tag=tagnote))
-        # generate_summary(self.tests.problems, self.tests.algorithms, "GALE", self.Configurations)
+            # print "HyperVolume"
+            # draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
+            print "Spread"
+            draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
+            # print "IGD"
+            # draw_igd([problem], self.tests.algorithms, self.Configurations, tag="IGD")
+            # print "GD"
+            # draw_gd([problem], self.tests.algorithms, self.Configurations, tag="GD")
 
 
 def generate_final_frontier_for_gale4(problems, algorithms, Configurations, tag=""):
