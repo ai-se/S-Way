@@ -36,7 +36,19 @@ class Moo(BinaryTree):
     i.east, i.west, i.c, i.x = None,None,None,None
     i.N = N
     i.problem = problem
- 
+    i.distance_matrix = None
+
+  def generate_distance_matrix(i, dataset):
+    i.distance_matrix = []
+    dim = len(dataset[0])
+    for fi, fit_i in enumerate(dataset):
+        temp = []
+        for fj, fit_j in enumerate(dataset):
+            if not fi == fj:
+                temp.append(sum([abs(fit_i[k] - fit_j[k]) for k in range(dim)]))
+        i.distance_matrix.append(min(temp))
+    print "finished generating distance_matrix"
+
   def project(i,rows):
     "Uses the O(2N) Fastmap heuristic."
     w    = one(rows) # any row, selected at random
@@ -52,21 +64,21 @@ class Moo(BinaryTree):
        row.b = b
     rows = sorted(rows, key= lambda row: row.x)
     return rows
-    
+
   def split(i,rows,mid,parent):
     i.x = rows[mid].x
     i.parent = parent
     i.east = rows[0]
-    i.west = rows[-1] 
+    i.west = rows[-1]
     return rows[:mid],rows[mid:]
 
   def divide(i,abort=False,minnie=30):
-    def aFew(rows) : 
+    def aFew(rows) :
       all = map(lambda r: r.cells,rows)
       new_t = i.table.clone(some(all,The.alpha))
       for ind,irow in enumerate(new_t.rows):
           irow.evaluated = rows[ind].evaluated
-      return new_t 
+      return new_t
 
 
     # Put objectives into its own array
@@ -78,34 +90,36 @@ class Moo(BinaryTree):
 
     # grab number of rows
     n = len(i.table.rows)
-    
+
     # Project the rows onto 1D
     i.table.rows = i.project(i.table.rows)
-    
+
     # Find a good splitting point
     m, _ = i.binaryChop(i.table.rows, n/2, None, 2*n ** 0.5, n)
-    
+    print "Binary: ", m
+
+
     # Proceed if not aborted
     i.abort = The.allowDomination and abort
     if not i.abort and n >= minnie :
-        
-       # Do the Split 
+
+       # Do the Split
        wests,easts  = i.split(i.table.rows,m, n)
-      
+
        # Precautions if too many reps in east & west
        if i.west != i.east:
-         if (i.N > m): 
+         if (i.N > m):
             littleN = m
          else:
             littleN = i.N
-         
+
          westAbort = False
          eastAbort = False
          if not i.east.evaluated:
             i.east.evaluated = True
             for o,objScore in enumerate(i.problem.evaluate(i.east.cells)):
                 i.east.cells[-(len(i.problem.objectives)-o)] = objScore
-         if not i.west.evaluated:    
+         if not i.west.evaluated:
             i.west.evaluated = True
             for o,objScore in enumerate(i.problem.evaluate(i.west.cells)):
                 i.west.cells[-(len(i.problem.objectives)-o)] = objScore
@@ -126,19 +140,19 @@ class Moo(BinaryTree):
              eastAbort = True
          if eastLoss < EPSILON * westLoss:
              westAbort = True
-             
-         
-        
+
+
+
          # Copy into each "half"
          print ". ",
          i.lhs = Moo(i.problem, aFew(wests), i.big_n, littleN)
          i.rhs = Moo(i.problem, aFew(easts), i.big_n, littleN)
-         
+
          # Divide each "half"
          i.rhs.divide(abort=eastAbort,minnie = minnie)
          i.lhs.divide(abort=westAbort,minnie = minnie)
-        
-        
+
+
     return i
 
   def binaryChop(i, rows, cut, delta, min_n, lastcut=None):
@@ -147,20 +161,25 @@ class Moo(BinaryTree):
       #stop if too small
       if cut < min_n or lastcut-cut < min_n: return cut,delta
 
+      if i.distance_matrix is None:
+          i.generate_distance_matrix([row.cells[:len(i.problem.decisions)] for row in rows])
+
+
+
       #segment left and right sides
       left = rows[:cut]
       right = rows[cut:]
-      
+
       #get spreads (VARIANCE) of each side
       z = len(i.problem.decisions)
-      leftSpread = spacing([l.cells[:z] for l in left]) #var([l.x for l in left])
-      rightSpread = spacing([r.cells[:z] for r in right]) #var([r.x for r in right])
+      leftSpread = spacing([l.cells[:z] for l in left], i.distance_matrix[:cut]) #var([l.x for l in left])
+      rightSpread = spacing([r.cells[:z] for r in right], i.distance_matrix[cut:]) #var([r.x for r in right])
       delta = abs(leftSpread - rightSpread)
       #print delta, cut
       #recurse
       lhscut,lhsdelta = i.binaryChop(rows, cut/2, delta, min_n, cut)
       rhscut,rhsdelta = i.binaryChop(rows, cut + (lastcut - cut)/2, delta, min_n, cut)
-      
+
       #minimize deltas
       smallest = min(delta, lhsdelta, rhsdelta)
       if (smallest == delta):

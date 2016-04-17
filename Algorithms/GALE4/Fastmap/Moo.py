@@ -36,6 +36,18 @@ class Moo(BinaryTree):
     i.east, i.west, i.c, i.x = None,None,None,None
     i.N = N
     i.problem = problem
+    i.distance_matrix = None
+
+  def generate_distance_matrix(i, dataset):
+    i.distance_matrix = []
+    dim = len(dataset[0])
+    for i, fit_i in enumerate(dataset):
+        temp = []
+        for j, fit_j in enumerate(dataset):
+            if not i == j:
+                temp.append([abs(fit_i[k] - fit_j[k]) for k in range(dim)])
+        i.distance_matrix.append(temp)
+    print "finished generating distance_matrix"
  
   def project(i,rows):
     "Uses the O(2N) Fastmap heuristic."
@@ -78,7 +90,8 @@ class Moo(BinaryTree):
     
     # Project the rows onto 1D
     i.table.rows = i.project(i.table.rows)
-    
+
+
     # Find a good splitting point  
     m, _ = i.binaryChop(i.table.rows, n/2, None, 2*n ** 0.5, n)
     
@@ -143,16 +156,25 @@ class Moo(BinaryTree):
       #stop if too small
       if cut < min_n or lastcut-cut < min_n: return cut,delta
 
+      if i.distance_matrix is None:
+          i.generate_distance_matrix([row[len(i.problem.decisions)] for row in rows])
+
       #segment left and right sides
-      left = rows[:cut]
+      import pdb
+      pdb.set_trace()
+      left_distance_matrix = i.distance_matrix[:cut]
       right = rows[cut:]
+
+
       
       #get spreads (VARIANCE) of each side
       z = len(i.problem.decisions)
-      leftSpread = spacing([l.cells[:z] for l in left]) #var([l.x for l in left])
-      rightSpread = spacing([r.cells[:z] for r in right]) #var([r.x for r in right])
+      leftSpread = spacing([l.cells[:z] for l in left], i.distance_matrix) #var([l.x for l in left])
+      rightSpread = spacing([r.cells[:z] for r in right], i.distance_matrix) #var([r.x for r in right])
       delta = abs(leftSpread - rightSpread)
-      #print delta, cut
+
+
+
       #recurse
       lhscut,lhsdelta = i.binaryChop(rows, cut/2, delta, min_n, cut)
       rhscut,rhsdelta = i.binaryChop(rows, cut + (lastcut - cut)/2, delta, min_n, cut)
