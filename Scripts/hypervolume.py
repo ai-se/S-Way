@@ -2,75 +2,54 @@ data = {}
 
 data["ground"] = {}
 data["ground"]["GALE"]={"hv":100, "spread":100}
-data["ground"]["NSGAII"]={"hv":157, "spread":124}
-data["ground"]["SPEA2"]={"hv":158, "spread":116}
-data["ground"]["GALE_NM"]={"hv":91, "spread":104}
-data["ground"]["GALE_LP"]={"hv":138, "spread":74}
-data["ground"]["GALE_LP_I"]={"hv":94, "spread":83}
+data["ground"]["NSGAII"]={"hv":204, "spread":169}
+data["ground"]["SPEA2"]={"hv":204, "spread":180}
+data["ground"]["GALE_NM"]={"hv":157, "spread":126}
+data["ground"]["GALE_LP"]={"hv":195, "spread":169}
 
-data["POM3D"] = {}
-data["POM3D"]["GALE"]={"hv":100, "spread":100}
-data["POM3D"]["NSGAII"]={"hv":142, "spread":121}
-data["POM3D"]["SPEA2"]={"hv":142, "spread":117}
-data["POM3D"]["GALE_NM"]={"hv":88, "spread":103}
-data["POM3D"]["GALE_LP"]={"hv":121, "spread":80}
-data["POM3D"]["GALE_LP_I"]={"hv":114, "spread":79}
 
 data["POM3A"] = {}
-data["POM3A"]["GALE"]={"hv":100, "spread":100}
-data["POM3A"]["NSGAII"]={"hv":210, "spread":101}
-data["POM3A"]["SPEA2"]={"hv":213, "spread":108}
-data["POM3A"]["GALE_NM"]={"hv":87, "spread":102}
-data["POM3A"]["GALE_LP"]={"hv":158, "spread":75}
-data["POM3A"]["GALE_LP_I"]={"hv":164, "spread":78}
+data["POM3A"]["GALE"]={"hv":99.91, "spread":99}
+data["POM3A"]["NSGAII"]={"hv":106, "spread":151}
+data["POM3A"]["SPEA2"]={"hv":106, "spread":156}
+data["POM3A"]["GALE_NM"]={"hv":101, "spread":91}
+data["POM3A"]["GALE_LP"]={"hv":104, "spread":104}
 
 data["POM3B"] = {}
-data["POM3B"]["GALE"]={"hv":100, "spread":100}
-data["POM3B"]["NSGAII"]={"hv":128, "spread":132}
-data["POM3B"]["SPEA2"]={"hv":129, "spread":120}
-data["POM3B"]["GALE_NM"]={"hv":93, "spread":102}
-data["POM3B"]["GALE_LP"]={"hv":114, "spread":76}
-data["POM3B"]["GALE_LP_I"]={"hv":113, "spread":84}
+data["POM3B"]["GALE"]={"hv":94, "spread":93}
+data["POM3B"]["NSGAII"]={"hv":201, "spread":135}
+data["POM3B"]["SPEA2"]={"hv":184, "spread":143}
+data["POM3B"]["GALE_NM"]={"hv":91, "spread":126}
+data["POM3B"]["GALE_LP"]={"hv":137, "spread":102}
 
 data["POM3C"] = {}
-data["POM3C"]["GALE"]={"hv":100, "spread":100}
-data["POM3C"]["NSGAII"]={"hv":145, "spread":100}
-data["POM3C"]["SPEA2"]={"hv":143, "spread":99}
-data["POM3C"]["GALE_NM"]={"hv":90, "spread":100}
-data["POM3C"]["GALE_LP"]={"hv":129, "spread":92}
-data["POM3C"]["GALE_LP_I"]={"hv":142, "spread":88}
+data["POM3C"]["GALE"]={"hv":99, "spread":99}
+data["POM3C"]["NSGAII"]={"hv":105, "spread":112}
+data["POM3C"]["SPEA2"]={"hv":104, "spread":128}
+data["POM3C"]["GALE_NM"]={"hv":100, "spread":84}
+data["POM3C"]["GALE_LP"]={"hv":103, "spread":75}
 
-data["XOMO_ALL"] = {}
-data["XOMO_ALL"]["GALE"]={"hv":100, "spread":100}
-data["XOMO_ALL"]["NSGAII"]={"hv":140, "spread":106}
-data["XOMO_ALL"]["SPEA2"]={"hv":138, "spread":105}
-data["XOMO_ALL"]["GALE_NM"]={"hv":105, "spread":105}
-data["XOMO_ALL"]["GALE_LP"]={"hv":126, "spread":84}
-data["XOMO_ALL"]["GALE_LP_I"]={"hv":119, "spread":82}
 
 data["XOMO_OSP"] = {}
 data["XOMO_OSP"]["GALE"]={"hv":100, "spread":100}
-data["XOMO_OSP"]["NSGAII"]={"hv":141, "spread":99}
-data["XOMO_OSP"]["SPEA2"]={"hv":142, "spread":100}
-data["XOMO_OSP"]["GALE_NM"]={"hv":93, "spread":100}
-data["XOMO_OSP"]["GALE_LP"]={"hv":123, "spread":93}
-data["XOMO_OSP"]["GALE_LP_I"]={"hv":132, "spread":90}
+data["XOMO_OSP"]["NSGAII"]={"hv":260, "spread":155}
+data["XOMO_OSP"]["SPEA2"]={"hv":260, "spread":152}
+data["XOMO_OSP"]["GALE_NM"]={"hv":148, "spread":88}
+data["XOMO_OSP"]["GALE_LP"]={"hv":245, "spread":152}
 
 data["XOMOO2"] = {}
 data["XOMOO2"]["GALE"]={"hv":100, "spread":100}
-data["XOMOO2"]["NSGAII"]={"hv":139, "spread":101}
-data["XOMOO2"]["SPEA2"]={"hv":138, "spread":100}
-data["XOMOO2"]["GALE_NM"]={"hv":94, "spread":98}
-data["XOMOO2"]["GALE_LP"]={"hv":125, "spread":89}
-data["XOMOO2"]["GALE_LP_I"]={"hv":111, "spread":85}
+data["XOMOO2"]["NSGAII"]={"hv":171, "spread":355}
+data["XOMOO2"]["SPEA2"]={"hv":171, "spread":311}
+data["XOMOO2"]["GALE_NM"]={"hv":101, "spread":210}
+data["XOMOO2"]["GALE_LP"]={"hv":163, "spread":281}
 
 data["XOMO_Flight"] = {}
 data["XOMO_Flight"]["GALE"]={"hv":100, "spread":100}
-data["XOMO_Flight"]["NSGAII"]={"hv":93, "spread":114}
-data["XOMO_Flight"]["SPEA2"]={"hv":93, "spread":168}
-data["XOMO_Flight"]["GALE_NM"]={"hv":96, "spread":107}
-data["XOMO_Flight"]["GALE_LP"]={"hv":96, "spread":77}
-data["XOMO_Flight"]["GALE_LP_I"]={"hv":112, "spread":95}
+data["XOMO_Flight"]["NSGAII"]={"hv":147, "spread":143}
+data["XOMO_Flight"]["SPEA2"]={"hv":147, "spread":144}
+data["XOMO_Flight"]["GALE_NM"]={"hv":100, "spread":130}
+data["XOMO_Flight"]["GALE_LP"]={"hv":140, "spread":131}
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -113,7 +92,7 @@ r3 = ax1.bar(index + 2*bar_width, get_data("GALE", "hv"), bar_width,alpha=opacit
 r4 = ax1.bar(index + 3*bar_width, get_data("GALE_NM", "hv"), bar_width,alpha=opacity,color='#F3FFBD',error_kw=error_config, hatch='+')
 r5 = ax1.bar(index + 4*bar_width, get_data("GALE_LP", "hv"), bar_width,alpha=opacity,color='#FF1654',error_kw=error_config, hatch='x')
 
-ax1.set_yscale('log', nonposy='clip')
+# ax1.set_yscale('log', nonposy='clip')
 # ax1.set_ylim(0, 119)
 # ax1.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
 ax1.yaxis.offsetText.set_visible(False)

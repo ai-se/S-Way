@@ -645,29 +645,14 @@ def try_sk(problem="POM3A"):
   import pickle
   data = pickle.load(open(h_filename, "rb"))
   keys = data.keys()
-
-
   sk_list = []
   for key in keys:
     temp = [key]
     temp.extend(data[key]["normal"][-1])
     sk_list.append(temp)
-
-
-  # to remove zeroes
-  from numpy import mean
-  new_sklist = []
-  for skl in sk_list:
-      temp = [skl[0]]
-      zeroes_removed = [t for t in skl[1:] if t != 0]
-      for i, tskl in enumerate(skl[1:]):
-          if tskl == 0:
-              temp.append(mean(zeroes_removed))
-          else:
-              temp.append(tskl)
-      new_sklist.append(temp)
-
-  print new_sklist
+  print sk_list
+  # rdivDemo(sk_list)
+  print "===="
 
   print "Spread ", problem
   h_filename = "./Data/spread_" + problem + ".p"
@@ -684,8 +669,41 @@ def try_sk(problem="POM3A"):
   print "===="
 
 
+def get_hv_gen0(problem):
+  print "HyperVolume ", problem
+  h_filename = "./Data/hv_" + problem + ".p"
+  import pickle
+  data = pickle.load(open(h_filename, "rb"))
+  keys = data.keys()
+  sk_list = []
+  for key in keys:
+    print key,
+    print "Before: ", data[key]["normal"][0],
+    from numpy import median
+    print "  After: ", median(data[key]["normal"][-1]),
+    print "  % change: ", (median(data[key]["normal"][-1]) - data[key]["normal"][0]) * 100/data[key]["normal"][0]
+  print sk_list
+  # rdivDemo(sk_list)
+  print "===="
+
+  print "Spread ", problem
+  h_filename = "./Data/spread_" + problem + ".p"
+  import pickle
+  data = pickle.load(open(h_filename, "rb"))
+  keys = data.keys()
+  sk_list = []
+  for key in keys:
+    print key,
+    print "Before: ", data[key]["normal"][0],
+    from numpy import mean
+    print "After: ", mean(data[key]["normal"][-1]),
+    print "% change: ", (median(data[key]["normal"][-1]) - data[key]["normal"][0]) * 100/data[key]["normal"][0]
+  print sk_list
+  # rdivDemo(sk_list)
+  print "===="
+
 
 
 problems = ["POM3A", "POM3B", "POM3C", "POM3D", "xomo_flight", "xomo_ground", "xomo_osp", "xomoo2"]
 for problem in problems:
-  try_sk(problem)
+  get_hv_gen0(problem)

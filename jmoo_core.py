@@ -124,8 +124,8 @@ class jmoo_chart_report:
         for problem in self.tests.problems:
             print "HyperVolume"
             draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
-            print "Spread"
-            draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
+            # print "Spread"
+            # draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
             # print "IGD"
             # draw_igd([problem], self.tests.algorithms, self.Configurations, tag="IGD")
             # print "GD"

@@ -316,10 +316,11 @@ def draw_hv(problem, algorithms, Configurations, tag):
             results[algorithm.name][gtechnique] = []
     for algorithm in algorithms:
         for gtechnique in gtechniques:
-
             points = get_initial_datapoints(problem[-1], algorithm, Configurations)
             from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
-            results[algorithm.name][gtechnique].append(get_hyper_volume(reference_point, points))
+            temp_hv = get_hyper_volume(reference_point, points)
+
+            results[algorithm.name][gtechnique].append(temp_hv)
 
             for generation in [19]:
                 print ".",
@@ -328,7 +329,8 @@ def draw_hv(problem, algorithms, Configurations, tag):
                 print files
                 for file in files:
                     temp_value = get_content(problem[-1], file, pop_size)
-                    temp_igd_list.append(get_hyper_volume(reference_point, temp_value))
+                    temp_hv = get_hyper_volume(reference_point, temp_value)
+                    temp_igd_list.append(temp_hv)
                 from numpy import mean
                 results[algorithm.name][gtechnique].append(temp_igd_list)
 
