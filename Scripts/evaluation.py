@@ -1,67 +1,57 @@
 data = {}
 data["ground"] = {}
-data["ground"]["GALE"]={"evals":100}
-data["ground"]["NSGAII"]={"evals":2817}
-data["ground"]["SPEA2"]={"evals":2725}
+data["ground"]["GALE"]={"evals":175.4}
+data["ground"]["NSGAII"]={"evals":2000}
+data["ground"]["SPEA2"]={"evals":2000}
 data["ground"]["GALE_NM"]={"evals":14}
-data["ground"]["GALE_LP"]={"evals":49}
-data["ground"]["GALE_LPI"]={"evals":49}
-data["POM3D"] = {}
-data["POM3D"]["GALE"]={"evals":100}
-data["POM3D"]["NSGAII"]={"evals":2105}
-data["POM3D"]["SPEA2"]={"evals":2105}
-data["POM3D"]["GALE_NM"]={"evals":11}
-data["POM3D"]["GALE_LP"]={"evals":36}
-data["POM3D"]["GALE_LPI"]={"evals":36}
+data["ground"]["GALE_LP"]={"evals":73.7}
+
 data["POM3A"] = {}
-data["POM3A"]["GALE"]={"evals":100}
-data["POM3A"]["NSGAII"]={"evals":1786}
-data["POM3A"]["SPEA2"]={"evals":1786}
-data["POM3A"]["GALE_NM"]={"evals":9}
-data["POM3A"]["GALE_LP"]={"evals":30}
-data["POM3A"]["GALE_LPI"]={"evals":30}
+data["POM3A"]["GALE"]={"evals":179.3}
+data["POM3A"]["NSGAII"]={"evals":2000}
+data["POM3A"]["SPEA2"]={"evals":2000}
+data["POM3A"]["GALE_NM"]={"evals":14}
+data["POM3A"]["GALE_LP"]={"evals":60}
+
+
 data["POM3B"] = {}
-data["POM3B"]["GALE"]={"evals":100}
-data["POM3B"]["NSGAII"]={"evals":2041}
-data["POM3B"]["SPEA2"]={"evals":2041}
-data["POM3B"]["GALE_NM"]={"evals":9}
-data["POM3B"]["GALE_LP"]={"evals":36}
-data["POM3B"]["GALE_LPI"]={"evals":36}
+data["POM3B"]["GALE"]={"evals":175}
+data["POM3B"]["NSGAII"]={"evals":2000}
+data["POM3B"]["SPEA2"]={"evals":2000}
+data["POM3B"]["GALE_NM"]={"evals":14}
+data["POM3B"]["GALE_LP"]={"evals":70}
+
+
 data["POM3C"] = {}
-data["POM3C"]["GALE"]={"evals":100}
-data["POM3C"]["NSGAII"]={"evals":2522}
-data["POM3C"]["SPEA2"]={"evals":2761}
+data["POM3C"]["GALE"]={"evals":175}
+data["POM3C"]["NSGAII"]={"evals":2000}
+data["POM3C"]["SPEA2"]={"evals":2000}
 data["POM3C"]["GALE_NM"]={"evals":14}
-data["POM3C"]["GALE_LP"]={"evals":52}
-data["POM3C"]["GALE_LPI"]={"evals":52}
-data["XOMO_ALL"] = {}
-data["XOMO_ALL"]["GALE"]={"evals":100}
-data["XOMO_ALL"]["NSGAII"]={"evals":3704}
-data["XOMO_ALL"]["SPEA2"]={"evals":3704}
-data["XOMO_ALL"]["GALE_NM"]={"evals":19}
-data["XOMO_ALL"]["GALE_LP"]={"evals":63}
-data["XOMO_ALL"]["GALE_LPI"]={"evals":63}
+data["POM3C"]["GALE_LP"]={"evals":75}
+
+
 data["XOMO_OSP"] = {}
-data["XOMO_OSP"]["GALE"]={"evals":100}
-data["XOMO_OSP"]["NSGAII"]={"evals":2771}
-data["XOMO_OSP"]["SPEA2"]={"evals":2736}
+data["XOMO_OSP"]["GALE"]={"evals":175.9}
+data["XOMO_OSP"]["NSGAII"]={"evals":2000}
+data["XOMO_OSP"]["SPEA2"]={"evals":2000}
 data["XOMO_OSP"]["GALE_NM"]={"evals":14}
-data["XOMO_OSP"]["GALE_LP"]={"evals":49}
-data["XOMO_OSP"]["GALE_LPI"]={"evals":49}
+data["XOMO_OSP"]["GALE_LP"]={"evals":74}
+
+
 data["XOMOO2"] = {}
-data["XOMOO2"]["GALE"]={"evals":100}
-data["XOMOO2"]["NSGAII"]={"evals":3509}
-data["XOMOO2"]["SPEA2"]={"evals":3509}
-data["XOMOO2"]["GALE_NM"]={"evals":18}
-data["XOMOO2"]["GALE_LP"]={"evals":61}
-data["XOMOO2"]["GALE_LPI"]={"evals":61}
+data["XOMOO2"]["GALE"]={"evals":175.9}
+data["XOMOO2"]["NSGAII"]={"evals":2000}
+data["XOMOO2"]["SPEA2"]={"evals":2000}
+data["XOMOO2"]["GALE_NM"]={"evals":14}
+data["XOMOO2"]["GALE_LP"]={"evals":65}
+
+
 data["XOMO_Flight"] = {}
-data["XOMO_Flight"]["GALE"]={"evals":100}
-data["XOMO_Flight"]["NSGAII"]={"evals":3636}
-data["XOMO_Flight"]["SPEA2"]={"evals":3636}
-data["XOMO_Flight"]["GALE_NM"]={"evals":16}
-data["XOMO_Flight"]["GALE_LP"]={"evals":64}
-data["XOMO_Flight"]["GALE_LPI"]={"evals":64}
+data["XOMO_Flight"]["GALE"]={"evals":169.6}
+data["XOMO_Flight"]["NSGAII"]={"evals":2000}
+data["XOMO_Flight"]["SPEA2"]={"evals":2000}
+data["XOMO_Flight"]["GALE_NM"]={"evals":14}
+data["XOMO_Flight"]["GALE_LP"]={"evals":77}
 
 import numpy as np
 import matplotlib.pyplot as plt
