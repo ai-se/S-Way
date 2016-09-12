@@ -60,7 +60,6 @@ def run(cont):
         slopes.append((log_c_r[i+1]-log_c_r[i])/(log_r[i+1]-log_r[i]))
     return np.mean(slopes)
 
-
 import os
 files = [f for f in os.listdir("./data/")]
 for file in files:

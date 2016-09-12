@@ -77,6 +77,7 @@ for i,arg in enumerate(sys.argv):
 if build_new_pop:
     for problem in problems:
         initialPopulation(problem, Configurations["Universal"]["Population_Size"])
+    raw_input()
 
 
 
