@@ -22,8 +22,8 @@ x = [2*i for i in xrange(1, len(datas)+1)]
 y = [d[1] for d in datas]
 
 my_xticks = [d[-1] for d in datas]
-plt.xticks(x, my_xticks, fontsize=8)
-plt.yticks(fontsize=8)
+plt.xticks(x, my_xticks, fontsize=11)
+plt.yticks(fontsize=12)
 
 plt.scatter(x, y, marker='o', color='r', s=55)
 # plt.xlabel("Actual Dimensions", fontsize=15)
