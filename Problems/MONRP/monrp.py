@@ -9,6 +9,7 @@ from jmoo_problem import jmoo_problem
 from Requirement import Requirement
 from Client import Client
 from Release import Release
+import numpy as np
 
 
 class MONRP(jmoo_problem):
@@ -102,8 +103,10 @@ class MONRP(jmoo_problem):
             assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
             temp = self.constraint1(x_i, y_i)  # This is dirty need to know a better trick
             if temp != 0:
+                assert(False), "boom"
                 return [1e32-temp, 1e32, 1e32]
             elif self.constraint2(x_i, y_i) is False:
+                assert(False), "boom"
                 return [1e32, 1e32, 1e32]
             else:
                 return_score = 0
@@ -121,17 +124,34 @@ class MONRP(jmoo_problem):
                     for i in xrange(self.trequirements):
                         if y_i != 0:
                             satisfaction += self.client[c].importance[i]
-
-
-
-
-                return [1e32-return_score, cost, 1e32-satisfaction]
+                return [return_score, cost, satisfaction]
         else:
             assert(False), "BOOM"
             exit()
 
-    def evalConstraints(prob,input = None):
-        return False
+    def generateInput(self, center=False):
+        while True: # repeat if we don't meet constraints
+            temp_value = []
+
+            for decision in self.decisions:
+                temp_value.append(np.random.uniform(decision.low, decision.up))
+            if self.validate(temp_value) is True and self.evalConstraints(temp_value) is True: break
+
+        assert(self.validate(temp_value) is True), "Something's wrong"
+        return [int(round(float(no), 0)) for no in temp_value]
+
+    def evalConstraints(self,input = None):
+        if input:
+            input = input[:self.trequirements]
+            x_i = [int(round(float(no), 0)) for no in input]  # when is r_i is implemented
+            y_i = [1 if x != -1 else 0 for x in x_i]  # whether r_i would be implemented
+            assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
+            temp = self.constraint1(x_i, y_i)
+            c1 = True if temp >= 0 else False  # This is dirty need to know a better trick
+            c2 = self.constraint2(x_i, y_i)
+            return c1 and c2
+        else:
+            return False
 
 
 if __name__ == "__main__":

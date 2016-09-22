@@ -1,7 +1,7 @@
 
 
 from __future__ import division
-from random import random, randint
+from random import random, randint, uniform
 import sys, os, inspect
 from jmoo_objective import *
 from jmoo_decision import *
@@ -9,6 +9,7 @@ from jmoo_problem import jmoo_problem
 from Requirement import Requirement
 from Client import Client
 from Release import Release
+import numpy as np
 
 
 class NRP(jmoo_problem):
@@ -101,23 +102,47 @@ class NRP(jmoo_problem):
             y_i = [1 if x != -1 else 0 for x in x_i]  # whether r_i would be implemented
             assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
             temp = self.constraint1(x_i, y_i)  # This is dirty need to know a better trick
-            if temp != 0:
-                return [temp]
+
+            if temp < 0:
+                return [1e32]
             elif self.constraint2(x_i, y_i) is False:
-                return [0]
+                return [1e32]
             else:
                 return_score = 0
                 for i in xrange(self.trequirements):
                     score = sum([j.importance[i] * j.weight for j in self.client])
                     x = x_i[i]
                     return_score += (score * (self.treleases - x + 1) - self.requirement[i].risk) * y_i[i]
-                return [1e32 - return_score]
+                return [return_score]
         else:
             assert(False), "BOOM"
             exit()
 
-    def evalConstraints(prob,input = None):
-        return False
+    def generateInput(self, center=False):
+        while True: # repeat if we don't meet constraints
+            temp_value = []
+
+            for decision in self.decisions:
+                temp_value.append(np.random.uniform(decision.low, decision.up))
+            # if not prob.evalConstraints():
+            #     break
+            if self.validate(temp_value) is True and self.evalConstraints(temp_value) is True: break
+
+        assert(self.validate(temp_value) is True), "Something's wrong"
+        return [int(round(float(no), 0)) for no in temp_value]
+
+    def evalConstraints(self, input=None):
+        if input:
+            input = input[:self.trequirements]
+            x_i = [int(round(float(no), 0)) for no in input]  # when is r_i is implemented
+            y_i = [1 if x != -1 else 0 for x in x_i]  # whether r_i would be implemented
+            assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
+            temp = self.constraint1(x_i, y_i)
+            c1 = True if temp >= 0 else False  # This is dirty need to know a better trick
+            c2 = self.constraint2(x_i, y_i)
+            return c1 and c2
+        else:
+            return False
 
 
 if __name__ == "__main__":
