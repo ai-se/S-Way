@@ -67,12 +67,27 @@ problems =[
     ]
 
 problems =[
-    POM3A(),
-    POM3B(),
-    POM3C(), POM3D(),
-    XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all()
-    # NRP(50, 5, 5, 0, 80),
-    # MONRP(50, 5, 5, 0, 80)
+    # POM3A(),
+    # POM3B(),
+    # POM3C(), POM3D(),
+    # XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
+    # NRP(50, 5, 5, 0, 90),
+    # NRP(50, 5, 5, 0, 100),
+    # NRP(50, 5, 5, 0, 110),
+    # NRP(50, 5, 5, 0, 120),
+    MONRP(50, 5, 5, 0, 90),
+    MONRP(50, 5, 5, 0, 100),
+    MONRP(50, 5, 5, 0, 110),
+    NRP(50, 5, 5, 5, 80),
+    NRP(50, 5, 5, 5, 90),
+    NRP(50, 5, 5, 5, 100),
+    NRP(50, 5, 5, 5, 110),
+    NRP(50, 5, 5, 5, 120),
+
+    MONRP(50, 5, 5, 5, 80),
+    MONRP(50, 5, 5, 5, 90),
+    MONRP(50, 5, 5, 5, 100),
+    MONRP(50, 5, 5, 5, 110),
 
 ]
 
@@ -81,7 +96,7 @@ build_new_pop = False                                       # Whether or not to 
 Configurations = {
     "Universal": {
         "Repeats" : 10,
-        "Population_Size" : 10000,
+        "Population_Size" : 1000,
         "No_of_Generations" : 20
     },
     "NSGAIII": {
