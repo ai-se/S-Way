@@ -83,11 +83,48 @@ def center_based_sampling(problem, dataset):
     return resulting_population
 
 
+def for_landscape(problem, n, path=""):
+    #generate dataset
+    dataset = []
+    import sys
+    for run in range(n):
+        dataset.append(problem.generateInput(center=False))
+        print ". ",
+        sys.stdout.flush()
+
+    # dataset = center_based_sampling(problem, dataset)
+
+    #write the dataset to file
+    if path == "":
+        filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "-dataset.txt"
+    elif path == "unittesting":
+        filename = "../../Data/Testing-dataset.txt"
+    else:
+        print "No accounted for"
+        exit()
+
+    fo = open(filename, 'w')
+    h = problem.buildHeader() #the header row
+    fo.write(h + "\n")
+    for data in dataset: #each row of actual Data
+        temp_data = data + problem.evaluate(data)
+        fo.write(str(temp_data).strip("[]") + "\n")
+
+    # print "Dataset generated for " + problem.name + " in " + filename + "."
+
+
+    print "Dataset generated for " + problem.name + " in " + filename + "."
+    fo.close()
+
+
 def initialPopulation(problem, n, path=""):
     #generate dataset
     dataset = []
+    import sys
     for run in range(n):
         dataset.append(problem.generateInput(center=False))
+        print ". ",
+        sys.stdout.flush()
 
     # dataset = center_based_sampling(problem, dataset)
 
