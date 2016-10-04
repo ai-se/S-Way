@@ -28,11 +28,13 @@
 "Implementation of a variety of Multi-Objective Problems"
 
 from math import *
-
+import sys
 from jmoo_objective import *
 from jmoo_decision import *
 from jmoo_problem import *
 from jmoo_stats_box import *
+from Techniques.NoveltySearch import NoveltySearch
+from Techniques.euclidean_distance import euclidean_distance
 
 
 def distance(in1, in2):
@@ -117,20 +119,49 @@ def for_landscape(problem, n, path=""):
     fo.close()
 
 
+def applyNoveltySearch(problem, n, path=""):
+
+    assert(0<problem.percentage<1), "something is wrong"
+    # find theshold
+    lows = [decision.low for decision in problem.decisions]
+    highs = [decision.up for decision in problem.decisions]
+    normalize = [[low,high] for low, high in zip(lows, highs)]
+    maxvalue = len(problem.decisions)**0.5
+
+    k = 10
+    limit = 10000
+    threshold = problem.percentage * maxvalue
+
+    # create the object
+    NS = NoveltySearch(k, limit, threshold, normalize)
+
+    # generate random points and add them to archive
+    while NS.getArchiveSize() != n:
+        if NS.getArchiveSize() % 100 == 0: print ">> ", NS.getArchiveSize()
+        p = problem.generateInput()
+        temp = NS.addToArchive(p)
+        if  temp != 1: print '#',
+        else: print ".",
+        sys.stdout.flush()
+    return NS.getArchive()
+
+
 def initialPopulation(problem, n, path=""):
     #generate dataset
     dataset = []
     import sys
-    for run in range(n):
-        dataset.append(problem.generateInput(center=False))
-        print ". ",
-        sys.stdout.flush()
+    # for run in range(n):
+    #     dataset.append(problem.generateInput(center=False))
+    #     print ". ",
+    #     sys.stdout.flush()
 
     # dataset = center_based_sampling(problem, dataset)
+    dataset = applyNoveltySearch(problem, n)
 
     #write the dataset to file
     if path == "":
-        filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "-dataset.txt"
+        filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + \
+                   str(len(problem.objectives)) + "-perc" + str(problem.percentage) +"-dataset.txt"
     elif path == "unittesting":
         filename = "../../Data/Testing-dataset.txt"
     else:

@@ -67,27 +67,60 @@ problems =[
     ]
 
 problems =[
-    # POM3A(),
-    # POM3B(),
-    # POM3C(), POM3D(),
-    # XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
-    # NRP(50, 5, 5, 0, 90),
-    # NRP(50, 5, 5, 0, 100),
-    # NRP(50, 5, 5, 0, 110),
-    # NRP(50, 5, 5, 0, 120),
-    MONRP(50, 5, 5, 0, 90),
-    MONRP(50, 5, 5, 0, 100),
-    MONRP(50, 5, 5, 0, 110),
-    NRP(50, 5, 5, 5, 80),
-    NRP(50, 5, 5, 5, 90),
-    NRP(50, 5, 5, 5, 100),
-    NRP(50, 5, 5, 5, 110),
-    NRP(50, 5, 5, 5, 120),
 
-    MONRP(50, 5, 5, 5, 80),
-    MONRP(50, 5, 5, 5, 90),
-    MONRP(50, 5, 5, 5, 100),
-    MONRP(50, 5, 5, 5, 110),
+    POM3A(0.05),
+    POM3A(0.10),
+    POM3A(0.15),
+    POM3A(0.20),
+    POM3A(0.25),
+
+    POM3B(0.05),
+    POM3B(0.10),
+    POM3B(0.15),
+    POM3B(0.20),
+    POM3B(0.25),
+
+    POM3C(0.05),
+    POM3C(0.10),
+    POM3C(0.15),
+    POM3C(0.20),
+    POM3C(0.25),
+
+    POM3D(0.05),
+    POM3D(0.10),
+    POM3D(0.15),
+    POM3D(0.20),
+    POM3D(0.25),
+
+    XOMO_all(0.05),
+    XOMO_all(0.10),
+    XOMO_all(0.15),
+    XOMO_all(0.20),
+    XOMO_all(0.25),
+
+    XOMO_flight(0.05),
+    XOMO_flight(0.10),
+    XOMO_flight(0.15),
+    XOMO_flight(0.20),
+    XOMO_flight(0.25),
+
+    XOMO_ground(0.05),
+    XOMO_ground(0.10),
+    XOMO_ground(0.15),
+    XOMO_ground(0.20),
+    XOMO_ground(0.25),
+
+    XOMO_osp(0.05),
+    XOMO_osp(0.10),
+    XOMO_osp(0.15),
+    XOMO_osp(0.20),
+    XOMO_osp(0.25),
+
+    XOMO_osp2(0.05),
+    XOMO_osp2(0.15),
+    XOMO_osp2(0.20),
+    XOMO_osp2(0.25),
+    XOMO_osp2(0.10),
 
 ]
 

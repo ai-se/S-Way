@@ -38,6 +38,7 @@ class jmoo_problem(object):
         prob.decisions = []
         prob.objectives = []
         prob.numEvals = 0
+        prob.percentage=0
 
     def generateInput(prob, center=False):
         "a way to generate decisions for this problem"

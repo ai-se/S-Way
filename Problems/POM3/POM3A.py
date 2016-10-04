@@ -7,7 +7,8 @@ from Helper.pom3 import pom3
 class POM3A(jmoo_problem):
     "POM3A"
 
-    def __init__(prob):
+    def __init__(prob, percentage=-1):
+        prob.percentage=percentage
         prob.name = "POM3A"
         names = ["Culture", "Criticality", "Criticality Modifier", "Initial Known", "Inter-Dependency", "Dynamism",
                  "Size", "Plan", "Team Size"]

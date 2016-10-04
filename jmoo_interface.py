@@ -76,8 +76,8 @@ for i,arg in enumerate(sys.argv):
 # Build new initial populations if suggested.  Before tests can be performed, a problem requires an initial dataset.
 if build_new_pop:
     for problem in problems:
-        for_landscape(problem, Configurations["Universal"]["Population_Size"])
-        # initialPopulation(problem, Configurations["Universal"]["Population_Size"])
+        # for_landscape(problem, Configurations["Universal"]["Population_Size"])
+        initialPopulation(problem, Configurations["Universal"]["Population_Size"])
     exit()
 
 
