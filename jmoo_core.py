@@ -31,13 +31,13 @@ Random Stuff
 """
 
 import random
-# from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
+from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
 # from Graphics.charter import charter_reporter, statistic_reporter, comparision_reporter
 # from Graphics.summary import generate_summary
-# from jmoo_jmoea import jmoo_evo
-# from jmoo_properties import DECISION_BIN_TABLE, DATA_SUFFIX, DATA_PREFIX, DEFECT_PREDICT_PREFIX, SUMMARY_RESULTS, \
-#     RRS_TABLE
-# from jmoo_stats_box import percentChange
+from jmoo_jmoea import jmoo_evo
+from jmoo_properties import DECISION_BIN_TABLE, DATA_SUFFIX, DATA_PREFIX, DEFECT_PREDICT_PREFIX, SUMMARY_RESULTS, \
+    RRS_TABLE
+from jmoo_stats_box import percentChange
 
 any = random.uniform
 normal = random.gauss
@@ -122,7 +122,7 @@ class jmoo_chart_report:
     def doit(self, tagnote=""):
         igd_list = []
         for problem in self.tests.problems:
-            print "HyperVolume"
+            print "HyperVolume", problem.name + str(problem.percentage),
             draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
             # print "Spread"
             # draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
@@ -215,19 +215,19 @@ class JMOO:
         record_string = "<Experiment>\n"
         for problem in self.tests.problems:
               
-            record_string += "<Problem name = '" + problem.name + "'>\n"
+            record_string += "<Problem name = '" + problem.name + " " + str(problem.percentage) + "'>\n"
             
             for algorithm in self.tests.algorithms:
                 record_string += "<Algorithm name = '" + algorithm.name + "'>\n"
                 
-                print "#<------- " + problem.name + " + " + algorithm.name + " ------->#"
+                print "#<------- " + problem.name + " + " + algorithm.name + " + " + str(problem.percentage) + " ------->#"
 
                 # Initialize Data file for recording summary information [for just this problem + algorithm]
                 backend = problem.name + "_" + algorithm.name + ".txt"
 
                 # Decision Data
                 filename = problem.name + "-p" + str(self.configurations["Universal"]["Population_Size"]) + "-d" + str(
-                    len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "_" + algorithm.name + DATA_SUFFIX
+                    len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "-perc" + str(problem.percentage) + "_" + algorithm.name + DATA_SUFFIX
                 dbt = open(DATA_PREFIX + DECISION_BIN_TABLE + "_" + filename, 'w')
                 sr = open(DATA_PREFIX + SUMMARY_RESULTS + filename, 'w')
                 rrs = open(DATA_PREFIX + RRS_TABLE + "_" + filename, 'w')
@@ -255,8 +255,8 @@ class JMOO:
                 # Repeat Core
                 for repeat in range(self.configurations["Universal"]["Repeats"]):
 
-                    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "/" + str(repeat)
-                    # print " >> ", foldername
+                    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name  \
+                                 + "_" + str(problem.percentage) + "/" + str(repeat)
                     import os
                     if not os.path.exists(foldername):
                         os.makedirs(foldername)

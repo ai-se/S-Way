@@ -108,7 +108,8 @@ class jmoo_stats_box:
         objective_medians = [median(fitCol) for fitCol in objective_columns]
         # Calculate IQR of objective scores
         objective_iqr = [spread(fitCol) for fitCol in objective_columns]
-        
+
+
         # Initialize Reference Point on Initial Run
         if initial is True:
             statBox.referencePoint = [o.med for o in statBox.problem.objectives]

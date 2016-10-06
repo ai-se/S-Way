@@ -1,0 +1,106 @@
+<Experiment>
+<Problem name = 'xomoo2 -1'>
+<Algorithm name = 'SWAY5'>
+<Run id = '1'>
+<Summary>
+<NumEvals>35</NumEvals>
+<RunTime>13.7494170666</RunTime>
+<IBD>1.00165784074</IBD>
+<IBS>0.0602914342289</IBS>
+<Effort>72.5179091847</Effort>
+<Months>18.4864007208</Months>
+<Defects>333.748030781</Defects>
+</Summary></Run>
+<Run id = '2'>
+<Summary>
+<NumEvals>29</NumEvals>
+<RunTime>16.4719920158</RunTime>
+<IBD>0.990150477787</IBD>
+<IBS>0.082143596671</IBS>
+<Effort>136.665318533</Effort>
+<Months>16.3706225626</Months>
+<Defects>571.103016442</Defects>
+</Summary></Run>
+<Run id = '3'>
+<Summary>
+<NumEvals>36</NumEvals>
+<RunTime>12.5112948418</RunTime>
+<IBD>1.01491251408</IBD>
+<IBS>0.0848192207119</IBS>
+<Effort>592.292857291</Effort>
+<Months>17.001074213</Months>
+<Defects>3374.67587522</Defects>
+</Summary></Run>
+<Run id = '4'>
+<Summary>
+<NumEvals>30</NumEvals>
+<RunTime>15.229362011</RunTime>
+<IBD>0.983880257751</IBD>
+<IBS>0.109597959831</IBS>
+<Effort>140.187438461</Effort>
+<Months>13.6734078357</Months>
+<Defects>1183.08485872</Defects>
+</Summary></Run>
+<Run id = '5'>
+<Summary>
+<NumEvals>30</NumEvals>
+<RunTime>12.0640079975</RunTime>
+<IBD>1.00121316105</IBD>
+<IBS>0.0805465102746</IBS>
+<Effort>206.238830956</Effort>
+<Months>16.02097631</Months>
+<Defects>1699.53816605</Defects>
+</Summary></Run>
+<Run id = '6'>
+<Summary>
+<NumEvals>36</NumEvals>
+<RunTime>11.9461419582</RunTime>
+<IBD>0.996639319721</IBD>
+<IBS>0.0612855153294</IBS>
+<Effort>20.8598360037</Effort>
+<Months>9.73418309975</Months>
+<Defects>68.7927093776</Defects>
+</Summary></Run>
+<Run id = '7'>
+<Summary>
+<NumEvals>38</NumEvals>
+<RunTime>14.9118080139</RunTime>
+<IBD>1.00078883825</IBD>
+<IBS>0.0635432855488</IBS>
+<Effort>57.7864673829</Effort>
+<Months>12.9611724132</Months>
+<Defects>154.25249136</Defects>
+</Summary></Run>
+<Run id = '8'>
+<Summary>
+<NumEvals>28</NumEvals>
+<RunTime>14.6860198975</RunTime>
+<IBD>1.0279491195</IBD>
+<IBS>0.104818863211</IBS>
+<Effort>171.888692307</Effort>
+<Months>13.1191079177</Months>
+<Defects>175.135442651</Defects>
+</Summary></Run>
+<Run id = '9'>
+<Summary>
+<NumEvals>36</NumEvals>
+<RunTime>12.8689479828</RunTime>
+<IBD>0.987694806978</IBD>
+<IBS>0.0680261502821</IBS>
+<Effort>571.690835645</Effort>
+<Months>19.2179803818</Months>
+<Defects>4120.4953938</Defects>
+</Summary></Run>
+<Run id = '10'>
+<Summary>
+<NumEvals>28</NumEvals>
+<RunTime>17.4767389297</RunTime>
+<IBD>1.00198309494</IBD>
+<IBS>0.0636063785307</IBS>
+<Effort>207.402236876</Effort>
+<Months>15.5701788004</Months>
+<Defects>469.337293097</Defects>
+</Summary></Run>
+</Algorithm>
+</Problem>
+</Experiment>

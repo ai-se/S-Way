@@ -121,7 +121,7 @@ def for_landscape(problem, n, path=""):
 
 def applyNoveltySearch(problem, n, path=""):
 
-    assert(0<problem.percentage<1), "something is wrong"
+    assert(0<=problem.percentage<1), "something is wrong"
     # find theshold
     lows = [decision.low for decision in problem.decisions]
     highs = [decision.up for decision in problem.decisions]
@@ -150,18 +150,18 @@ def initialPopulation(problem, n, path=""):
     #generate dataset
     dataset = []
     import sys
-    # for run in range(n):
-    #     dataset.append(problem.generateInput(center=False))
-    #     print ". ",
-    #     sys.stdout.flush()
+    for run in range(n):
+        dataset.append(problem.generateInput(center=False))
+        print ". ",
+        sys.stdout.flush()
 
     # dataset = center_based_sampling(problem, dataset)
-    dataset = applyNoveltySearch(problem, n)
+    # dataset = applyNoveltySearch(problem, n)
 
     #write the dataset to file
     if path == "":
         filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + \
-                   str(len(problem.objectives)) + "-perc" + str(problem.percentage) +"-dataset.txt"
+                   str(len(problem.objectives)) + "-perc" + str(-1) +"-dataset.txt"
     elif path == "unittesting":
         filename = "../../Data/Testing-dataset.txt"
     else:

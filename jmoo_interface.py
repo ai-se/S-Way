@@ -81,8 +81,6 @@ if build_new_pop:
     exit()
 
 
-
-
 # Wrap the tests in the jmoo core framework
 tests = jmoo_test(problems, algorithms)
 

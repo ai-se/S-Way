@@ -71,7 +71,8 @@ class jmoo_problem(object):
         "jmoo_problems.py"
 
         if path == "":
-            filename = "Data/" + problem.name + "-p" + str(MU) + "-d" + str(len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "-dataset.txt"
+            filename = "Data/" + problem.name + "-p" + str(MU) + "-d" + str(len(problem.decisions)) + "-o" + \
+                       str(len(problem.objectives)) + "-perc" + str(problem.percentage) + "-dataset.txt"
         elif path == "unittesting":
             filename = "../../Data/Testing-dataset.txt"
         else:

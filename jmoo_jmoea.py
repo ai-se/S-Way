@@ -138,13 +138,13 @@ def jmoo_evo(problem, algorithm, configurations, repeat=0, toStop = bstop):
 
 
     # Generate a folder to store the population
-    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "/"
+    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "_" + str(problem.percentage) +"/"
     # import os
     # all_subdirs = [foldername + d for d in os.listdir(foldername) if os.path.isdir(foldername + d)]
     # latest_subdir = sorted(all_subdirs, key=os.path.getmtime)[-1]
     # import pdb
     # pdb.set_trace()
-    latest_subdir = foldername + str(repeat) + "/"
+    latest_subdir = foldername + str(repeat) #+ "/"
     # print latest_subdir
 
 

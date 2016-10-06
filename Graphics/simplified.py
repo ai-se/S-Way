@@ -5,17 +5,19 @@ import matplotlib.pyplot as plt
 normalization = []
 
 
-def find_files(problem, algorithm, rep, gen):
+def find_files(problem, algorithm, rep, gen, percentage):
     sep = "_"
     main_file_path = "./RawData/PopulationArchives/"
-    problem_algorithm_path = main_file_path + algorithm + sep + problem + "/"
+    problem_algorithm_path = main_file_path + algorithm + sep + problem + "_" + percentage + "/"
     rep_path = problem_algorithm_path + str(rep) + "/"
     gen_path = rep_path + str(gen) + ".txt"
     return gen_path
 
 
 def find_files_for_generations(problem, algorithm, number_of_repeats, gen):
-    return [find_files(problem, algorithm, rep_no, gen) for rep_no in xrange(number_of_repeats)]
+    name = problem[-1].name
+    percentage = str(problem[-1].percentage)
+    return [find_files(name, algorithm, rep_no, gen, percentage) for rep_no in xrange(number_of_repeats)]
 
 
 def get_actual_frontier_files(problem, algorithms, max_repeats, max_gens):
@@ -99,7 +101,7 @@ def get_initial_datapoints(problem, algorithm, Configurations):
     sep = "_"
     filename = folder_name + problem.name + "-p" + str(
         Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
-        len(problem.objectives)) +  "-dataset.txt"
+        len(problem.objectives)) + "-perc" + str(problem.percentage) + "-dataset.txt"
     content = get_content(problem, filename, pop_size, initial_line=True)
     return content
 
@@ -299,7 +301,7 @@ def draw_hv(problem, algorithms, Configurations, tag):
     if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
         os.makedirs('./Results/Charts/' + date_folder_prefix)
 
-    reference_point = [5000 for _ in xrange(len(problem[-1].objectives))]
+    reference_point = [3000 for _ in xrange(len(problem[-1].objectives))]
     results = {}
     number_of_repeats = Configurations["Universal"]["Repeats"]
     generations = Configurations["Universal"]["No_of_Generations"]
@@ -322,21 +324,23 @@ def draw_hv(problem, algorithms, Configurations, tag):
 
             results[algorithm.name][gtechnique].append(temp_hv)
 
-            for generation in [19]:
-                print ".",
+            for generation in [0]:
                 temp_igd_list = []
-                files = find_files_for_generations(problem[-1].name, algorithm.name, number_of_repeats, generation+1)
-                print files
+                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation+1)
                 for file in files:
                     temp_value = get_content(problem[-1], file, pop_size)
                     temp_hv = get_hyper_volume(reference_point, temp_value)
                     temp_igd_list.append(temp_hv)
-                from numpy import mean
-                results[algorithm.name][gtechnique].append(temp_igd_list)
 
-    pickle_filename = "./Results/Pickle/hv_" + problem[-1].name + ".p"
-    import pickle
-    pickle.dump( results, open(pickle_filename, "wb" ))
+                results[algorithm.name][gtechnique].append(temp_igd_list)
+    from numpy import mean
+    print  '{0:.10f}'.format((mean(results["SWAY5"]["normal"][-1])))
+
+    # import pdb
+    # pdb.set_trace()
+    # pickle_filename = "./Results/Pickle/hv_" + problem[-1].name + ".p"
+    # import pickle
+    # pickle.dump( results, open(pickle_filename, "wb" ))
 
 
 def find_extreme_points(problem, points):
