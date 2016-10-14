@@ -67,68 +67,106 @@ problems =[
     ]
 
 problems =[
-
-    POM3A(),
-    # POM3A(0.05),
-    POM3A(0.15),
-    POM3A(0.20),
-    POM3A(0.25),
-
-    POM3B(),
-    POM3B(0.05),
-    POM3B(0.10),
-    POM3B(0.15),
-    POM3B(0.20),
-    POM3B(0.25),
-
-    POM3C(),
-    POM3C(0.05),
-    POM3C(0.10),
-    POM3C(0.15),
-    POM3C(0.20),
-    POM3C(0.25),
-
-    POM3D(),
-    POM3D(0.05),
-    POM3D(0.10),
-    POM3D(0.15),
-    POM3D(0.20),
-    POM3D(0.25),
-
-    XOMO_all(),
-    XOMO_all(0.05),
-    XOMO_all(0.10),
-    XOMO_all(0.15),
-    XOMO_all(0.20),
-    XOMO_all(0.3),
-
-    XOMO_flight(),
-    XOMO_flight(0.05),
-    XOMO_flight(0.10),
-    XOMO_flight(0.15),
-    XOMO_flight(0.20),
-    XOMO_flight(0.25),
+    # dtlz1(7, 3),
+    # dtlz1(7, 3, percentage=0.05),
+    # dtlz1(7, 3, percentage=0.10),
+    # dtlz1(7, 3, percentage=0.15),
     #
-    XOMO_ground(),
-    XOMO_ground(0.05),
-    XOMO_ground(0.10),
-    XOMO_ground(0.15),
-    XOMO_ground(0.20),
-    XOMO_ground(0.25),
+    # dtlz1(9, 5),
+    # dtlz1(9, 5, percentage=0.05),
+    # dtlz1(9, 5, percentage=0.10),
+    # dtlz1(9, 5, percentage=0.15),
+    #
+    # dtlz1(12, 8),
+    # dtlz1(12, 8, percentage=0.05),
+    # dtlz1(12, 8,percentage=0.10),
+    # dtlz1(12, 8,percentage=0.15),
+    #
+    # dtlz1(14, 10),
+    # dtlz1(14, 10,percentage=0.05),
+    # dtlz1(14, 10,percentage=0.10),
+    # dtlz1(14, 10,percentage=0.15),
+    #
+    # dtlz1(19, 15),
+    # dtlz1(19, 15,percentage=0.05),
+    # dtlz1(19, 15,percentage=0.10),
+    # dtlz1(19, 15,percentage=0.15),
+    #
+    #
+    # dtlz2(12, 3),
+    # dtlz2(12, 3,percentage=0.05),
+    # dtlz2(12, 3,percentage=0.10),
+    # dtlz2(12, 3,percentage=0.15),
+    #
+    # dtlz2(14, 5),
+    # dtlz2(14, 5,percentage=0.05),
+    # dtlz2(14, 5,percentage=0.10),
+    # dtlz2(14, 5,percentage=0.15),
+    #
+    # dtlz2(17, 8),
+    # dtlz2(17, 8,percentage=0.05),
+    # dtlz2(17, 8,percentage=0.10),
+    # dtlz2(17, 8,percentage=0.15),
+    #
+    # dtlz2(19, 10),
+    # dtlz2(19, 10,percentage=0.05),
+    # dtlz2(19, 10,percentage=0.10),
+    # dtlz2(19, 10,percentage=0.15),
+    #
+    # dtlz2(24, 15),
+    # dtlz2(24, 15,percentage=0.05),
+    # dtlz2(24, 15,percentage=0.10),
+    # dtlz2(24, 15,percentage=0.15),
+    #
+    # dtlz3(12, 3),
+    # dtlz3(12, 3,percentage=0.05),
+    # dtlz3(12, 3,percentage=0.10),
+    # dtlz3(12, 3,percentage=0.15),
+    #
+    # dtlz3(14, 5),
+    # dtlz3(14, 5,percentage=0.05),
+    # dtlz3(14, 5,percentage=0.10),
+    # dtlz3(14, 5,percentage=0.15),
 
-    XOMO_osp(),
-    XOMO_osp(0.05),
-    XOMO_osp(0.10),
-    XOMO_osp(0.15),
-    XOMO_osp(0.20),
-    XOMO_osp(0.25),
+    dtlz3(17, 8),
+    dtlz3(17, 8,percentage=0.05),
+    dtlz3(17, 8,percentage=0.10),
+    dtlz3(17, 8,percentage=0.15),
 
-    XOMO_osp2(),
-    XOMO_osp2(0.05),
-    XOMO_osp2(0.15),
-    XOMO_osp2(0.20),
-    XOMO_osp2(0.10),
-    XOMO_osp2(0.25),
+    dtlz3(19, 10),
+    dtlz3(19, 10,percentage=0.05),
+    dtlz3(19, 10,percentage=0.10),
+    dtlz3(19, 10,percentage=0.15),
+
+    dtlz3(24, 15),
+    dtlz3(24, 15,percentage=0.05),
+    dtlz3(24, 15,percentage=0.10),
+    dtlz3(24, 15,percentage=0.15),
+
+    dtlz4(12, 3),
+    dtlz4(12, 3,percentage=0.05),
+    dtlz4(12, 3,percentage=0.10),
+    dtlz4(12, 3,percentage=0.15),
+
+    dtlz4(14, 5),
+    dtlz4(14, 5,percentage=0.05),
+    dtlz4(14, 5,percentage=0.10),
+    dtlz4(14, 5,percentage=0.15),
+
+    dtlz4(17, 8),
+    dtlz4(17, 8,percentage=0.05),
+    dtlz4(17, 8,percentage=0.10),
+    dtlz4(17, 8,percentage=0.15),
+
+    dtlz4(19, 10),
+    dtlz4(19, 10,percentage=0.05),
+    dtlz4(19, 10,percentage=0.10),
+    dtlz4(19, 10,percentage=0.15),
+
+    dtlz4(24, 15),
+    dtlz4(24, 15,percentage=0.05),
+    dtlz4(24, 15,percentage=0.10),
+    dtlz4(24, 15,percentage=0.15),
 
 ]
 

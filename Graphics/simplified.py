@@ -301,7 +301,9 @@ def draw_hv(problem, algorithms, Configurations, tag):
     if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
         os.makedirs('./Results/Charts/' + date_folder_prefix)
 
-    reference_point = [3000 for _ in xrange(len(problem[-1].objectives))]
+    import pdb
+    pdb.set_trace()
+    reference_point = [1 for _ in xrange(len(problem[-1].objectives))]
     results = {}
     number_of_repeats = Configurations["Universal"]["Repeats"]
     generations = Configurations["Universal"]["No_of_Generations"]
