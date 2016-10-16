@@ -112,8 +112,8 @@ class jmoo_stats_box:
 
         # Initialize Reference Point on Initial Run
         if initial is True:
-            statBox.referencePoint = [o.med for o in statBox.problem.objectives]
-            statBox.reference_point_for_hypervolume = [o.up for o in statBox.problem.objectives]
+            statBox.referencePoint = [150 for o in statBox.problem.objectives]
+            statBox.reference_point_for_hypervolume = [150 for o in statBox.problem.objectives]
 
 
         # Calculate IBD & IBS

@@ -101,6 +101,8 @@ class MONRP(jmoo_problem):
             x_i = [int(round(float(no), 0)) for no in input]  # when is r_i is implemented
             y_i = [1 if x != -1 else 0 for x in x_i]  # whether r_i would be implemented
             assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
+            import pdb
+            pdb.set_trace()
             temp = self.constraint1(x_i, y_i)  # This is dirty need to know a better trick
             if temp != 0:
                 assert(False), "boom"
@@ -116,7 +118,7 @@ class MONRP(jmoo_problem):
                     x = x_i[i]
                     return_score += (score * (self.treleases - x + 1) - self.requirement[i].risk) * y_i[i]
                     # reduce the cost (from A Study of the Multi-Objective Next Release Problem)
-                    cost += self.requirement[i].cost
+                    cost += self.requirement[i].cost * y_i[i] # whether the requirement was implemented
 
                 # Maximize the satisfaction (from A Study of the Multi-Objective Next Release Problem)
                 satisfaction = 0

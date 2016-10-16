@@ -59,123 +59,21 @@ algorithms = [
               ]
 
 problems =[
-    # FeatureTreeModel("Web_Portal"),
-    # FeatureTreeModel("eshop"),
-    # FeatureTreeModel("cellphone"),
-    # FeatureTreeModel("EIS")
-    # POM3A(), POM3B(), POM3C(), POM3D()
+    POM3A(),
+    # POM3B(), POM3C(), POM3D(),
+    # XOMO_flight(),
+    # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
+    # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110)
     ]
 
-problems =[
-    # dtlz1(7, 3),
-    # dtlz1(7, 3, percentage=0.05),
-    # dtlz1(7, 3, percentage=0.10),
-    # dtlz1(7, 3, percentage=0.15),
-    #
-    # dtlz1(9, 5),
-    # dtlz1(9, 5, percentage=0.05),
-    # dtlz1(9, 5, percentage=0.10),
-    # dtlz1(9, 5, percentage=0.15),
-    #
-    # dtlz1(12, 8),
-    # dtlz1(12, 8, percentage=0.05),
-    # dtlz1(12, 8,percentage=0.10),
-    # dtlz1(12, 8,percentage=0.15),
-    #
-    # dtlz1(14, 10),
-    # dtlz1(14, 10,percentage=0.05),
-    # dtlz1(14, 10,percentage=0.10),
-    # dtlz1(14, 10,percentage=0.15),
-    #
-    # dtlz1(19, 15),
-    # dtlz1(19, 15,percentage=0.05),
-    # dtlz1(19, 15,percentage=0.10),
-    # dtlz1(19, 15,percentage=0.15),
-    #
-    #
-    # dtlz2(12, 3),
-    # dtlz2(12, 3,percentage=0.05),
-    # dtlz2(12, 3,percentage=0.10),
-    # dtlz2(12, 3,percentage=0.15),
-    #
-    # dtlz2(14, 5),
-    # dtlz2(14, 5,percentage=0.05),
-    # dtlz2(14, 5,percentage=0.10),
-    # dtlz2(14, 5,percentage=0.15),
-    #
-    # dtlz2(17, 8),
-    # dtlz2(17, 8,percentage=0.05),
-    # dtlz2(17, 8,percentage=0.10),
-    # dtlz2(17, 8,percentage=0.15),
-    #
-    # dtlz2(19, 10),
-    # dtlz2(19, 10,percentage=0.05),
-    # dtlz2(19, 10,percentage=0.10),
-    # dtlz2(19, 10,percentage=0.15),
-    #
-    # dtlz2(24, 15),
-    # dtlz2(24, 15,percentage=0.05),
-    # dtlz2(24, 15,percentage=0.10),
-    # dtlz2(24, 15,percentage=0.15),
-    #
-    # dtlz3(12, 3),
-    # dtlz3(12, 3,percentage=0.05),
-    # dtlz3(12, 3,percentage=0.10),
-    # dtlz3(12, 3,percentage=0.15),
-    #
-    # dtlz3(14, 5),
-    # dtlz3(14, 5,percentage=0.05),
-    # dtlz3(14, 5,percentage=0.10),
-    # dtlz3(14, 5,percentage=0.15),
 
-    dtlz3(17, 8),
-    dtlz3(17, 8,percentage=0.05),
-    dtlz3(17, 8,percentage=0.10),
-    dtlz3(17, 8,percentage=0.15),
-
-    dtlz3(19, 10),
-    dtlz3(19, 10,percentage=0.05),
-    dtlz3(19, 10,percentage=0.10),
-    dtlz3(19, 10,percentage=0.15),
-
-    dtlz3(24, 15),
-    dtlz3(24, 15,percentage=0.05),
-    dtlz3(24, 15,percentage=0.10),
-    dtlz3(24, 15,percentage=0.15),
-
-    dtlz4(12, 3),
-    dtlz4(12, 3,percentage=0.05),
-    dtlz4(12, 3,percentage=0.10),
-    dtlz4(12, 3,percentage=0.15),
-
-    dtlz4(14, 5),
-    dtlz4(14, 5,percentage=0.05),
-    dtlz4(14, 5,percentage=0.10),
-    dtlz4(14, 5,percentage=0.15),
-
-    dtlz4(17, 8),
-    dtlz4(17, 8,percentage=0.05),
-    dtlz4(17, 8,percentage=0.10),
-    dtlz4(17, 8,percentage=0.15),
-
-    dtlz4(19, 10),
-    dtlz4(19, 10,percentage=0.05),
-    dtlz4(19, 10,percentage=0.10),
-    dtlz4(19, 10,percentage=0.15),
-
-    dtlz4(24, 15),
-    dtlz4(24, 15,percentage=0.05),
-    dtlz4(24, 15,percentage=0.10),
-    dtlz4(24, 15,percentage=0.15),
-
-]
 
 build_new_pop = False                                       # Whether or not to rebuild the initial population
 
 Configurations = {
     "Universal": {
         "Repeats" : 10,
-        "Population_Size" : 1000,
+        "Population_Size" : 100,
         "No_of_Generations" : 1
     },
     "NSGAIII": {

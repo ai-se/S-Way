@@ -148,20 +148,20 @@ def applyNoveltySearch(problem, n, path=""):
 
 def initialPopulation(problem, n, path=""):
     #generate dataset
-    # dataset = []
+    dataset = []
     import sys
-    # for run in range(n):
-    #     dataset.append(problem.generateInput(center=False))
-    #     print ". ",
-    #     sys.stdout.flush()
+    for run in range(n):
+        dataset.append(problem.generateInput(center=False))
+        print ". ",
+        sys.stdout.flush()
 
     # dataset = center_based_sampling(problem, dataset)
-    dataset = applyNoveltySearch(problem, n)
+    # dataset = applyNoveltySearch(problem, n)
 
     #write the dataset to file
     if path == "":
         filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + \
-                   str(len(problem.objectives)) + "-perc" + str(problem.percentage) +"-dataset.txt"
+                   str(len(problem.objectives))  + "-dataset.txt"
     elif path == "unittesting":
         filename = "../../Data/Testing-dataset.txt"
     else:

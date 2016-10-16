@@ -220,7 +220,7 @@ class JMOO:
             for algorithm in self.tests.algorithms:
                 record_string += "<Algorithm name = '" + algorithm.name + "'>\n"
                 
-                print "#<------- " + problem.name + " + " + algorithm.name + " + " + str(problem.percentage) + " ------->#"
+                print "#<------- " + problem.name + " + " + algorithm.name + " ------->#"
 
                 # Initialize Data file for recording summary information [for just this problem + algorithm]
                 backend = problem.name + "_" + algorithm.name + ".txt"
@@ -256,7 +256,7 @@ class JMOO:
                 for repeat in range(self.configurations["Universal"]["Repeats"]):
 
                     foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name  \
-                                 + "_" + str(problem.percentage) + "/" + str(repeat)
+                                 + "_" + str(self.configurations["Universal"]["Population_Size"]) + "/" + str(repeat)
                     import os
                     if not os.path.exists(foldername):
                         os.makedirs(foldername)

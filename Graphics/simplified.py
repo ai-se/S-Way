@@ -301,9 +301,7 @@ def draw_hv(problem, algorithms, Configurations, tag):
     if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
         os.makedirs('./Results/Charts/' + date_folder_prefix)
 
-    import pdb
-    pdb.set_trace()
-    reference_point = [1 for _ in xrange(len(problem[-1].objectives))]
+    reference_point = [150 for _ in xrange(len(problem[-1].objectives))]
     results = {}
     number_of_repeats = Configurations["Universal"]["Repeats"]
     generations = Configurations["Universal"]["No_of_Generations"]
@@ -312,7 +310,31 @@ def draw_hv(problem, algorithms, Configurations, tag):
 
     f, axarr = plt.subplots(1)
 
+    # For Normalization
     gtechniques = ["normal"]
+    for_normalizing_points = []
+    for algorithm in algorithms:
+        for gtechnique in gtechniques:
+            points = get_initial_datapoints(problem[-1], algorithm, Configurations)
+            for_normalizing_points.extend(points)
+            print "generation",
+            for generation in [0]:
+                print generation
+                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation + 1)
+                for file in files:
+                    print file
+                    for_normalizing_points.extend(get_content(problem[-1], file, pop_size))
+
+
+    max_values = []
+    min_values = []
+    for objx in xrange(len(problem[-1].objectives)):
+        temp_values = [fnp[objx] for fnp in for_normalizing_points]
+        max_values.append(max(temp_values))
+        min_values.append(min(temp_values))
+    assert(len(max_values) == len(min_values)), "something is wrong"
+
+
 
     for algorithm in algorithms:
         results[algorithm.name] = {}
@@ -320,7 +342,16 @@ def draw_hv(problem, algorithms, Configurations, tag):
             results[algorithm.name][gtechnique] = []
     for algorithm in algorithms:
         for gtechnique in gtechniques:
-            points = get_initial_datapoints(problem[-1], algorithm, Configurations)
+            raw_points = get_initial_datapoints(problem[-1], algorithm, Configurations)
+
+            points = []
+            # Normalize the points
+            for rpoint in raw_points:
+                temp_rpoint = []
+                for objx in xrange(len(problem[-1].objectives)):
+                    temp_rpoint.append(((rpoint[objx] - min_values[objx])/(max_values[objx] - min_values[objx]))*100)
+                points.append(temp_rpoint)
+
             from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
             temp_hv = get_hyper_volume(reference_point, points)
 

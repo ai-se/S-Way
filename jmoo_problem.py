@@ -72,7 +72,7 @@ class jmoo_problem(object):
 
         if path == "":
             filename = "Data/" + problem.name + "-p" + str(MU) + "-d" + str(len(problem.decisions)) + "-o" + \
-                       str(len(problem.objectives)) + "-perc" + str(problem.percentage) + "-dataset.txt"
+                       str(len(problem.objectives)) + "-dataset.txt"
         elif path == "unittesting":
             filename = "../../Data/Testing-dataset.txt"
         else:
@@ -96,12 +96,6 @@ class jmoo_problem(object):
                 if problem.objectives[k-MU-1].up == None:
                     problem.objectives[k-MU-1].up = float(p[2])
                     upnotfound = True
-                # rangeX5 = (problem.objectives[k-MU-1].up - problem.objectives[k-MU-1].low)*5
-                # if lownotfound:
-                #     problem.objectives[k-MU-1].low -= rangeX5
-                # if upnotfound:
-                #     problem.objectives[k-MU-1].up += rangeX5
-                
             elif k > 0:
                 population.append(jmoo_individual(problem,[float(p[n]) for n,dec in enumerate(problem.decisions)],None))
                 #population[-1].fitness = jmoo_fitness(problem, [float(p[n+len(problem.decisions)]) for n,obj in enumerate(problem.objectives)])
