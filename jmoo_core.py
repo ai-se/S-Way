@@ -31,8 +31,9 @@ Random Stuff
 """
 
 import random
-from Graphics.charter import charter_reporter, statistic_reporter, comparision_reporter
-from Graphics.summary import generate_summary
+from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
+# from Graphics.charter import charter_reporter, statistic_reporter, comparision_reporter
+# from Graphics.summary import generate_summary
 from jmoo_jmoea import jmoo_evo
 from jmoo_properties import DECISION_BIN_TABLE, DATA_SUFFIX, DATA_PREFIX, DEFECT_PREDICT_PREFIX, SUMMARY_RESULTS, \
     RRS_TABLE
@@ -119,15 +120,16 @@ class jmoo_chart_report:
         self.Configurations = Configurations
 
     def doit(self, tagnote=""):
-        generate_final_frontier_for_gale4(self.tests.problems, self.tests.algorithms, self.Configurations, tag=tagnote)
-        hv_spread =[]
+        igd_list = []
         for problem in self.tests.problems:
-            hv_spread.append(charter_reporter([problem], self.tests.algorithms, self.Configurations, tag=tagnote))
-        # statistic_reporter(self.tests.problems, self.tests.algorithms, self.Configurations, tag=tagnote)
-        comparision_reporter(self.tests.problems, self.tests.algorithms, [hvp[0] for hvp in hv_spread], [hvp[1] for hvp in hv_spread], [hvp[2] for hvp in hv_spread], "GALE")
-        # for problem in self.tests.problems:
-        #     hv_spread.append(charter_reporter([problem], self.tests.algorithms, self.Configurations, tag=tagnote))
-        # generate_summary(self.tests.problems, self.tests.algorithms, "GALE", self.Configurations)
+            print "HyperVolume", problem.name + str(problem.percentage),
+            draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
+            # print "Spread"
+            # draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
+            # print "IGD"
+            # draw_igd([problem], self.tests.algorithms, self.Configurations, tag="IGD")
+            # print "GD"
+            # draw_gd([problem], self.tests.algorithms, self.Configurations, tag="GD")
 
 
 def generate_final_frontier_for_gale4(problems, algorithms, Configurations, tag=""):
@@ -213,7 +215,7 @@ class JMOO:
         record_string = "<Experiment>\n"
         for problem in self.tests.problems:
               
-            record_string += "<Problem name = '" + problem.name + "'>\n"
+            record_string += "<Problem name = '" + problem.name + " " + str(self.configurations["Universal"]["Population_Size"]) + "'>\n"
             
             for algorithm in self.tests.algorithms:
                 record_string += "<Algorithm name = '" + algorithm.name + "'>\n"
@@ -225,7 +227,7 @@ class JMOO:
 
                 # Decision Data
                 filename = problem.name + "-p" + str(self.configurations["Universal"]["Population_Size"]) + "-d" + str(
-                    len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "_" + algorithm.name + DATA_SUFFIX
+                    len(problem.decisions)) + "-o" + str(len(problem.objectives))  + algorithm.name + DATA_SUFFIX
                 dbt = open(DATA_PREFIX + DECISION_BIN_TABLE + "_" + filename, 'w')
                 sr = open(DATA_PREFIX + SUMMARY_RESULTS + filename, 'w')
                 rrs = open(DATA_PREFIX + RRS_TABLE + "_" + filename, 'w')
@@ -253,16 +255,17 @@ class JMOO:
                 # Repeat Core
                 for repeat in range(self.configurations["Universal"]["Repeats"]):
 
-                    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "/" + str(repeat)
-                    # print " >> ", foldername
+                    foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name  \
+                                 + "_" + str(self.configurations["Universal"]["Population_Size"]) + "/" + str(repeat)
                     import os
                     if not os.path.exists(foldername):
+                        print foldername
                         os.makedirs(foldername)
                     # Run
                     record_string += "<Run id = '" + str(repeat+1) + "'>\n"
 
                     start = time.time()
-                    statBox = jmoo_evo(problem, algorithm, self.configurations, repeat)
+                    statBox = jmoo_evo(problem, algorithm, self.configurations, repeat=repeat)
                     end = time.time()
 
                     # Find best generation

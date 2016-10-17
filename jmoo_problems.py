@@ -28,11 +28,12 @@
 "Implementation of a variety of Multi-Objective Problems"
 
 from math import *
-
+import sys
 from jmoo_objective import *
 from jmoo_decision import *
 from jmoo_problem import *
 from jmoo_stats_box import *
+from Techniques.euclidean_distance import euclidean_distance
 
 
 def distance(in1, in2):
@@ -83,17 +84,83 @@ def center_based_sampling(problem, dataset):
     return resulting_population
 
 
-def initialPopulation(problem, n, path=""):
+def for_landscape(problem, n, path=""):
     #generate dataset
     dataset = []
+    import sys
     for run in range(n):
         dataset.append(problem.generateInput(center=False))
+        print ". ",
+        sys.stdout.flush()
 
     # dataset = center_based_sampling(problem, dataset)
 
     #write the dataset to file
     if path == "":
         filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "-dataset.txt"
+    elif path == "unittesting":
+        filename = "../../Data/Testing-dataset.txt"
+    else:
+        print "No accounted for"
+        exit()
+
+    fo = open(filename, 'w')
+    h = problem.buildHeader() #the header row
+    fo.write(h + "\n")
+    for data in dataset: #each row of actual Data
+        temp_data = data + problem.evaluate(data)
+        fo.write(str(temp_data).strip("[]") + "\n")
+
+    # print "Dataset generated for " + problem.name + " in " + filename + "."
+
+
+    print "Dataset generated for " + problem.name + " in " + filename + "."
+    fo.close()
+
+
+def applyNoveltySearch(problem, n, path=""):
+
+    assert(0<=problem.percentage<1), "something is wrong"
+    # find theshold
+    lows = [decision.low for decision in problem.decisions]
+    highs = [decision.up for decision in problem.decisions]
+    normalize = [[low,high] for low, high in zip(lows, highs)]
+    maxvalue = len(problem.decisions)**0.5
+
+    k = 10
+    limit = 10000
+    threshold = problem.percentage * maxvalue
+
+    # create the object
+    NS = NoveltySearch(k, limit, threshold, normalize)
+
+    # generate random points and add them to archive
+    while NS.getArchiveSize() != n:
+        if NS.getArchiveSize() % 100 == 0: print ">> ", NS.getArchiveSize()
+        p = problem.generateInput()
+        temp = NS.addToArchive(p)
+        if  temp != 1: print '#',
+        else: print ".",
+        sys.stdout.flush()
+    return NS.getArchive()
+
+
+def initialPopulation(problem, n, path=""):
+    #generate dataset
+    dataset = []
+    import sys
+    for run in range(n):
+        dataset.append(problem.generateInput(center=False))
+        print ". ",
+        sys.stdout.flush()
+
+    # dataset = center_based_sampling(problem, dataset)
+    # dataset = applyNoveltySearch(problem, n)
+
+    #write the dataset to file
+    if path == "":
+        filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + \
+                   str(len(problem.objectives))  + "-dataset.txt"
     elif path == "unittesting":
         filename = "../../Data/Testing-dataset.txt"
     else:
@@ -714,7 +781,8 @@ class osyczka2(jmoo_problem):
 
 class dtlz1(jmoo_problem):
     "DTLZ1"
-    def __init__(prob, numDecs=5, numObjs=2):
+    def __init__(prob, numDecs=5, numObjs=2, percentage=0):
+        prob.percentage = percentage
         prob.name = "DTLZ1_" + str(numDecs) + "_" + str(numObjs)
         names = ["x"+str(i+1) for i in range(numDecs)]
         lows =  [0.0 for i in range(numDecs)]
@@ -761,7 +829,8 @@ class dtlz1(jmoo_problem):
 
 class dtlz2(jmoo_problem):
     "DTLZ2"
-    def __init__(prob, numDecs=10, numObjs=2):
+    def __init__(prob, numDecs=10, numObjs=2, percentage=0):
+        prob.percentage = percentage
         prob.name = "DTLZ2_" + str(numDecs) + "_" + str(numObjs)
         names = ["x"+str(i+1) for i in range(numDecs)]
         lows =  [0.0 for i in range(numDecs)]
@@ -804,7 +873,8 @@ class dtlz2(jmoo_problem):
 
 class dtlz3(jmoo_problem):
     "DTLZ3"
-    def __init__(prob, numDecs=10, numObjs=2):
+    def __init__(prob, numDecs=10, numObjs=2, percentage=0):
+        prob.percentage = percentage
         prob.name = "DTLZ3_" + str(numDecs) + "_" + str(numObjs)
         names = ["x"+str(i+1) for i in range(numDecs)]
         lows =  [0.0 for i in range(numDecs)]
@@ -847,7 +917,8 @@ class dtlz3(jmoo_problem):
 
 class dtlz4(jmoo_problem):
     "DTLZ4"
-    def __init__(prob, numDecs=10, numObjs=2):
+    def __init__(prob, numDecs=10, numObjs=2, percentage=0):
+        prob.percentage = percentage
         prob.name = "DTLZ4_" + str(numDecs) + "_" + str(numObjs)
         names = ["x"+str(i+1) for i in range(numDecs)]
         lows =  [0.0 for i in range(numDecs)]

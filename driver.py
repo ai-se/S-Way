@@ -8,5 +8,10 @@ os.system("python xomo_flight.py &")
 os.system("python xomo_ground.py &")
 os.system("python xomo_osp.py &")
 os.system("python xomo_osp2.py &")
+os.system("python xomo_all.py &")
+os.system("python monrp1.py &")
+os.system("python monrp2.py &")
+os.system("python monrp3.py &")
+os.system("python monrp4.py &")
 
 print "Finished"

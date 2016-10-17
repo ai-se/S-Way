@@ -51,39 +51,22 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            # jmoo_GALE(),
-            # jmoo_GALE64(),
-            # jmoo_GALE32(),
-            # jmoo_GALE8(),
-            # jmoo_GALE16(),
-            # jmoo_NSGAIII(),
-            # jmoo_NSGAII(),
-            # jmoo_NSGAII_2()
-            # jmoo_GALE0(),
             # jmoo_NSGAII(),
             # jmoo_SPEA2(),
             # jmoo_GALE(),
-
-            # jmoo_SWAY2()
-    jmoo_SWAY5()
+            # jmoo_SWAY2(),
+            jmoo_SWAY5()
               ]
 
 problems =[
-    # FeatureTreeModel("Web_Portal"),
-    # FeatureTreeModel("eshop"),
-    # FeatureTreeModel("cellphone"),
-    # FeatureTreeModel("EIS")
-    # POM3A(), POM3B(), POM3C(), POM3D()
+    POM3A(),
+    # POM3B(), POM3C(), POM3D(),
+    # XOMO_flight(),
+    # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
+    # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110)
     ]
 
-problems =[
-    POM3A(),
-    POM3B(), POM3C(), POM3D(),
-    XOMO_osp(), XOMO_osp2(), XOMO_ground(), XOMO_flight(), XOMO_all(),
-    # NRP(50, 5, 5, 0, 80),
-    # MONRP(50, 5, 5, 0, 80)
 
-]
 
 build_new_pop = False                                       # Whether or not to rebuild the initial population
 
