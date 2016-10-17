@@ -215,7 +215,7 @@ class JMOO:
         record_string = "<Experiment>\n"
         for problem in self.tests.problems:
               
-            record_string += "<Problem name = '" + problem.name + " " + str(problem.percentage) + "'>\n"
+            record_string += "<Problem name = '" + problem.name + " " + str(self.configurations["Universal"]["Population_Size"]) + "'>\n"
             
             for algorithm in self.tests.algorithms:
                 record_string += "<Algorithm name = '" + algorithm.name + "'>\n"
@@ -227,7 +227,7 @@ class JMOO:
 
                 # Decision Data
                 filename = problem.name + "-p" + str(self.configurations["Universal"]["Population_Size"]) + "-d" + str(
-                    len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "-perc" + str(problem.percentage) + "_" + algorithm.name + DATA_SUFFIX
+                    len(problem.decisions)) + "-o" + str(len(problem.objectives))  + algorithm.name + DATA_SUFFIX
                 dbt = open(DATA_PREFIX + DECISION_BIN_TABLE + "_" + filename, 'w')
                 sr = open(DATA_PREFIX + SUMMARY_RESULTS + filename, 'w')
                 rrs = open(DATA_PREFIX + RRS_TABLE + "_" + filename, 'w')

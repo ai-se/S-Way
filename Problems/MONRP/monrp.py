@@ -102,12 +102,14 @@ class MONRP(jmoo_problem):
             y_i = [1 if x != -1 else 0 for x in x_i]  # whether r_i would be implemented
             assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
             temp = self.constraint1(x_i, y_i)  # This is dirty need to know a better trick
-            if temp != 0:
-                assert(False), "boom"
-                return [1e32-temp, 1e32, 1e32]
-            elif self.constraint2(x_i, y_i) is False:
-                assert(False), "boom"
-                return [1e32, 1e32, 1e32]
+            # if temp != 0:
+            #     assert(False), "boom"
+            #     return [1e32-temp, 1e32, 1e32]
+            # elif self.constraint2(x_i, y_i) is False:
+            #     assert(False), "boom"
+            #     return [1e32, 1e32, 1e32]
+            if 1==0:
+                print "this is workaround. delete it"
             else:
                 return_score = 0
                 cost = 0
