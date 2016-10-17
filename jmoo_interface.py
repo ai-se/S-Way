@@ -61,6 +61,7 @@ for i,arg in enumerate(sys.argv):
         build_new_pop = True
     if arg == "-MU" or arg == "-mu" or arg == "-Mu":
         MU = sys.argv[i+1]
+        Configurations["Universal"]["Population_Size"] = int(MU)
     if arg == "-tag" or arg == "-Tag" or arg == "-TAG":
         tag = sys.argv[i+1]
     if arg == "-reportOnly":
