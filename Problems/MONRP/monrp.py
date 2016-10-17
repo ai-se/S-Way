@@ -101,8 +101,6 @@ class MONRP(jmoo_problem):
             x_i = [int(round(float(no), 0)) for no in input]  # when is r_i is implemented
             y_i = [1 if x != -1 else 0 for x in x_i]  # whether r_i would be implemented
             assert(len(x_i) == len(y_i)), "Both the list should be of the same size"
-            import pdb
-            pdb.set_trace()
             temp = self.constraint1(x_i, y_i)  # This is dirty need to know a better trick
             if temp != 0:
                 assert(False), "boom"
@@ -124,7 +122,7 @@ class MONRP(jmoo_problem):
                 satisfaction = 0
                 for c in xrange(self.tclients):
                     for i in xrange(self.trequirements):
-                        if y_i != 0:
+                        if y_i[i] != 0:
                             satisfaction += self.client[c].importance[i]
                 return [return_score, cost, satisfaction]
         else:
