@@ -60,10 +60,10 @@ algorithms = [
 
 problems =[
     POM3A(),
-    POM3B(), POM3C(), POM3D(),
-    XOMO_flight(),
-    XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
-    MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110)
+    # POM3B(), POM3C(), POM3D(),
+    # XOMO_flight(),
+    # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
+    # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110)
     ]
 
 

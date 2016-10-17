@@ -259,12 +259,13 @@ class JMOO:
                                  + "_" + str(self.configurations["Universal"]["Population_Size"]) + "/" + str(repeat)
                     import os
                     if not os.path.exists(foldername):
+                        print foldername
                         os.makedirs(foldername)
                     # Run
                     record_string += "<Run id = '" + str(repeat+1) + "'>\n"
 
                     start = time.time()
-                    statBox = jmoo_evo(problem, algorithm, self.configurations, repeat)
+                    statBox = jmoo_evo(problem, algorithm, self.configurations, repeat=repeat)
                     end = time.time()
 
                     # Find best generation

@@ -78,7 +78,7 @@ def store_values_g4(problem, latestdir, generation_number, population):
     f.close()
 
 
-def jmoo_evo(problem, algorithm, configurations, stopCriteria=bstop):
+def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
     """
     ----------------------------------------------------------------------------
      Inputs:
@@ -114,8 +114,9 @@ def jmoo_evo(problem, algorithm, configurations, stopCriteria=bstop):
     foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "_" + str(configurations["Universal"]["Population_Size"]) + "/"
     import os
     all_subdirs = [foldername + d for d in os.listdir(foldername) if os.path.isdir(foldername + d)]
-    latest_subdir = sorted(all_subdirs, key=os.path.getmtime)[-1]
-
+    latest_subdir = foldername + str(repeat)
+    print latest_subdir
+    raw_input()
 
     # # # # # # # # # # # # # # #
     # 3) Collect Initial Stats  #
