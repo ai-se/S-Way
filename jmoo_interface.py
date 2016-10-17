@@ -45,8 +45,6 @@ The Main Interface of JMOO.  Run this python script from the commmand line with 
 """
    
 
-db = open('what.txt', 'w')
-                                
 
 # Process command line arguments.  These modify properties of JMOO.
 tag = ""
