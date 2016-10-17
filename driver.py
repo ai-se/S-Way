@@ -13,5 +13,9 @@ os.system("python monrp1.py &")
 os.system("python monrp2.py &")
 os.system("python monrp3.py &")
 os.system("python monrp4.py &")
+os.system("python nrp4.py &")
+os.system("python nrp4.py &")
+os.system("python nrp4.py &")
+os.system("python nrp4.py &")
 
 print "Finished"

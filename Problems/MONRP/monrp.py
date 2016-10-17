@@ -126,7 +126,7 @@ class MONRP(jmoo_problem):
                     for i in xrange(self.trequirements):
                         if y_i[i] != 0:
                             satisfaction += self.client[c].importance[i]
-                return [return_score, cost, satisfaction]
+                return [1e5-return_score, cost, 1e5-satisfaction]
         else:
             assert(False), "BOOM"
             exit()
