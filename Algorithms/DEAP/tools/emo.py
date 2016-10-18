@@ -43,7 +43,9 @@ def deap_selNSGA2(individuals, k):
         map_fit_ind[ind.fitness].append(ind)
 
     # the inds are not identical
+    print "in sortNondominated"
     pareto_fronts = sortNondominated(individuals, k)
+    print "out sortNondominated"
 
     for front in pareto_fronts:
         assignCrowdingDist(front)
@@ -78,20 +80,18 @@ def sortNondominated(individuals, k, first_front_only=False):
         return []
 
     map_fit_ind = defaultdict(list)
-
     for ind in individuals:
         map_fit_ind[ind.fitness].append(ind)
     fits = map_fit_ind.keys()
+
     current_front = []
     next_front = []
     dominating_fits = defaultdict(int)
     dominated_fits = defaultdict(list)
 
     # Rank first Pareto front
-    # some of the elements are repeated
-    # Non dominated solutions
     for i, fit_i in enumerate(fits):
-        for fit_j in fits:
+        for fit_j in fits[i + 1:]:
             if fit_i.dominates(fit_j):
                 dominating_fits[fit_j] += 1
                 dominated_fits[fit_i].append(fit_j)
