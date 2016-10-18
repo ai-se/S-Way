@@ -144,6 +144,14 @@ class NRP(jmoo_problem):
         else:
             return False
 
+    def evalConstraintOverages(self, input=None):
+        if input:
+            x_i = [int(round(float(no), 0)) for no in input]  # when is r_i is implemented
+            y_i = [1 if x != -1 else 0 for x in x_i]  # whether r_i would be implemented
+            assert (len(x_i) == len(y_i)), "Both the list should be of the same size"
+            temp = self.constraint1(x_i, y_i)
+            return [temp]
+
 
 if __name__ == "__main__":
     problem = NRP(50, 5, 5, 0, 80)

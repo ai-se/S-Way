@@ -115,8 +115,7 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
     import os
     all_subdirs = [foldername + d for d in os.listdir(foldername) if os.path.isdir(foldername + d)]
     latest_subdir = foldername + str(repeat)
-    print latest_subdir
-    raw_input()
+
 
     # # # # # # # # # # # # # # #
     # 3) Collect Initial Stats  #

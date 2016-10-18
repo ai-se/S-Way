@@ -43,9 +43,7 @@ def deap_selNSGA2(individuals, k):
         map_fit_ind[ind.fitness].append(ind)
 
     # the inds are not identical
-    print "in sortNondominated"
     pareto_fronts = sortNondominated(individuals, k)
-    print "out sortNondominated"
 
     for front in pareto_fronts:
         assignCrowdingDist(front)
