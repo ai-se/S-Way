@@ -5,19 +5,18 @@ import matplotlib.pyplot as plt
 normalization = []
 
 
-def find_files(problem, algorithm, rep, gen, percentage):
+def find_files(problem, algorithm, rep, gen, population):
     sep = "_"
     main_file_path = "./RawData/PopulationArchives/"
-    problem_algorithm_path = main_file_path + algorithm + sep + problem + "_" + percentage + "/"
+    problem_algorithm_path = main_file_path + algorithm + sep + problem + "_" + str(population) + "/"
     rep_path = problem_algorithm_path + str(rep) + "/"
     gen_path = rep_path + str(gen) + ".txt"
     return gen_path
 
 
-def find_files_for_generations(problem, algorithm, number_of_repeats, gen):
+def find_files_for_generations(problem, algorithm, number_of_repeats, gen, pop_no):
     name = problem[-1].name
-    percentage = str(problem[-1].percentage)
-    return [find_files(name, algorithm, rep_no, gen, percentage) for rep_no in xrange(number_of_repeats)]
+    return [find_files(name, algorithm, rep_no, gen, pop_no) for rep_no in xrange(number_of_repeats)]
 
 
 def get_actual_frontier_files(problem, algorithms, max_repeats, max_gens):
@@ -101,7 +100,7 @@ def get_initial_datapoints(problem, algorithm, Configurations):
     sep = "_"
     filename = folder_name + problem.name + "-p" + str(
         Configurations["Universal"]["Population_Size"]) + "-d" + str(len(problem.decisions)) + "-o" + str(
-        len(problem.objectives)) + "-perc" + str(problem.percentage) + "-dataset.txt"
+        len(problem.objectives)) + "-dataset.txt"
     content = get_content(problem, filename, pop_size, initial_line=True)
     return content
 
@@ -301,7 +300,7 @@ def draw_hv(problem, algorithms, Configurations, tag):
     if not os.path.isdir('./Results/Charts/' + date_folder_prefix):
         os.makedirs('./Results/Charts/' + date_folder_prefix)
 
-    reference_point = [150 for _ in xrange(len(problem[-1].objectives))]
+    reference_point = [110 for _ in xrange(len(problem[-1].objectives))]
     results = {}
     number_of_repeats = Configurations["Universal"]["Repeats"]
     generations = Configurations["Universal"]["No_of_Generations"]
@@ -320,11 +319,10 @@ def draw_hv(problem, algorithms, Configurations, tag):
             print "generation",
             for generation in [0]:
                 print generation
-                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation + 1)
+                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation + 1, pop_size)
                 for file in files:
                     print file
                     for_normalizing_points.extend(get_content(problem[-1], file, pop_size))
-
 
     max_values = []
     min_values = []
@@ -334,22 +332,21 @@ def draw_hv(problem, algorithms, Configurations, tag):
         min_values.append(min(temp_values))
     assert(len(max_values) == len(min_values)), "something is wrong"
 
-
-
     for algorithm in algorithms:
         results[algorithm.name] = {}
         for gtechnique in gtechniques:
             results[algorithm.name][gtechnique] = []
+
     for algorithm in algorithms:
         for gtechnique in gtechniques:
             raw_points = get_initial_datapoints(problem[-1], algorithm, Configurations)
-
             points = []
             # Normalize the points
             for rpoint in raw_points:
                 temp_rpoint = []
                 for objx in xrange(len(problem[-1].objectives)):
                     temp_rpoint.append(((rpoint[objx] - min_values[objx])/(max_values[objx] - min_values[objx]))*100)
+                    assert(0 <= temp_rpoint[-1] <= 100), "Something is wrong"
                 points.append(temp_rpoint)
 
             from PerformanceMetrics.HyperVolume.hv import get_hyper_volume
@@ -359,15 +356,28 @@ def draw_hv(problem, algorithms, Configurations, tag):
 
             for generation in [0]:
                 temp_igd_list = []
-                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation+1)
+                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation+1, pop_size)
                 for file in files:
                     temp_value = get_content(problem[-1], file, pop_size)
-                    temp_hv = get_hyper_volume(reference_point, temp_value)
+
+                    points = []
+                    # Normalize the points
+                    for rpoint in temp_value:
+                        temp_rpoint = []
+                        for objx in xrange(len(problem[-1].objectives)):
+                            temp_rpoint.append(
+                                ((rpoint[objx] - min_values[objx]) / (max_values[objx] - min_values[objx])) * 100)
+                            assert (0 <= temp_rpoint[-1] <= 100), "Something is wrong"
+                        points.append(temp_rpoint)
+
+                    temp_hv = get_hyper_volume(reference_point, points)
                     temp_igd_list.append(temp_hv)
 
                 results[algorithm.name][gtechnique].append(temp_igd_list)
+    import pdb
+    pdb.set_trace()
     from numpy import mean
-    print  '{0:.10f}'.format((mean(results["SWAY5"]["normal"][-1])))
+    print '{0:.10f}'.format((mean(results["SWAY5"]["normal"][-1])))
 
     # import pdb
     # pdb.set_trace()
