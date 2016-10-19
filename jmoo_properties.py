@@ -35,7 +35,7 @@ from jmoo_problems import *
 from Problems.NRP.nrp import *
 # from Problems.MONRP.monrp import *
 from Problems.POM3.POM3B import POM3B
-from Problems.POM3.POM3A import POM3A
+from Problems.POM3.POM3A import POM3A, POM3AS
 from Problems.POM3.POM3C import POM3C
 from Problems.POM3.POM3D import POM3D
 from Problems.Feature_Models.feature_model import FeatureTreeModel
