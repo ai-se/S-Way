@@ -32,6 +32,7 @@ Random Stuff
 
 import random
 # from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
+from Graphics.simplified_new import get_performance_measures
 from jmoo_jmoea import jmoo_evo
 from jmoo_properties import DECISION_BIN_TABLE, DATA_SUFFIX, DATA_PREFIX, DEFECT_PREDICT_PREFIX, SUMMARY_RESULTS, \
     RRS_TABLE

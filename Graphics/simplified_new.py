@@ -32,8 +32,8 @@ def find_extreme_points(points):
     second_point = points[distances.index(max(distances))]
     return [first_point, second_point]
 
-def find_files(problem, pop_size):
 
+def find_files(problem, pop_size):
     folders = [data_folder + d + "/" for d in os.listdir(data_folder) if problem.name in d]
     folders_list = []
     for folder in folders:
