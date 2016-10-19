@@ -55,15 +55,16 @@ algorithms = [
             jmoo_SPEA2(),
             # jmoo_GALE(),
             # jmoo_SWAY2(),
-            # jmoo_SWAY5()
+            jmoo_SWAY5()
               ]
 
 problems =[
     POM3A(),
-    # POM3B(), POM3C(), POM3D(),
-    # XOMO_flight(),
-    # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
-    # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110)
+    POM3B(), POM3C(), POM3D(),
+    XOMO_flight(),
+    XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
+    MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
+    # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
     ]
 
 
@@ -74,7 +75,7 @@ Configurations = {
     "Universal": {
         "Repeats" : 20,
         "Population_Size" : 100,
-        "No_of_Generations" : 20
+        "No_of_Generations" : 1
     },
     "NSGAIII": {
         "SBX_Probability": 1,

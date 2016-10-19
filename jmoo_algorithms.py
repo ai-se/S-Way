@@ -489,7 +489,7 @@ def deap_format(problem, individuals):
         dIndividuals[-1].fitness.decisionValues = [dv for dv in individual.decisionValues]
         if individual.valid:
             dIndividuals[i].fitness.values = individual.fitness.fitness
-        dIndividuals[-1].fitness.feasible = not problem.evalConstraints([dv for dv in individual.decisionValues])
+        dIndividuals[-1].fitness.feasible = True #not problem.evalConstraints([dv for dv in individual.decisionValues])
         dIndividuals[-1].fitness.problem = problem
 
     return dIndividuals

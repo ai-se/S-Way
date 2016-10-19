@@ -286,7 +286,11 @@ def get_hyper_volume(reference_point, results):
     """Receives list of  lists"""
 
     HV = HyperVolume(reference_point)
-    return HV.compute(results)
+    result = HV.compute(results)
+    if result == 0:
+        import pdb
+        pdb.set_trace()
+    return result
 
 if __name__ == "__main__":
 

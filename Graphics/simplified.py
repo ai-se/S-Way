@@ -19,10 +19,10 @@ def find_files_for_generations(problem, algorithm, number_of_repeats, gen, pop_n
     return [find_files(name, algorithm, rep_no, gen, pop_no) for rep_no in xrange(number_of_repeats)]
 
 
-def get_actual_frontier_files(problem, algorithms, max_repeats, max_gens):
+def get_actual_frontier_files(problem, algorithms, max_repeats, max_gens, pop_size):
     files = []
     for algorithm in algorithms:
-            files.extend(find_files_for_generations(problem.name, algorithm.name, max_repeats, max_gens))
+            files.extend(find_files_for_generations(problem, algorithm.name, max_repeats, max_gens, pop_size))
     return files
 
 
@@ -66,7 +66,7 @@ def get_actual_frontier(problem, algorithms, Configurations, tag):
     pop_size = Configurations["Universal"]["Population_Size"]
     max_repeats = Configurations["Universal"]["Repeats"]
     max_gens = Configurations["Universal"]["No_of_Generations"]
-    files = get_actual_frontier_files(problem[-1], algorithms, max_repeats, max_gens)
+    files = get_actual_frontier_files(problem, algorithms, max_repeats, max_gens, pop_size)
     content = []
     for file in files:
         content.extend(remove_duplicates(get_content_all(problem[-1], file, pop_size)))
@@ -318,10 +318,9 @@ def draw_hv(problem, algorithms, Configurations, tag):
             for_normalizing_points.extend(points)
             print "generation",
             for generation in [0]:
-                print generation
+                print generation,
                 files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation + 1, pop_size)
                 for file in files:
-                    print file
                     for_normalizing_points.extend(get_content(problem[-1], file, pop_size))
 
     max_values = []
@@ -374,16 +373,9 @@ def draw_hv(problem, algorithms, Configurations, tag):
                     temp_igd_list.append(temp_hv)
 
                 results[algorithm.name][gtechnique].append(temp_igd_list)
-    import pdb
-    pdb.set_trace()
-    from numpy import mean
-    print '{0:.10f}'.format((mean(results["SWAY5"]["normal"][-1])))
-
-    # import pdb
-    # pdb.set_trace()
-    # pickle_filename = "./Results/Pickle/hv_" + problem[-1].name + ".p"
-    # import pickle
-    # pickle.dump( results, open(pickle_filename, "wb" ))
+    # from numpy import mean
+    # print '{0:.10f}'.format((mean(results["SWAY5"]["normal"][-1])))
+    print results[algorithm.name][gtechnique][-1], "Algorithm: ", algorithm.name
 
 
 def find_extreme_points(problem, points):
@@ -417,33 +409,71 @@ def draw_spread(problem, algorithms, Configurations, tag):
     results = {}
     gtechniques = ["normal"]
 
+    for_normalizing_points = []
+    for algorithm in algorithms:
+        for gtechnique in gtechniques:
+            points = get_initial_datapoints(problem[-1], algorithm, Configurations)
+            for_normalizing_points.extend(points)
+            print "generation",
+            for generation in [0]:
+                print generation,
+                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation + 1, pop_size)
+                for file in files:
+                    for_normalizing_points.extend(get_content(problem[-1], file, pop_size))
+
+    max_values = []
+    min_values = []
+    for objx in xrange(len(problem[-1].objectives)):
+        temp_values = [fnp[objx] for fnp in for_normalizing_points]
+        max_values.append(max(temp_values))
+        min_values.append(min(temp_values))
+    assert (len(max_values) == len(min_values)), "something is wrong"
+
     for algorithm in algorithms:
         results[algorithm.name] = {}
         for gtechnique in gtechniques:
             results[algorithm.name][gtechnique] = []
+
     for algorithm in algorithms:
         for gtechnique in gtechniques:
 
-            points = get_initial_datapoints(problem[-1], algorithm, Configurations)
+            raw_points = get_initial_datapoints(problem[-1], algorithm, Configurations)
+            points = []
+            # Normalize the points
+            for rpoint in raw_points:
+                temp_rpoint = []
+                for objx in xrange(len(problem[-1].objectives)):
+                    temp_rpoint.append(
+                        ((rpoint[objx] - min_values[objx]) / (max_values[objx] - min_values[objx])) * 100)
+                    assert (0 <= temp_rpoint[-1] <= 100), "Something is wrong"
+                points.append(temp_rpoint)
 
             from PerformanceMetrics.Spread.Spread import spread_calculator
-            results[algorithm.name][gtechnique].append(spread_calculator(points, extreme_point1,extreme_point2))
+            temp_spread = spread_calculator(points, extreme_point1,extreme_point2)
+
+            results[algorithm.name][gtechnique].append(temp_spread)
 
 
-
-            for generation in [19]:
+            for generation in [0]:
                 print ".",
                 temp_igd_list = []
-                files = find_files_for_generations(problem[-1].name, algorithm.name, number_of_repeats, generation+1)
+                files = find_files_for_generations(problem, algorithm.name, number_of_repeats, generation+1, Configurations['Universal']['Population_Size'])
                 for file in files:
                     temp_value = get_content(problem[-1], file, pop_size)
+                    points = []
+                    # Normalize the points
+                    for rpoint in temp_value:
+                        temp_rpoint = []
+                        for objx in xrange(len(problem[-1].objectives)):
+                            temp_rpoint.append(
+                                ((rpoint[objx] - min_values[objx]) / (max_values[objx] - min_values[objx])) * 100)
+                            assert (0 <= temp_rpoint[-1] <= 100), "Something is wrong"
+                        points.append(temp_rpoint)
+
+                    temp_spread = spread_calculator(points, extreme_point1, extreme_point2)
                     # print [[round(tt, 2) for tt in t] for t in temp_value]
-                    temp_igd_list.append(spread_calculator(temp_value, extreme_point1,extreme_point2))
+                    temp_igd_list.append(temp_spread)
                 from numpy import mean
                 results[algorithm.name][gtechnique].append(temp_igd_list)
 
-    pickle_filename = "./Results/Pickle/spread_" + problem[-1].name + ".p"
-    import pickle
-    pickle.dump( results, open(pickle_filename, "wb" ))
-
-    print "Processed: ", problem[-1].name
+        print results[algorithm.name][gtechnique][-1], "Algorithm: ", algorithm.name

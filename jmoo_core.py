@@ -31,9 +31,8 @@ Random Stuff
 """
 
 import random
-from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
-# from Graphics.charter import charter_reporter, statistic_reporter, comparision_reporter
-# from Graphics.summary import generate_summary
+# from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
+from Graphics.simplified_new import get_performance_measures
 from jmoo_jmoea import jmoo_evo
 from jmoo_properties import DECISION_BIN_TABLE, DATA_SUFFIX, DATA_PREFIX, DEFECT_PREDICT_PREFIX, SUMMARY_RESULTS, \
     RRS_TABLE
@@ -122,9 +121,10 @@ class jmoo_chart_report:
     def doit(self, tagnote=""):
         igd_list = []
         for problem in self.tests.problems:
-            print "HyperVolume", problem.name + str(problem.percentage),
-            draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
-            # print "Spread"
+            get_performance_measures(problem, self.Configurations['Universal']['Population_Size'])
+            # print "HyperVolume", problem.name + " Population " + str(self.Configurations['Universal']['Population_Size']),
+            # draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
+            # print "Spread", problem.name + " Population " + str(self.Configurations['Universal']['Population_Size']),
             # draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
             # print "IGD"
             # draw_igd([problem], self.tests.algorithms, self.Configurations, tag="IGD")
