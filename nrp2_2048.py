@@ -2,7 +2,7 @@ from jmoo_properties import *
 from jmoo_core import *
 
 # Wrap the tests in the jmoo core framework
-tests = jmoo_test([NRP(50, 4, 5, 0, 110)], algorithms)
+tests = jmoo_test([MONRP(50, 4, 5, 0, 110)], algorithms)
 reports = None
 local_configurations = {
     "Universal": {
