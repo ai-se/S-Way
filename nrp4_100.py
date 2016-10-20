@@ -14,5 +14,4 @@ local_configurations = {
 
 # Associate core with tests and reports
 core = JMOO(tests, reports, local_configurations)
-core = JMOO(tests, reports, Configurations)
 core.doTests()

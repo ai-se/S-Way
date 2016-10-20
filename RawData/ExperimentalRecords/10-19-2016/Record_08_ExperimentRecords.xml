@@ -1,0 +1,166 @@
+<Experiment>
+<Problem name = 'NRP_50_4_5_0_90 100'>
+<Algorithm name = 'SWAY5'>
+<Run id = '1'>
+<Summary>
+<NumEvals>59</NumEvals>
+<RunTime>0.619504928589</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2420</f1>
+</Summary></Run>
+<Run id = '2'>
+<Summary>
+<NumEvals>25</NumEvals>
+<RunTime>0.443246841431</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2368</f1>
+</Summary></Run>
+<Run id = '3'>
+<Summary>
+<NumEvals>42</NumEvals>
+<RunTime>0.457956790924</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2106</f1>
+</Summary></Run>
+<Run id = '4'>
+<Summary>
+<NumEvals>36</NumEvals>
+<RunTime>0.499319791794</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2230</f1>
+</Summary></Run>
+<Run id = '5'>
+<Summary>
+<NumEvals>18</NumEvals>
+<RunTime>0.431303977966</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2140</f1>
+</Summary></Run>
+<Run id = '6'>
+<Summary>
+<NumEvals>6</NumEvals>
+<RunTime>0.3962059021</RunTime>
+<IBD>1.85914091423</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2137</f1>
+</Summary></Run>
+<Run id = '7'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>0.562071800232</RunTime>
+<IBD>1.0</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2317</f1>
+</Summary></Run>
+<Run id = '8'>
+<Summary>
+<NumEvals>18</NumEvals>
+<RunTime>0.584898948669</RunTime>
+<IBD>1.0</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2368</f1>
+</Summary></Run>
+<Run id = '9'>
+<Summary>
+<NumEvals>6</NumEvals>
+<RunTime>0.570025920868</RunTime>
+<IBD>1.0</IBD>
+<IBS>1.28871137134</IBS>
+<f1>1975</f1>
+</Summary></Run>
+<Run id = '10'>
+<Summary>
+<NumEvals>31</NumEvals>
+<RunTime>0.796052932739</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2297</f1>
+</Summary></Run>
+<Run id = '11'>
+<Summary>
+<NumEvals>13</NumEvals>
+<RunTime>0.527594089508</RunTime>
+<IBD>1.0</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2420</f1>
+</Summary></Run>
+<Run id = '12'>
+<Summary>
+<NumEvals>24</NumEvals>
+<RunTime>0.585974931717</RunTime>
+<IBD>1.0</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2378</f1>
+</Summary></Run>
+<Run id = '13'>
+<Summary>
+<NumEvals>32</NumEvals>
+<RunTime>0.676665782928</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2140</f1>
+</Summary></Run>
+<Run id = '14'>
+<Summary>
+<NumEvals>32</NumEvals>
+<RunTime>0.638789892197</RunTime>
+<IBD>1.85914091423</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2417</f1>
+</Summary></Run>
+<Run id = '15'>
+<Summary>
+<NumEvals>12</NumEvals>
+<RunTime>0.635584831238</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2102</f1>
+</Summary></Run>
+<Run id = '16'>
+<Summary>
+<NumEvals>18</NumEvals>
+<RunTime>0.729928016663</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2315</f1>
+</Summary></Run>
+<Run id = '17'>
+<Summary>
+<NumEvals>6</NumEvals>
+<RunTime>0.492535829544</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.28871137134</IBS>
+<f1>2258</f1>
+</Summary></Run>
+<Run id = '18'>
+<Summary>
+<NumEvals>37</NumEvals>
+<RunTime>0.668499946594</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2371</f1>
+</Summary></Run>
+<Run id = '19'>
+<Summary>
+<NumEvals>36</NumEvals>
+<RunTime>0.548496961594</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2378</f1>
+</Summary></Run>
+<Run id = '20'>
+<Summary>
+<NumEvals>46</NumEvals>
+<RunTime>0.687718868256</RunTime>
+<IBD>2.71828182846</IBD>
+<IBS>1.71828182846</IBS>
+<f1>2368</f1>
+</Summary></Run>
+</Algorithm>
+</Problem>
+</Experiment>
