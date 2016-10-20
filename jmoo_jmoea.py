@@ -104,7 +104,8 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
     numeval = 0
     values_to_be_passed = {}
 
-    population = problem.loadInitialPopulation(configurations["Universal"]["Population_Size"])
+    # population = problem.loadInitialPopulation(configurations["Universal"]["Population_Size"])
+    population = problem.loadInitialPopulation(configurations["Universal"]["Population_Size"], repeat=repeat)
 
     assert(len(population) == configurations["Universal"]["Population_Size"]), "The population loaded from the file must be equal to MU"
     from time import time

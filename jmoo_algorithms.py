@@ -70,7 +70,7 @@ import array,random,numpy
 
 class jmoo_NSGAII:
     def __init__(self, color="Blue"):
-        self.name = "NSGAII"
+        self.name = "NSGAIISC"
         self.initializer = None
         self.selector = selTournamentDCD
         self.adjustor = crossoverAndMutation
@@ -91,7 +91,7 @@ class jmoo_NSGAII_2:
 
 class jmoo_SPEA2:
     def __init__(self, color="Green"):
-        self.name = "SPEA2"
+        self.name = "SPEA2SC"
         self.initializer = None
         self.selector = selTournament
         self.adjustor = crossoverAndMutation
