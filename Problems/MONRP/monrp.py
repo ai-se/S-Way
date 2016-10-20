@@ -69,9 +69,8 @@ class MONRP(jmoo_problem):
         cost = [0 for _ in xrange(self.treleases)]
         for i, y in enumerate(y_i):
             if y != 0:
-                # assert(self.requirement[y].id == y), "Indexing Error!"
-                # assert(x_i[i] <= self.treleases)
-                print i, len(self.requirement), len(x_i), len(cost)
+                assert(self.requirement[y].id == y), "Indexing Error!"
+                assert(x_i[i] <= self.treleases)
                 cost[x_i[i]] += self.requirement[i].cost
         # print cost, [b.budget for b in self.release], sum(cost), sum([b.budget for b in self.release])
         extra = 0
@@ -127,7 +126,7 @@ class MONRP(jmoo_problem):
                     for i in xrange(self.trequirements):
                         if y_i[i] != 0:
                             satisfaction += self.client[c].importance[i]
-                return [return_score, cost, satisfaction]
+                return [1e5-return_score, cost, 1e5-satisfaction]
         else:
             assert(False), "BOOM"
             exit()
