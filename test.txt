@@ -1,0 +1,840 @@
+#<------- POM3A + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_4_110 + SWAY5 ------->#
+1  | #<------- POM3D + SWAY5 ------->#
+1  | #<------- POM3C + SWAY5 ------->#
+1  | #<------- POM3B + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_4_110 + SWAY5 ------->#
+1  | #<------- POM3C + SWAY5 ------->#
+1  | #<------- POM3D + SWAY5 ------->#
+1  | #<------- POM3A + SWAY5 ------->#
+1  | #<------- xomo_flight + SWAY5 ------->#
+1  | #<------- POM3B + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_0_110 + SWAY5 ------->#
+1  | #<------- xomo_ground + SWAY5 ------->#
+1  | #<------- xomoo2 + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_0_90 + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_4_90 + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_0_90 + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_0_110 + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_0_110 + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_4_90 + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_4_110 + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_4_110 + SWAY5 ------->#
+1  | #<------- xomo_all + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_4_90 + SWAY5 ------->#
+1  | #<------- xomo_osp + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_0_90 + SWAY5 ------->#
+1  | #<------- xomo_ground + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_0_110 + SWAY5 ------->#
+1  | #<------- NRP_50_4_5_4_90 + SWAY5 ------->#
+1  | #<------- xomoo2 + SWAY5 ------->#
+1  | #<------- xomo_osp + SWAY5 ------->#
+1  | #<------- xomo_flight + SWAY5 ------->#
+1  | #<------- MONRP_50_4_5_0_90 + SWAY5 ------->#
+1  | #<------- xomo_all + SWAY5 ------->#
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   10.93084 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  37
+.  finished generating distance_matrix
+Binary:  19
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   12.67242 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  37
+.  finished generating distance_matrix
+Binary:  19
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+finished generating distance_matrix
+Binary:  18
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:    9.74364 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   10.83002 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+finished generating distance_matrix
+Binary:  12
+finished generating distance_matrix
+Binary:  24
+Where done
+ # Finished: Celebrate! #  Time taken:    7.21552 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  37
+.  finished generating distance_matrix
+Binary:  19
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  9
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+Where done
+ # Finished: Celebrate! #  Time taken:   11.19941 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  28
+.  finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  4
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  3
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   13.31693 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+Where done
+ # Finished: Celebrate! #  Time taken:    7.54468 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   11.10895 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:    7.51875 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+finished generating distance_matrix
+Binary:  24
+Where done
+ # Finished: Celebrate! #  Time taken:    7.77897 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  28
+.  finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  4
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  3
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   13.13996 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+Where done
+ # Finished: Celebrate! #  Time taken:    9.55083 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  28
+.  finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  4
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  3
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   12.05917 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+Where done
+ # Finished: Celebrate! #  Time taken:    7.89111 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  37
+.  finished generating distance_matrix
+Binary:  19
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   11.80753 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   10.15901 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  37
+.  finished generating distance_matrix
+Binary:  19
+finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:    9.92002 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   11.56431 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  18
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:    7.45948 seconds.
+./RawData/PopulationArchives/SWAY5_NRP_50_4_5_4_110_100/12
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   12.56757 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:    9.93372 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  28
+.  finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  4
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  3
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   10.44062 seconds.
+1  |  finished generating distance_matrix
+Binary:  49
+.  finished generating distance_matrix
+Binary:  25
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   10.63914 seconds.
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  37
+.  finished generating distance_matrix
+Binary:  19
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  9
+.  Binary:  5
+.  Binary:  2
+Binary:  2
+Binary:  4
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   12.90433 seconds.
+./RawData/PopulationArchives/SWAY5_NRP_50_4_5_4_110_100/13
+1  |  finished generating distance_matrix
+Binary:  24
+.  finished generating distance_matrix
+Binary:  18
+.  finished generating distance_matrix
+Binary:  28
+.  finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  4
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  14
+.  Binary:  7
+.  Binary:  3
+Binary:  3
+Binary:  7
+.  Binary:  3
+Binary:  3
+finished generating distance_matrix
+Binary:  9
+.  Binary:  4
+Binary:  4
+finished generating distance_matrix
+Binary:  12
+.  Binary:  6
+.  Binary:  3
+Binary:  3
+Binary:  6
+.  Binary:  3
+Binary:  3
+Where done
+ # Finished: Celebrate! #  Time taken:   11.05966 seconds.
+./RawData/PopulationArchives/SWAY5_NRP_50_4_5_4_110_100/14
+1  | 
