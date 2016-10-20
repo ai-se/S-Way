@@ -1,0 +1,206 @@
+<Experiment>
+<Problem name = 'MONRP_50_4_5_0_90 512'>
+<Algorithm name = 'SWAY5'>
+<Run id = '1'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>9.79990696907</RunTime>
+<IBD>1.37408043357</IBD>
+<IBS>0.0130973002378</IBS>
+<f1>97102.0</f1>
+<f2>519</f2>
+<f3>99567.0</f3>
+</Summary></Run>
+<Run id = '2'>
+<Summary>
+<NumEvals>24</NumEvals>
+<RunTime>10.2795989513</RunTime>
+<IBD>1.37874826819</IBD>
+<IBS>0.0106295291337</IBS>
+<f1>96934.0</f1>
+<f2>511</f2>
+<f3>99558.0</f3>
+</Summary></Run>
+<Run id = '3'>
+<Summary>
+<NumEvals>12</NumEvals>
+<RunTime>9.97198987007</RunTime>
+<IBD>1.38534140742</IBD>
+<IBS>0.00783996781047</IBS>
+<f1>96884.0</f1>
+<f2>517</f2>
+<f3>99546.0</f3>
+</Summary></Run>
+<Run id = '4'>
+<Summary>
+<NumEvals>18</NumEvals>
+<RunTime>9.33489894867</RunTime>
+<IBD>1.38186628037</IBD>
+<IBS>0.0147659100261</IBS>
+<f1>97031.0</f1>
+<f2>508</f2>
+<f3>99592.0</f3>
+</Summary></Run>
+<Run id = '5'>
+<Summary>
+<NumEvals>14</NumEvals>
+<RunTime>11.4898431301</RunTime>
+<IBD>1.37901108725</IBD>
+<IBS>0.00939995553121</IBS>
+<f1>96725.0</f1>
+<f2>543</f2>
+<f3>99501.0</f3>
+</Summary></Run>
+<Run id = '6'>
+<Summary>
+<NumEvals>14</NumEvals>
+<RunTime>11.6699621677</RunTime>
+<IBD>1.37768298728</IBD>
+<IBS>0.0179409578701</IBS>
+<f1>97060.0</f1>
+<f2>525</f2>
+<f3>99553.0</f3>
+</Summary></Run>
+<Run id = '7'>
+<Summary>
+<NumEvals>15</NumEvals>
+<RunTime>8.5019030571</RunTime>
+<IBD>1.38657256755</IBD>
+<IBS>0.0108135157833</IBS>
+<f1>96846.0</f1>
+<f2>512</f2>
+<f3>99552.0</f3>
+</Summary></Run>
+<Run id = '8'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>8.65866303444</RunTime>
+<IBD>1.37251168297</IBD>
+<IBS>0.00989141302394</IBS>
+<f1>96809.0</f1>
+<f2>547</f2>
+<f3>99519.0</f3>
+</Summary></Run>
+<Run id = '9'>
+<Summary>
+<NumEvals>18</NumEvals>
+<RunTime>11.2423429489</RunTime>
+<IBD>1.381534432</IBD>
+<IBS>0.0167283433566</IBS>
+<f1>96729.0</f1>
+<f2>494</f2>
+<f3>99558.0</f3>
+</Summary></Run>
+<Run id = '10'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>8.67378807068</RunTime>
+<IBD>1.38051222171</IBD>
+<IBS>0.0134348904835</IBS>
+<f1>96741.0</f1>
+<f2>539</f2>
+<f3>99527.0</f3>
+</Summary></Run>
+<Run id = '11'>
+<Summary>
+<NumEvals>21</NumEvals>
+<RunTime>11.8785669804</RunTime>
+<IBD>1.37471623502</IBD>
+<IBS>0.0134876629782</IBS>
+<f1>97280.0</f1>
+<f2>507</f2>
+<f3>99576.0</f3>
+</Summary></Run>
+<Run id = '12'>
+<Summary>
+<NumEvals>18</NumEvals>
+<RunTime>8.62319397926</RunTime>
+<IBD>1.37705083519</IBD>
+<IBS>0.0160291462851</IBS>
+<f1>97281.0</f1>
+<f2>492</f2>
+<f3>99599.0</f3>
+</Summary></Run>
+<Run id = '13'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>8.71464395523</RunTime>
+<IBD>1.38020810749</IBD>
+<IBS>0.0134984255172</IBS>
+<f1>97281.0</f1>
+<f2>492</f2>
+<f3>99599.0</f3>
+</Summary></Run>
+<Run id = '14'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>8.25084590912</RunTime>
+<IBD>1.37728308025</IBD>
+<IBS>0.0143946680849</IBS>
+<f1>96846.0</f1>
+<f2>512</f2>
+<f3>99552.0</f3>
+</Summary></Run>
+<Run id = '15'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>12.9212839603</RunTime>
+<IBD>1.38086824685</IBD>
+<IBS>0.0158314299499</IBS>
+<f1>97153.0</f1>
+<f2>501</f2>
+<f3>99565.0</f3>
+</Summary></Run>
+<Run id = '16'>
+<Summary>
+<NumEvals>15</NumEvals>
+<RunTime>8.49594497681</RunTime>
+<IBD>1.38153025747</IBD>
+<IBS>0.0143145591833</IBS>
+<f1>96869.0</f1>
+<f2>534</f2>
+<f3>99544.0</f3>
+</Summary></Run>
+<Run id = '17'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>8.64272999763</RunTime>
+<IBD>1.37274487363</IBD>
+<IBS>0.0134309037175</IBS>
+<f1>97153.0</f1>
+<f2>501</f2>
+<f3>99565.0</f3>
+</Summary></Run>
+<Run id = '18'>
+<Summary>
+<NumEvals>13</NumEvals>
+<RunTime>11.9460999966</RunTime>
+<IBD>1.37421380232</IBD>
+<IBS>0.0193501759037</IBS>
+<f1>97159.0</f1>
+<f2>532</f2>
+<f3>99564.0</f3>
+</Summary></Run>
+<Run id = '19'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>8.72256493568</RunTime>
+<IBD>1.38437320692</IBD>
+<IBS>0.0131493598026</IBS>
+<f1>97085.0</f1>
+<f2>505</f2>
+<f3>99584.0</f3>
+</Summary></Run>
+<Run id = '20'>
+<Summary>
+<NumEvals>16</NumEvals>
+<RunTime>8.72399115562</RunTime>
+<IBD>1.36894993459</IBD>
+<IBS>0.0104399240505</IBS>
+<f1>97281.0</f1>
+<f2>492</f2>
+<f3>99599.0</f3>
+</Summary></Run>
+</Algorithm>
+</Problem>
+</Experiment>
