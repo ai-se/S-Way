@@ -66,6 +66,9 @@ target/
 #Mac
 .DS_Store
 
-
+out/*
+err/*
+Data/*
+RawData/*
 
 
