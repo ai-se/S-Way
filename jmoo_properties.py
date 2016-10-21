@@ -60,7 +60,7 @@ algorithms = [
 
 problems =[
     POM3A(),
-    POM3AS()
+    # POM3AS()
     # POM3B(), POM3C(), POM3D(),
     # XOMO_flight(),
     # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
