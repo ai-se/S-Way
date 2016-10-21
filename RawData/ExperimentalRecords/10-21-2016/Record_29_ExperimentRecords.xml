@@ -1,0 +1,16 @@
+<Experiment>
+<Problem name = 'POM3A(S) 100'>
+<Algorithm name = 'SWAY5'>
+<Run id = '1'>
+<Summary>
+<NumEvals>6</NumEvals>
+<RunTime>0.403665065765</RunTime>
+<IBD>0.834797451808</IBD>
+<IBS>0.0105791726561</IBS>
+<Cost>498.281397543</Cost>
+<Score>0.395165844154</Score>
+<Idle>0.593406593407</Idle>
+</Summary></Run>
+</Algorithm>
+</Problem>
+</Experiment>
