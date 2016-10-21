@@ -39,11 +39,11 @@ from Problems.POM3.POM3B import POM3B, POM3BS, POM3BM, POM3BL
 from Problems.POM3.POM3C import POM3C, POM3CS, POM3CM, POM3CL
 from Problems.POM3.POM3D import POM3D, POM3DS, POM3DM, POM3DL
 from Problems.Feature_Models.feature_model import FeatureTreeModel
-from Problems.XOMO.XOMO_flight import XOMO_flight
-from Problems.XOMO.XOMO_all import XOMO_all
-from Problems.XOMO.XOMO_ground import XOMO_ground
-from Problems.XOMO.XOMO_osp import XOMO_osp
-from Problems.XOMO.XOMO_osp2 import XOMO_osp2
+from Problems.XOMO.XOMO_flight import XOMO_flight, XOMO_flightS, XOMO_flightM, XOMO_flightL
+from Problems.XOMO.XOMO_all import XOMO_all, XOMO_allS, XOMO_allM, XOMO_allL
+from Problems.XOMO.XOMO_ground import XOMO_ground, XOMO_groundS, XOMO_groundM, XOMO_groundL
+from Problems.XOMO.XOMO_osp import XOMO_osp, XOMO_ospS, XOMO_ospM, XOMO_ospL
+from Problems.XOMO.XOMO_osp2 import XOMO_osp2, XOMO_osp2S, XOMO_osp2M, XOMO_osp2L
 from Problems.NRP.nrp import NRP
 from Problems.MONRP.monrp import MONRP
 
@@ -59,13 +59,17 @@ algorithms = [
               ]
 
 problems =[
-    POM3A(), POM3AS(), POM3AM(), POM3AL(),
-    POM3B(), POM3BS(), POM3BM(), POM3BL(),
-    POM3C(), POM3CS(), POM3CM(), POM3CL(),
-    POM3D(), POM3DS(), POM3DM(), POM3DL(),
+    # POM3A(), POM3AS(), POM3AM(), POM3AL(),
+    # POM3B(), POM3BS(), POM3BM(), POM3BL(),
+    # POM3C(), POM3CS(), POM3CM(), POM3CL(),
+    # POM3D(), POM3DS(), POM3DM(), POM3DL(),
     # POM3AS()
     # POM3B(), POM3C(), POM3D(),
-    # XOMO_flight(),
+    XOMO_flight(), XOMO_flightS(), XOMO_flightM(), XOMO_flightL(),
+    XOMO_all(), XOMO_allS(), XOMO_allM(), XOMO_allL(),
+    XOMO_ground(), XOMO_groundS(), XOMO_groundM(), XOMO_groundL(),
+    XOMO_osp(), XOMO_ospS(), XOMO_ospM(), XOMO_ospL(),
+    XOMO_osp2(), XOMO_osp2S(), XOMO_osp2M(), XOMO_osp2L(),
     # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
     # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
