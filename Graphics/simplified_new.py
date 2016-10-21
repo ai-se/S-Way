@@ -132,15 +132,20 @@ def get_performance_measures(problem, pop_size):
         pfs = [r.pfs for r in repeats]
         igds = [r.igd for r in repeats]
 
-        print "Problem", ",",problem_name, ",",
-        print "Algorithm",",", algorithm_name, ",",
-        print "PopSize",",", population_size, ",",
-        print "Median-HV",",", np.median(hvs), ",",
-        print "IQR-HV", ",",np.percentile(hvs, 75) - np.percentile(hvs, 25), ",",
-        print "Median-spreads", ",",np.median(spreads), ",",
-        print "IQR-spreads", ",",np.percentile(spreads, 75) - np.percentile(spreads, 25), ",",
-        print "Median-PFS", ",",np.median(pfs), ",",
-        print "IQR-PFS", ",",np.percentile(pfs, 75) - np.percentile(pfs, 25)
+        # print "Problem", ",",problem_name, ",",
+        # print "Algorithm",",", algorithm_name, ",",
+        # print "PopSize",",", population_size, ",",
+        # print "Median-HV",",", np.median(hvs), ",",
+        # print "IQR-HV", ",",np.percentile(hvs, 75) - np.percentile(hvs, 25), ",",
+        # print "Median-spreads", ",",np.median(spreads), ",",
+        # print "IQR-spreads", ",",np.percentile(spreads, 75) - np.percentile(spreads, 25), ",",
+        # print "Median-PFS", ",",np.median(pfs), ",",
+        # print "IQR-PFS", ",",np.percentile(pfs, 75) - np.percentile(pfs, 25)
         # print "Median-HV", np.median(hvs),
         # print "IQR-HV", np.percentile(hvs, 75) - np.percentile(hvs, 25),
-
+        print("%s , %s, %s, %s, %s" %
+              (problem_name,
+              algorithm_name,
+              str(population_size),
+              str(['hv: ' + str(i) for i in hvs])[1:-1],
+              str(['spread: ' + str(i) for i in spreads])[1:-1]))
