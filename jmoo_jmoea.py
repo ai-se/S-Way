@@ -114,7 +114,7 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
     foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name + "_" + str(configurations["Universal"]["Population_Size"]) + "/"
     import os
     all_subdirs = [foldername + d for d in os.listdir(foldername) if os.path.isdir(foldername + d)]
-    latest_subdir = foldername + str(repeat)
+    latest_subdir = foldername + str(configurations["Universal"]["Repeat_Offset"]+repeat)
 
 
     # # # # # # # # # # # # # # #

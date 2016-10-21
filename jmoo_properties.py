@@ -72,15 +72,14 @@ problems =[
     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
     ]
 
-
-
-build_new_pop = False                                       # Whether or not to rebuild the initial population
+build_new_pop = False  # Whether or not to rebuild the initial population
 
 Configurations = {
     "Universal": {
-        "Repeats" : 20,
+        "Repeats": 10,
+        "Repeat_Offset": 0,
         "Population_Size" : 100,
-        "No_of_Generations" : 1
+        "No_of_Generations" : 1,
     },
     "NSGAIII": {
         "SBX_Probability": 1,

@@ -156,7 +156,7 @@ def generate_final_frontier_for_gale4(problems, algorithms, Configurations, tag=
                 final_solutions, _ = selNSGA2(problem, [], solutions, Configurations)
 
                 for i in xrange(Configurations["Universal"]["No_of_Generations"]):
-                    filename = "./RawData/PopulationArchives/" + "GALE4" + "_" + problem.name + "/" + str(repeat) + "/" + \
+                    filename = "./RawData/PopulationArchives/" + "GALE4" + "_" + problem.name + "/" + str(self.configurations["Universal"]["Repeat_Offset"]+repeat) + "/" + \
                                str(i+1) + ".txt"
                     f = open(filename, "w")
                     for fs in final_solutions:
@@ -254,9 +254,9 @@ class JMOO:
                 IGD_Values = []
                 # Repeat Core
                 for repeat in range(self.configurations["Universal"]["Repeats"]):
-
                     foldername = "./RawData/PopulationArchives/" + algorithm.name + "_" + problem.name  \
-                                 + "_" + str(self.configurations["Universal"]["Population_Size"]) + "/" + str(repeat)
+                                 + "_" + str(self.configurations["Universal"]["Population_Size"]) + "/" + \
+                                 str(self.configurations["Universal"]["Repeat_Offset"]+repeat)
                     import os
                     if not os.path.exists(foldername):
                         print foldername

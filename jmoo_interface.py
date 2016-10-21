@@ -71,7 +71,12 @@ for i,arg in enumerate(sys.argv):
     if arg == "-binsOnly":
         binsOnly = True
         reportOnly = True
-        
+    if arg == '-repeat' or arg == '-repeats':
+        repeat = int(sys.argv[i+1])
+        Configurations["Universal"]["Repeats"] = repeat
+    if arg == '-repeatOffset':
+        offset = int(sys.argv[i+1])
+        Configurations["Universal"]["Repeat_Offset"] = offset
         
 # Build new initial populations if suggested.  Before tests can be performed, a problem requires an initial dataset.
 if build_new_pop:
