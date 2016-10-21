@@ -77,7 +77,7 @@ Configurations = {
     "Universal": {
         "Repeats": 10,
         "Repeat_Offset": 0,
-        "Population_Size" : 100,
+        "Population_Size" : 10000,
         "No_of_Generations" : 1,
     },
     "NSGAIII": {
