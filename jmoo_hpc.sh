@@ -11,5 +11,7 @@ rm err/*
 #done
 
 
-dt=$(date '+%m%d_%H%M');
-bsub -W 60 -n 1 -o ./out/stats_$dt.%J -e ./err/err.%J /share/jchen37/hpc_env/miniconda/bin/python2.7 jmoo_interface.py -chartOnly
+#dt=$(date '+%m%d_%H%M');
+#bsub -W 60 -n 1 -o ./out/stats_$dt.%J -e ./err/err.%J /share/jchen37/hpc_env/miniconda/bin/python2.7 jmoo_interface.py -chartOnly
+
+bsub -W 100 -n 1 -o ./out/stats_$dt.%J -e ./err/err.%J /share/jchen37/hpc_env/miniconda/bin/python2.7 jmoo_interface.py -new

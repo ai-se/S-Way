@@ -34,7 +34,6 @@ from jmoo_problems import *
 # from Problems.CPM.cpm_reduction import *
 from Problems.NRP.nrp import *
 # from Problems.MONRP.monrp import *
-from Problems.POM3.POM3B import POM3B
 from Problems.POM3.POM3A import POM3A, POM3AS, POM3AM, POM3AL
 from Problems.POM3.POM3B import POM3B, POM3BS, POM3BM, POM3BL
 from Problems.POM3.POM3C import POM3C, POM3CS, POM3CM, POM3CL
@@ -60,11 +59,11 @@ algorithms = [
               ]
 
 problems =[
-    # POM3A(), POM3AS(), POM3AM(), POM3AL(),
-    # POM3B(), POM3BS(), POM3BM(), POM3BL(),
-    # POM3C(), POM3CS(), POM3CM(), POM3CL(),
-    # POM3D(), POM3DS(), POM3DM(), POM3DL(),
-    POM3AS()
+    POM3A(), POM3AS(), POM3AM(), POM3AL(),
+    POM3B(), POM3BS(), POM3BM(), POM3BL(),
+    POM3C(), POM3CS(), POM3CM(), POM3CL(),
+    POM3D(), POM3DS(), POM3DM(), POM3DL(),
+    # POM3AS()
     # POM3B(), POM3C(), POM3D(),
     # XOMO_flight(),
     # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
