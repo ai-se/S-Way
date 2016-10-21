@@ -79,7 +79,7 @@ build_new_pop = False  # Whether or not to rebuild the initial population
 
 Configurations = {
     "Universal": {
-        "Repeats": 10,
+        "Repeats": 20,
         "Repeat_Offset": 0,
         "Population_Size" : 10000,
         "No_of_Generations" : 1,
