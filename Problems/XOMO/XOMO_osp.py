@@ -270,7 +270,7 @@ class XOMO_ospL(jmoo_problem):
     "Xomo_osp large version"
     def __init__(prob, percentage=-1):
         prob.percentage=percentage
-        prob.name = "xomo_osp(S)"
+        prob.name = "xomo_osp(L)"
         #Should be as xomol.names to maintain order of LOWs and UPs
         names = ["aa", "sced", "cplx", "site", "resl", "acap", "etat", "rely",
                  "Data", "prec", "pmat", "aexp", "flex", "pcon", "tool", "time",
