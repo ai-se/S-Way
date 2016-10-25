@@ -8,7 +8,7 @@ reports = None
 local_configurations = {
     "Universal": {
         "Repeats" : 20,
-        "Population_Size" : 10000,
+        "Population_Size" : 5000,
         "No_of_Generations" : 1
     },
 }
