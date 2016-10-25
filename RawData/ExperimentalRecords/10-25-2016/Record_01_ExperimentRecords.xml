@@ -1,0 +1,226 @@
+<Experiment>
+<Problem name = 'xomo_all 5000'>
+<Algorithm name = 'SWAY5'>
+<Run id = '1'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>548.06035614</RunTime>
+<IBD>0.89963302227</IBD>
+<IBS>0.0161626925752</IBS>
+<Effort>192.275158923</Effort>
+<Months>18.2945141659</Months>
+<Defects>561.864366463</Defects>
+<Risks>1.07238605898</Risks>
+</Summary></Run>
+<Run id = '2'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>563.810643911</RunTime>
+<IBD>0.906221077758</IBD>
+<IBS>0.0283173855709</IBS>
+<Effort>133.427747807</Effort>
+<Months>21.7923088525</Months>
+<Defects>376.398887228</Defects>
+<Risks>1.34048257373</Risks>
+</Summary></Run>
+<Run id = '3'>
+<Summary>
+<NumEvals>44</NumEvals>
+<RunTime>552.795468807</RunTime>
+<IBD>0.898127773059</IBD>
+<IBS>0.0268734140245</IBS>
+<Effort>61.2205642867</Effort>
+<Months>13.2452312258</Months>
+<Defects>329.157401039</Defects>
+<Risks>0.804289544236</Risks>
+</Summary></Run>
+<Run id = '4'>
+<Summary>
+<NumEvals>58</NumEvals>
+<RunTime>488.799034119</RunTime>
+<IBD>0.903060458836</IBD>
+<IBS>0.0257250984026</IBS>
+<Effort>92.2254266124</Effort>
+<Months>18.4893447625</Months>
+<Defects>261.84388239</Defects>
+<Risks>0.0</Risks>
+</Summary></Run>
+<Run id = '5'>
+<Summary>
+<NumEvals>67</NumEvals>
+<RunTime>496.668343782</RunTime>
+<IBD>0.903531770321</IBD>
+<IBS>0.0281340532627</IBS>
+<Effort>24.7930249908</Effort>
+<Months>13.7786587774</Months>
+<Defects>125.514853474</Defects>
+<Risks>0.268096514745</Risks>
+</Summary></Run>
+<Run id = '6'>
+<Summary>
+<NumEvals>68</NumEvals>
+<RunTime>480.343886137</RunTime>
+<IBD>0.902512099641</IBD>
+<IBS>0.0325156832496</IBS>
+<Effort>96.9401390068</Effort>
+<Months>12.4642780664</Months>
+<Defects>966.279312031</Defects>
+<Risks>1.60857908847</Risks>
+</Summary></Run>
+<Run id = '7'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>431.923089981</RunTime>
+<IBD>0.895444646473</IBD>
+<IBS>0.0156804042587</IBS>
+<Effort>81.5358242675</Effort>
+<Months>14.5614474033</Months>
+<Defects>377.970748685</Defects>
+<Risks>2.14477211796</Risks>
+</Summary></Run>
+<Run id = '8'>
+<Summary>
+<NumEvals>52</NumEvals>
+<RunTime>761.611876011</RunTime>
+<IBD>0.904557987622</IBD>
+<IBS>0.0269276383296</IBS>
+<Effort>103.078138927</Effort>
+<Months>12.6423372641</Months>
+<Defects>619.548144594</Defects>
+<Risks>3.75335120643</Risks>
+</Summary></Run>
+<Run id = '9'>
+<Summary>
+<NumEvals>60</NumEvals>
+<RunTime>562.189537048</RunTime>
+<IBD>0.897662198597</IBD>
+<IBS>0.0216557832013</IBS>
+<Effort>154.558099065</Effort>
+<Months>16.9958351614</Months>
+<Defects>748.794936483</Defects>
+<Risks>2.14477211796</Risks>
+</Summary></Run>
+<Run id = '10'>
+<Summary>
+<NumEvals>51</NumEvals>
+<RunTime>398.612643957</RunTime>
+<IBD>0.900589930181</IBD>
+<IBS>0.0200747712595</IBS>
+<Effort>109.535454897</Effort>
+<Months>22.3012466552</Months>
+<Defects>1274.10688815</Defects>
+<Risks>3.48525469169</Risks>
+</Summary></Run>
+<Run id = '11'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>443.316540956</RunTime>
+<IBD>0.899018278809</IBD>
+<IBS>0.0310711139111</IBS>
+<Effort>42.4431477811</Effort>
+<Months>16.2473197553</Months>
+<Defects>307.397270424</Defects>
+<Risks>2.14477211796</Risks>
+</Summary></Run>
+<Run id = '12'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>404.673720121</RunTime>
+<IBD>0.903683922111</IBD>
+<IBS>0.0400772679628</IBS>
+<Effort>225.538655948</Effort>
+<Months>13.5122167907</Months>
+<Defects>356.945626696</Defects>
+<Risks>3.75335120643</Risks>
+</Summary></Run>
+<Run id = '13'>
+<Summary>
+<NumEvals>38</NumEvals>
+<RunTime>493.544921875</RunTime>
+<IBD>0.896579720524</IBD>
+<IBS>0.0177574625714</IBS>
+<Effort>174.987462086</Effort>
+<Months>24.3025317372</Months>
+<Defects>197.295656715</Defects>
+<Risks>0.268096514745</Risks>
+</Summary></Run>
+<Run id = '14'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>565.666868925</RunTime>
+<IBD>0.893991297858</IBD>
+<IBS>0.020467191493</IBS>
+<Effort>126.833863528</Effort>
+<Months>16.184904966</Months>
+<Defects>180.113627704</Defects>
+<Risks>1.87667560322</Risks>
+</Summary></Run>
+<Run id = '15'>
+<Summary>
+<NumEvals>44</NumEvals>
+<RunTime>425.417737007</RunTime>
+<IBD>0.899607762876</IBD>
+<IBS>0.0322931210875</IBS>
+<Effort>294.175725971</Effort>
+<Months>16.895659637</Months>
+<Defects>2316.98454326</Defects>
+<Risks>1.87667560322</Risks>
+</Summary></Run>
+<Run id = '16'>
+<Summary>
+<NumEvals>67</NumEvals>
+<RunTime>636.891461849</RunTime>
+<IBD>0.904632986796</IBD>
+<IBS>0.0263014890204</IBS>
+<Effort>24.9147118765</Effort>
+<Months>6.92318216169</Months>
+<Defects>185.929823843</Defects>
+<Risks>6.70241286863</Risks>
+</Summary></Run>
+<Run id = '17'>
+<Summary>
+<NumEvals>44</NumEvals>
+<RunTime>399.036118984</RunTime>
+<IBD>0.903588596914</IBD>
+<IBS>0.0279585850438</IBS>
+<Effort>77.7327072476</Effort>
+<Months>13.8041522631</Months>
+<Defects>230.731610477</Defects>
+<Risks>1.07238605898</Risks>
+</Summary></Run>
+<Run id = '18'>
+<Summary>
+<NumEvals>59</NumEvals>
+<RunTime>457.682862997</RunTime>
+<IBD>0.892990100489</IBD>
+<IBS>0.0221480352307</IBS>
+<Effort>121.365829214</Effort>
+<Months>13.3034828654</Months>
+<Defects>443.085045198</Defects>
+<Risks>1.34048257373</Risks>
+</Summary></Run>
+<Run id = '19'>
+<Summary>
+<NumEvals>65</NumEvals>
+<RunTime>553.030853033</RunTime>
+<IBD>0.900410963395</IBD>
+<IBS>0.029219244432</IBS>
+<Effort>112.802052556</Effort>
+<Months>12.7933693221</Months>
+<Defects>704.641489623</Defects>
+<Risks>1.60857908847</Risks>
+</Summary></Run>
+<Run id = '20'>
+<Summary>
+<NumEvals>39</NumEvals>
+<RunTime>396.429238796</RunTime>
+<IBD>0.906485363636</IBD>
+<IBS>0.0332223575144</IBS>
+<Effort>18.8711874821</Effort>
+<Months>6.18191508663</Months>
+<Defects>25.3593744791</Defects>
+<Risks>2.9490616622</Risks>
+</Summary></Run>
+</Algorithm>
+</Problem>
+</Experiment>
