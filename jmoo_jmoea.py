@@ -157,6 +157,8 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
 
 
         numNewEvals += evals
+        import pdb
+        pdb.set_trace()
         assert(len(population) == configurations["Universal"]["Population_Size"]), \
             "Length of the population should be equal to MU"
         # # # # # # # # # # #
@@ -166,7 +168,7 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
             statBox.update(selectees, gen, numNewEvals, population_size=Configurations["Universal"]["Population_Size"])
             store_values(latest_subdir, gen, selectees)
         elif algorithm.name == "SWAY5":
-            statBox.update(selectees, gen, len(selectees), population_size=Configurations["Universal"]["Population_Size"])
+            statBox.update(selectees, gen, numNewEvals+len(selectees), population_size=Configurations["Universal"]["Population_Size"])
             store_values_g4(problem, latest_subdir, gen, selectees)
         else:
             statBox.update(population, gen, numNewEvals)
