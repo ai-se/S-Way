@@ -157,8 +157,6 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
 
 
         numNewEvals += evals
-        import pdb
-        pdb.set_trace()
         assert(len(population) == configurations["Universal"]["Population_Size"]), \
             "Length of the population should be equal to MU"
         # # # # # # # # # # #

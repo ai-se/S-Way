@@ -51,11 +51,11 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            jmoo_NSGAII(),
-            jmoo_SPEA2(),
+            # jmoo_NSGAII(),
+            # jmoo_SPEA2(),
             # jmoo_GALE(),
             # jmoo_SWAY2(),
-            # jmoo_SWAY5()
+            jmoo_SWAY5()
               ]
 
 problems =[
@@ -73,9 +73,9 @@ build_new_pop = False                                       # Whether or not to 
 
 Configurations = {
     "Universal": {
-        "Repeats" : 20,
-        "Population_Size" : 100,
-        "No_of_Generations" : 20
+        "Repeats" : 10,
+        "Population_Size" : 10000,
+        "No_of_Generations" : 1
     },
     "NSGAIII": {
         "SBX_Probability": 1,
