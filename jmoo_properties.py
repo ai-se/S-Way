@@ -51,11 +51,11 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            # jmoo_NSGAII(),
+            jmoo_NSGAII(),
             # jmoo_SPEA2(),
             # jmoo_GALE(),
             # jmoo_SWAY2(),
-            jmoo_SWAY5()
+            # jmoo_SWAY5()
               ]
 
 problems =[
@@ -63,13 +63,13 @@ problems =[
     # POM3B(), POM3BS(), POM3BM(), POM3BL(),
     # POM3C(), POM3CS(), POM3CM(), POM3CL(),
     # POM3D(), POM3DS(), POM3DM(), POM3DL(),
-    # POM3AS()
+    POM3A()
     # POM3B(), POM3C(), POM3D(),
-    XOMO_flight(), XOMO_flightS(), XOMO_flightM(), XOMO_flightL(),
-    XOMO_all(), XOMO_allS(), XOMO_allM(), XOMO_allL(),
-    XOMO_ground(), XOMO_groundS(), XOMO_groundM(), XOMO_groundL(),
-    XOMO_osp(), XOMO_ospS(), XOMO_ospM(), XOMO_ospL(),
-    XOMO_osp2(), XOMO_osp2S(), XOMO_osp2M(), XOMO_osp2L(),
+    # XOMO_flight(), XOMO_flightS(), XOMO_flightM(), XOMO_flightL(),
+    # XOMO_all(), XOMO_allS(), XOMO_allM(), XOMO_allL(),
+    # XOMO_ground(), XOMO_groundS(), XOMO_groundM(), XOMO_groundL(),
+    # XOMO_osp(), XOMO_ospS(), XOMO_ospM(), XOMO_ospL(),
+    # XOMO_osp2(), XOMO_osp2S(), XOMO_osp2M(), XOMO_osp2L(),
     # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
     # MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
@@ -81,8 +81,8 @@ Configurations = {
     "Universal": {
         "Repeats": 20,
         "Repeat_Offset": 0,
-        "Population_Size" : 10000,
-        "No_of_Generations" : 1,
+        "Population_Size" : 100,
+        "No_of_Generations" : 20,
     },
     "NSGAIII": {
         "SBX_Probability": 1,

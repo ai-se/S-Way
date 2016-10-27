@@ -117,24 +117,27 @@ def get_performance_measures(problem, pop_size):
 
         results[algorithm_name+"_"+population_size].add_score(hv, spread, pfs, None)
 
-    # write into pickle file
-    import pickle
-    with open('./Results/' + problem.name + '.pickle', 'wb') as handle:
-        pickle.dump(results, handle)
+
+
+    transform_results = {}
 
     for key in results.keys():
         algorithm_name = key.split("_")[0]
         population_size = key.split("_")[-1]
         problem_name = results[key].problem
+
         repeats = results[key].repeats
         hvs = [r.hv for r in repeats]
         spreads = [r.spread for r in repeats]
         pfs = [r.pfs for r in repeats]
         igds = [r.igd for r in repeats]
 
-        # print "Problem", ",",problem_name, ",",
-        # print "Algorithm",",", algorithm_name, ",",
-        # print "PopSize",",", population_size, ",",
+        print "Problem", ",",problem_name
+        print "Algorithm",",", algorithm_name
+        print "PopSize",",", population_size
+        print "HV: ", hvs
+        print "Spread: ", spreads
+        print
         # print "Median-HV",",", np.median(hvs), ",",
         # print "IQR-HV", ",",np.percentile(hvs, 75) - np.percentile(hvs, 25), ",",
         # print "Median-spreads", ",",np.median(spreads), ",",
@@ -143,9 +146,15 @@ def get_performance_measures(problem, pop_size):
         # print "IQR-PFS", ",",np.percentile(pfs, 75) - np.percentile(pfs, 25)
         # print "Median-HV", np.median(hvs),
         # print "IQR-HV", np.percentile(hvs, 75) - np.percentile(hvs, 25),
-        print("%s , %s, %s, %s, %s" %
-              (problem_name,
-              algorithm_name,
-              str(population_size),
-              str(['hv: ' + str(i) for i in hvs])[1:-1],
-              str(['spread: ' + str(i) for i in spreads])[1:-1]))
+
+        if problem_name not in transform_results.keys():
+            transform_results[problem_name] = {}
+            transform_results[problem_name]["HV"] = []
+            transform_results[problem_name]["Spread"] = []
+
+        transform_results[problem_name]["HV"].append([algorithm_name + "_" + population_size] + hvs)
+        transform_results[problem_name]["Spread"].append([algorithm_name + "_" + population_size] + spreads)
+
+    # write into pickle file
+    import pickle
+    pickle.dump(transform_results, open('./Results/' + problem.name + '.pickle', 'wb'))
