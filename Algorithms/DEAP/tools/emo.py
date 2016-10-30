@@ -87,6 +87,8 @@ def sortNondominated(individuals, k, first_front_only=False):
     dominating_fits = defaultdict(int)
     dominated_fits = defaultdict(list)
 
+    dominated_front = []
+
     # Rank first Pareto front
     for i, fit_i in enumerate(fits):
         for fit_j in fits[i + 1:]:
@@ -98,27 +100,31 @@ def sortNondominated(individuals, k, first_front_only=False):
                 dominated_fits[fit_j].append(fit_i)
         if dominating_fits[fit_i] == 0:
             current_front.append(fit_i)
-
-    fronts = [[]]
+        else:
+            dominated_front.append(fit_i)
+    assert(len(current_front) + len(dominated_front) == len(individuals))
+    fronts = [[], []]
     for fit in current_front:
-        fronts[-1].extend(map_fit_ind[fit])
-    pareto_sorted = len(fronts[-1])
+        fronts[0].extend(map_fit_ind[fit])
 
-    # Rank the next front until all individuals are sorted or
-    # the given number of individual are sorted.
-    if not first_front_only:
-        N = min(len(individuals), k)
-        while pareto_sorted < N:
-            fronts.append([])
-            for fit_p in current_front:
-                for fit_d in dominated_fits[fit_p]:
-                    dominating_fits[fit_d] -= 1
-                    if dominating_fits[fit_d] == 0:
-                        next_front.append(fit_d)
-                        pareto_sorted += len(map_fit_ind[fit_d])
-                        fronts[-1].extend(map_fit_ind[fit_d])
-            current_front = next_front
-            next_front = []
+    for fit in dominated_front:
+        fronts[-1].extend(map_fit_ind[fit])
+
+    # # Rank the next front until all individuals are sorted or
+    # # the given number of individual are sorted.
+    # if not first_front_only:
+    #     N = min(len(individuals), k)
+    #     while pareto_sorted < N:
+    #         fronts.append([])
+    #         for fit_p in current_front:
+    #             for fit_d in dominated_fits[fit_p]:
+    #                 dominating_fits[fit_d] -= 1
+    #                 if dominating_fits[fit_d] == 0:
+    #                     next_front.append(fit_d)
+    #                     pareto_sorted += len(map_fit_ind[fit_d])
+    #                     fronts[-1].extend(map_fit_ind[fit_d])
+    #         current_front = next_front
+    #         next_front = []
 
     return fronts
 

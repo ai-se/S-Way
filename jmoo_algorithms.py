@@ -495,9 +495,9 @@ def deap_format(problem, individuals):
     return dIndividuals
 
 
-def get_non_dominated_solutions(problem, population, configurations):
+def get_non_dominated_solutions(problem, population, k):
     # NOTE: This might look wierd but this would return all the non dominated solutions
-    k = configurations["Universal"]["Population_Size"]
+
     # Evaluate any new guys
     for individual in population:
         if not individual.valid:
