@@ -102,7 +102,9 @@ def sortNondominated(individuals, k, first_front_only=False):
             current_front.append(fit_i)
         else:
             dominated_front.append(fit_i)
-    assert(len(current_front) + len(dominated_front) == len(individuals))
+    # this was commented since there can be duplicate entries
+    # assert(len(current_front) + len(dominated_front) == len(individuals)), "something is wrong"
+
     fronts = [[], []]
     for fit in current_front:
         fronts[0].extend(map_fit_ind[fit])

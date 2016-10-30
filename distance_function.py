@@ -8,7 +8,7 @@ from jmoo_algorithms import *
 data_folder = "./Data/"
 
 
-def func(problem, pop_size=100):
+def func(problem, pop_size=10000):
     filename = "Data/" + problem.name + "-p" + str(pop_size) + "-d" + str(len(problem.decisions)) + "-o" + \
                        str(len(problem.objectives)) + "-dataset.txt"
 
@@ -43,7 +43,7 @@ def func(problem, pop_size=100):
         for j in range(len(dIndividual)):
             cells.append(dIndividual[j])
         dominated_front.append(jmoo_individual(problem, cells, [f for f in dIndividual.fitness.values]))
-    assert(len(dominated_front) + len(nondominated_front) == pop_size), "something is wrong"
+    # assert(len(dominated_front) + len(nondominated_front) == pop_size), "something is wrong"
 
     pop_to_file(nondominated_front, "./RawData/Distance/" + problem.name + "_p-" + str(pop_size) + "_non_dominated.txt")
     pop_to_file(dominated_front, "./RawData/Distance/" + problem.name + "_p-" + str(pop_size) + "_dominated.txt")
