@@ -16,7 +16,7 @@ def get_content(pickle_file):
         for j in xrange(1, len(content[problem_name]['Spread'][ii])):
             content[problem_name]['Spread'][ii][j] = (content[problem_name]['Spread'][ii][j] * 100) / median_score
 
-    rdivDemo(content[problem_name]["Spread"], globalMinMax=False, isLatex=True)
+    rdivDemo(content[problem_name]["Spread"], isLatex=True, higherTheBetter=False)
     # raw_input()
 
 if __name__ == "__main__":
@@ -30,8 +30,8 @@ if __name__ == "__main__":
     sizes = ['(S)', '(M)', '(L)', '']
 
     for m in models:
+        print ('~\par\n~\par\n')
         print (m)
         for s in sizes:
             get_content('oct29/'+m+s+'.pickle')
-        print ('~\par\n~\par\n')
-        raw_input()
+        # raw_input()
