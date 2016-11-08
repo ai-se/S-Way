@@ -98,7 +98,10 @@ def get_performance_measures(problem, pop_size):
             normalized_content.append(temp_content)
         assert(len(normalized_content) == len(content)), "Something is wrong"
 
-        algorithm_name = filtered_file.split('/')[-3].split('_')[0]
+        if "SC_" in filtered_file:
+            algorithm_name = "-".join(filtered_file.split('/')[-3].split('_')[:2])
+        else:
+            algorithm_name = filtered_file.split('/')[-3].split('_')[0]
         population_size = filtered_file.split('/')[-3].split('_')[-1]
         repeat_no = filtered_file.split('/')[-2].split('.')[0]
 
@@ -117,10 +120,17 @@ def get_performance_measures(problem, pop_size):
 
         results[algorithm_name+"_"+population_size].add_score(hv, spread, pfs, None)
 
-
-
     transform_results = {}
-
+    alg_name = {
+        "NSGAIISC-1024": "NSGAIISC-1225",
+        "NSGAIISC-2048": "NSGAIISC-2500",
+        "NSGAIISC-4096": "NSGAIISC-5000",
+        "NSGAIISC-10000": "NSGAIISC-10000",
+        "SPEA2SC-1024": "SPEA2SC-1225",
+        "SPEA2SC-2048": "SPEA2SC-2500",
+        "SPEA2SC-4096": "SPEA2SC-5000",
+        "SPEA2SC-10000": "SPEA2SC-10000",
+    }
     for key in results.keys():
         algorithm_name = key.split("_")[0]
         population_size = key.split("_")[-1]
@@ -152,8 +162,12 @@ def get_performance_measures(problem, pop_size):
             transform_results[problem_name]["HV"] = []
             transform_results[problem_name]["Spread"] = []
 
-        transform_results[problem_name]["HV"].append([algorithm_name + "_" + population_size] + hvs)
-        transform_results[problem_name]["Spread"].append([algorithm_name + "_" + population_size] + spreads)
+        if "SC" in algorithm_name:
+            transform_results[problem_name]["HV"].append([alg_name[algorithm_name] + "_" + population_size] + hvs)
+            transform_results[problem_name]["Spread"].append([alg_name[algorithm_name] + "_" + population_size] + spreads)
+        else:
+            transform_results[problem_name]["HV"].append([algorithm_name + "_" + population_size] + hvs)
+            transform_results[problem_name]["Spread"].append([algorithm_name + "_" + population_size] + spreads)
 
     # write into pickle file
     import pickle

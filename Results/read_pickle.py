@@ -16,7 +16,7 @@ def get_content(pickle_file):
             content[problem_name]['Spread'][ii][j] = (content[problem_name]['Spread'][ii][j] * 100) / median_score
 
     rdivDemo(content[problem_name]["Spread"], globalMinMax=False, isLatex=True)
-    raw_input()
+
 
 if __name__ == "__main__":
     import os
