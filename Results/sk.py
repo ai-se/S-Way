@@ -582,13 +582,13 @@ def rdivDemo(data, isLatex=False, globalMinMax=True, high=1, low=0):
     print r'\textbf{Rank} & \textbf{Treatment} & \textbf{Median} & \textbf{IQR} & \\\hline'
     last = None
     max_rank = max([r[-1].rank for r in ranks])
-    for _, __, x in sorted(ranks):
+    for _, __, x in sorted(ranks, reverse=True, key=lambda x: x[2].rank):
       q1, q2, q3 = x.quartiles()
       pre = ""
       if not last is None and not last == x.rank:
         pre = "\\hline"
       print pre, r'%2s & %12s &    %s  &  %s & \quart{%s}{%s}{%s}{%s} \\' % \
-          (x.rank + 1,
+          (max_rank - x.rank + 1,
            x.name,
            float(q2 / 100),
               float((q3 - q1) / 100),

@@ -51,18 +51,18 @@ from Problems.MONRP.monrp import MONRP
 
 # JMOO Experimental Definitions
 algorithms = [
-            # jmoo_NSGAII(),
+            jmoo_NSGAII(),
             # jmoo_SPEA2(),
             # jmoo_GALE(),
             # jmoo_SWAY2(),
-            jmoo_SWAY5()
+            # jmoo_SWAY5()
               ]
 
 problems =[
-    POM3A(),
-    POM3B(), POM3C(), POM3D(),
-    XOMO_flight(),
-    XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
+    # POM3A(),
+    # POM3B(), POM3C(), POM3D(),
+    # XOMO_flight(),
+    # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
     MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
     ]
@@ -74,7 +74,7 @@ build_new_pop = False                                       # Whether or not to 
 Configurations = {
     "Universal": {
         "Repeats" : 10,
-        "Population_Size" : 10000,
+        "Population_Size" : 100,
         "No_of_Generations" : 1
     },
     "NSGAIII": {

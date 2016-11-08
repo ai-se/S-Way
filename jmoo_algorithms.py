@@ -37,22 +37,8 @@ import os, sys, inspect
 def do_nothing_initializer(problem, population):
     return population, 0
 
-
-from Algorithms.GALE.gale_components import *
-from Algorithms.DE.de_components import *
-from Algorithms.MOEA_D.moead_components import *
-from Algorithms.NSGAIII.nsgaiii_components import *
-from Algorithms.STORM.storm_components import *
-from Algorithms.NSGAIII.nsgaiii_components import *
 from Algorithms.SWAY5.gale_components import *
-from Algorithms.SWAY2.gale_components import *
-from Algorithms.GALE2.gale_components import *
-from Algorithms.GALE4.gale_components import *
-from Algorithms.GALE8.gale_components import *
-from Algorithms.GALE16.gale_components import *
-from Algorithms.GALE32.gale_components import *
-from Algorithms.GALE64.gale_components import *
-from Algorithms.LearnerActive.LearnerActiveComponent import *
+
 
 from jmoo_individual import *
 
@@ -78,16 +64,6 @@ class jmoo_NSGAII:
         self.color = color
         self.type = '^'
 
-class jmoo_NSGAII_2:
-    def __init__(self, color="Green"):
-        self.name = "NSGAII_2"
-        self.initializer = None
-        self.selector = selTournamentDCD
-        self.adjustor = crossoverAndMutation
-        self.recombiner = selNSGA2_cheaper
-        self.color = color
-        self.type = '^'
-
 
 class jmoo_SPEA2:
     def __init__(self, color="Green"):
@@ -100,17 +76,6 @@ class jmoo_SPEA2:
         self.type = 'h'
 
 
-class jmoo_GALE:
-    def __init__(self, color="Red"):
-        self.name = "GALE"
-        self.initializer = None
-        self.selector = galeWHERE
-        self.adjustor = galeMutate
-        self.recombiner = galeRegen
-        self.color = color
-        self.type = '*'
-
-
 class jmoo_SWAY5:
     def __init__(self, color="Brown"):
         self.name = "SWAY5"
@@ -121,158 +86,6 @@ class jmoo_SWAY5:
         self.color = color
         self.type = '*'
 
-class jmoo_SWAY2:
-    def __init__(self, color="Orange"):
-        self.name = "SWAY2"
-        self.initializer = None
-        self.selector = gale_nm_WHERE
-        self.adjustor = gale_nm_Mutate
-        self.recombiner = gale_nm_Regen
-        self.color = color
-        self.type = '*'
-
-class jmoo_GALE4:
-    def __init__(self, color="#0066ff"):
-        self.name = "GALE4"
-        self.initializer = None
-        self.selector = gale_4_WHERE
-        self.adjustor = gale_4_Mutate
-        self.recombiner = gale_4_Regen
-        self.color = color
-        self.type = '*'
-
-class jmoo_GALE2:
-    def __init__(self, color="Black"):
-        self.name = "GALE2"
-        self.initializer = None
-        self.selector = gale2WHERE
-        self.adjustor = gale2Mutate
-        self.recombiner = gale2Regen
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_DE:
-    def __init__(self, color="magenta"):
-        self.name = "DE"
-        self.initializer = None
-        self.selector = de_selector
-        self.adjustor = de_mutate
-        self.recombiner = de_recombine  # stub
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_learneractive:
-    def __init__(self, color="magenta"):
-        self.name = "LA"
-        self.initializer = None
-        self.selector = la_find
-        self.adjustor = la_mutate
-        self.recombiner = la_regenerate  # stub
-        self.color = color
-        self.type = '*'
-
-# my idea
-class jmoo_GALE8:
-    def __init__(self, color="magenta"):
-        self.name = "VALE8"
-        self.initializer = None
-        self.selector = gale_8_WHERE
-        self.adjustor = gale_8_Mutate
-        self.recombiner = gale_8_Regen
-        self.color = color
-        self.type = '*'
-
-# DE style towards n/2
-class jmoo_GALE16:
-    def __init__(self, color="orange"):
-        self.name = "VALE16"
-        self.initializer = None
-        self.selector = gale_16_WHERE
-        self.adjustor = gale_16_Mutate
-        self.recombiner = gale_16_Regen
-        self.color = color
-        self.type = '*'
-
-
-# Smoting towards n/2
-class jmoo_GALE32:
-    def __init__(self, color="#330066"):
-        self.name = "VALE32"
-        self.initializer = None
-        self.selector = gale_32_WHERE
-        self.adjustor = gale_32_Mutate
-        self.recombiner = gale_32_Regen
-        self.color = color
-        self.type = '*'
-
-
-# GA with half of the ND leaf
-class jmoo_GALE64:
-    def __init__(self, color="#FF6666"):
-        self.name = "VALE64"
-        self.initializer = None
-        self.selector = gale_64_WHERE
-        self.adjustor = gale_64_Mutate
-        self.recombiner = gale_64_Regen
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_MOEAD_TCH:
-    def __init__(self, color="#6F3662"):
-        self.name = "MOEAD"
-        self.initializer = initialize_moead
-        self.selector = moead_selector_tch
-        self.adjustor = moead_mutate
-        self.recombiner = moead_recombine
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_MOEAD_PBI:
-    def __init__(self, color="Blue"):
-        self.name = "MOEAD_PBI"
-        self.initializer = initialize_moead
-        self.selector = moead_selector_pbi
-        self.adjustor = moead_mutate
-        self.recombiner = moead_recombine
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_NSGAIII:
-    def __init__(self, color="Black"):
-        self.name = "NSGA3"
-        self.initializer = None
-        self.selector = nsgaiii_selector2
-        self.adjustor = nsgaiii_regenerate2
-        self.recombiner = nsgaiii_recombine2
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_ANYWHERE:
-    def __init__(self, color="Yellow"):
-        self.name = "ANYWHERE"
-        self.initializer = None
-        self.selector = anywhere_selector
-        self.adjustor = anywhere_mutate
-        self.recombiner = anywhere_recombine
-        self.color = color
-        self.type = '*'
-
-
-class jmoo_STORM:
-    def __init__(self, color="Green"):
-        self.name = "STORM2"
-        self.initializer = None
-        self.selector = anywhere3_selector
-        self.adjustor = anywhere_mutate
-        self.recombiner = anywhere_recombine
-        self.color = color
-        self.type = 'p'
 
 
 class Bin:
