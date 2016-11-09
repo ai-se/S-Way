@@ -178,10 +178,24 @@ def crossoverAndMutation(problem, population, configuration):
         if random.random() <= 0.9: #crossover rate
             tools.cxUniform(ind1, ind2, indpb=1.0/len(problem.decisions))
 
-
     # Mutation
     for ind in dIndividuals:
-        tools.mutPolynomialBounded(ind, eta = 1.0, low=[dec.low for dec in problem.decisions], up=[dec.up for dec in problem.decisions], indpb=0.1 )
+        if problem.evalConstraints(ind) is True: break
+        counter_ind = 0
+        while True:
+            counter_ind += 1
+            tools.mutPolynomialBounded(ind, eta = 1.0, low=[dec.low for dec in problem.decisions], up=[dec.up for dec in problem.decisions], indpb=0.1 )
+            for count_i,map_i in enumerate(map(int, ind.tolist())): ind[count_i] = map_i
+            if problem.evalConstraints(ind) is True: break
+            elif counter_ind > 1e6:
+                print "missed"
+                sys.stdout.flush()
+                break
+            elif counter_ind %1e4 == 0:
+                print ".",counter_ind,
+                sys.stdout.flush()
+
+
         del ind.fitness.values
 
     # Update beginning population data structure
