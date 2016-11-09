@@ -52,7 +52,7 @@ from Problems.MONRP.monrp import MONRP
 # JMOO Experimental Definitions
 algorithms = [
             jmoo_NSGAII(),
-            # jmoo_SPEA2(),
+            jmoo_SPEA2(),
             # jmoo_GALE(),
             # jmoo_SWAY2(),
             # jmoo_SWAY5()
@@ -75,7 +75,7 @@ Configurations = {
     "Universal": {
         "Repeats" : 10,
         "Population_Size" : 100,
-        "No_of_Generations" : 1
+        "No_of_Generations" : 20
     },
     "NSGAIII": {
         "SBX_Probability": 1,
