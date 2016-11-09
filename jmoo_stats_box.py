@@ -99,8 +99,11 @@ class jmoo_stats_box:
         # Update Number of Evaluations
         statBox.numEval += num_new_evals
 
+        # Store only valid population
+        valid_population = [pop for pop in population if statBox.problem.evalConstraints(pop.decisionValues) is True]
+
         # population represents on the individuals which have been evaluated
-        shorten_population = [pop for pop in population if pop.valid]
+        shorten_population = [pop for pop in valid_population if pop.valid]
         objectives = [individual.fitness.fitness for individual in shorten_population]
         # Split Columns into Lists
         objective_columns = [[objective[i] for objective in objectives] for i, obj in enumerate(statBox.problem.objectives)]

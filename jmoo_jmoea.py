@@ -169,7 +169,8 @@ def jmoo_evo(problem, algorithm, configurations, repeat, stopCriteria=bstop):
             store_values_g4(problem, latest_subdir, gen, selectees)
         else:
             statBox.update(population, gen, numNewEvals)
-            store_values(latest_subdir, gen, population)
+            valid_population = [pop for pop in population if problem.evalConstraints(pop.decisionValues) is True]
+            store_values(latest_subdir, gen, valid_population)
 
         # # # # # # # # # # # # # # # # # #
         # 4e) Evaluate Stopping Criteria  #

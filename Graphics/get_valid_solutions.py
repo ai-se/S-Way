@@ -86,8 +86,18 @@ def get_performance_measures(problem, pop_size):
 
     for filtered_file in filtered_list:
         df = pd.read_csv(filtered_file, header=None)
-        y = df[df.columns[-1 * len(problem.objectives):]]
-        content = y.values.tolist()
+        full_content = df.values.tolist()
+        decisions = [content[:-1 * len(problem.objectives)] for content in full_content]
+        valid_solutions = []
+        for decision_index, decision in enumerate(decisions):
+            if problem.evalConstraints(decision) is True:
+                valid_solutions.append(full_content[decision_index][-1 * len(problem.objectives):])
+
+        content = valid_solutions
+        if len(content) < 2:
+            print ">"*10, filtered_file
+            raw_input()
+            break
         normalized_content = []
         assert(len(normalizing_values) == len(content[0])), "Something is wrong"
         for c in content:
@@ -102,6 +112,7 @@ def get_performance_measures(problem, pop_size):
             algorithm_name = "-".join(filtered_file.split('/')[-3].split('_')[:2])
         else:
             algorithm_name = filtered_file.split('/')[-3].split('_')[0]
+
         population_size = filtered_file.split('/')[-3].split('_')[-1]
         repeat_no = filtered_file.split('/')[-2].split('.')[0]
 
