@@ -63,7 +63,8 @@ problems =[
     # POM3B(), POM3C(), POM3D(),
     # XOMO_flight(),
     # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
-    MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
+    MONRP(50, 4, 5, 0, 90),
+    MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
     ]
 
@@ -73,7 +74,7 @@ build_new_pop = False                                       # Whether or not to 
 
 Configurations = {
     "Universal": {
-        "Repeats" : 10,
+        "Repeats" : 20,
         "Population_Size" : 100,
         "No_of_Generations" : 20
     },

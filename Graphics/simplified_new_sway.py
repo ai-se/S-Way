@@ -4,7 +4,7 @@ import pandas as pd
 from random import choice
 import numpy as np
 
-data_folder = "./Graphics/New-SWAY/"
+data_folder = "./RawData/PopulationArchives/"
 
 class Scores:
     def __init__(self, hv, spread, pfs, igd):
