@@ -32,7 +32,8 @@ Random Stuff
 
 import random
 # from Graphics.simplified import draw_hv, draw_igd, draw_spread, draw_gd
-from Graphics.simplified_new import get_performance_measures
+# from Graphics.simplified_new import get_performance_measures
+from Graphics.simplified_new_sway import get_performance_measures
 from jmoo_jmoea import jmoo_evo
 from jmoo_properties import DECISION_BIN_TABLE, DATA_SUFFIX, DATA_PREFIX, DEFECT_PREDICT_PREFIX, SUMMARY_RESULTS, \
     RRS_TABLE
@@ -119,51 +120,8 @@ class jmoo_chart_report:
         self.Configurations = Configurations
 
     def doit(self, tagnote=""):
-        igd_list = []
         for problem in self.tests.problems:
             get_performance_measures(problem, self.Configurations['Universal']['Population_Size'])
-            # print "HyperVolume", problem.name + " Population " + str(self.Configurations['Universal']['Population_Size']),
-            # draw_hv([problem], self.tests.algorithms, self.Configurations, tag="HV")
-            # print "Spread", problem.name + " Population " + str(self.Configurations['Universal']['Population_Size']),
-            # draw_spread([problem], self.tests.algorithms, self.Configurations, tag="SPR")
-            # print "IGD"
-            # draw_igd([problem], self.tests.algorithms, self.Configurations, tag="IGD")
-            # print "GD"
-            # draw_gd([problem], self.tests.algorithms, self.Configurations, tag="GD")
-
-
-def generate_final_frontier_for_gale4(problems, algorithms, Configurations, tag=""):
-    if "GALE4" not in [algorithm.name for algorithm in algorithms]: return
-    else:
-        for problem in problems:
-            from Graphics.PerformanceMeasures.DataFrame import ProblemFrame
-            data = ProblemFrame(problem, [a for a in algorithms if a.name == "GALE4"])
-
-            # data for all repeats
-            total_data = [data.get_frontier_values(gen_no) for gen_no in xrange(Configurations["Universal"]["No_of_Generations"])]
-
-            data_for_all_generations = []
-            for repeat in xrange(Configurations["Universal"]["Repeats"]):
-                temp_data = []
-                for gen_no in xrange(Configurations["Universal"]["No_of_Generations"]):
-                    temp_data.extend(total_data[gen_no]["GALE4"][repeat])
-
-                from jmoo_individual import jmoo_individual
-                solutions = [jmoo_individual(problem, td.decisions, problem.evaluate(td.decisions)) for td in temp_data]
-
-                # non dominated sorting
-                from jmoo_algorithms import selNSGA2
-                final_solutions, _ = selNSGA2(problem, [], solutions, Configurations)
-
-                for i in xrange(Configurations["Universal"]["No_of_Generations"]):
-                    filename = "./RawData/PopulationArchives/" + "GALE4" + "_" + problem.name + "/" + str(repeat) + "/" + \
-                               str(i+1) + ".txt"
-                    f = open(filename, "w")
-                    for fs in final_solutions:
-                        f.write(','.join([str(fss) for fss in fs.decisionValues]) + "," + ",".join([str(fss) for fss in fs.fitness.fitness]) + "\n")
-                    f.close()
-
-
 
 
 class jmoo_df_report:

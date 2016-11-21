@@ -78,7 +78,7 @@ if build_new_pop:
     for problem in problems:
         # for_landscape(problem, Configurations["Universal"]["Population_Size"])
         initialPopulation(problem, Configurations["Universal"]["Population_Size"])
-    exit()
+
 
 
 # Wrap the tests in the jmoo core framework
