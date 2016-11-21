@@ -1,0 +1,9 @@
+POM3A-p100-d9-o3-dataset.txt 9 5.51638495599
+POM3B-p100-d9-o3-dataset.txt 9 4.72091803489
+POM3C-p100-d9-o3-dataset.txt 9 4.56048682627
+POM3D-p100-d9-o3-dataset.txt 9 7.22826251896
+xomo_all-p100-d27-o4-dataset.txt 27 1.82185449175
+xomo_flight-p100-d27-o4-dataset.txt 27 1.10886347571
+xomo_ground-p100-d27-o4-dataset.txt 27 2.17449773123
+xomo_osp-p100-d27-o4-dataset.txt 27 6.67887358727
+xomoo2-p100-d27-o4-dataset.txt 27 6.7196398619
