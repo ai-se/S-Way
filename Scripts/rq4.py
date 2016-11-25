@@ -69,14 +69,14 @@ import matplotlib.pyplot as plt
 
 
 def get_data(method, field):
-    datasets = ["POM3A", "POM3B", "POM3C", "POM3D", "XOMO_ALL", "XOMO_OSP", "XOMOO2", "ground", "XOMO_Flight"]
+    datasets = ["POM3A", "POM3B", "POM3C", "POM3D"]
     return_arr = []
     for dataset in datasets:
         return_arr.append(data[dataset][method][field])
     return return_arr
 
 # index = np.array([10, 40, 70, 100, 130, 160])
-index = np.array([30*(i+1) for i in xrange(9)])
+index = np.array([30*(i+1) for i in xrange(4)])
 print index
 
 
@@ -98,13 +98,13 @@ f, (ax1) = plt.subplots(nrows=1, ncols=1)
 
 # plt.ylabel("Time saved(%)", fontsize=11)
 # ax1.set_title('Apache')
-r1 = ax1.bar(index, get_data("NSGAII", "evals"), bar_width,alpha=opacity,color='#660066',error_kw=error_config)
-r2 = ax1.bar(index+bar_width, get_data("SPEA2", "evals"), bar_width,alpha=opacity,color='#CC0000',error_kw=error_config)
-r3 = ax1.bar(index + 2*bar_width, get_data("GALE", "evals"), bar_width,alpha=opacity,color='y',error_kw=error_config)
-r4 = ax1.bar(index + 3*bar_width, get_data("GALE_NM", "evals"), bar_width,alpha=opacity,color='g',error_kw=error_config)
-r5 = ax1.bar(index + 4*bar_width, get_data("GALE_LP", "evals"), bar_width,alpha=opacity,color='#FA5705',error_kw=error_config)
-r6 = ax1.bar(index + 5*bar_width, get_data("GALE_LPI", "evals"), bar_width,alpha=opacity,color='#00D9FA',error_kw=error_config)
-ax1.set_yscale('log')
+r1 = ax1.bar(index, get_data("NSGAII", "evals"), bar_width,alpha=opacity,color='#007BA1',error_kw=error_config, log=True, hatch='o')
+r2 = ax1.bar(index+bar_width, get_data("SPEA2", "evals"), bar_width,alpha=opacity,color='#51C7B4',error_kw=error_config, log=True, hatch='*')
+# r3 = ax1.bar(index + 2*bar_width, get_data("GALE", "evals"), bar_width,alpha=opacity,color='y',error_kw=error_config)
+# r4 = ax1.bar(index + 3*bar_width, get_data("GALE_NM", "evals"), bar_width,alpha=opacity,color='g',error_kw=error_config)
+r3 = ax1.bar(index + 2*bar_width, get_data("GALE_LP", "evals"), bar_width,alpha=opacity,color='#FF0042',error_kw=error_config, log=True,hatch='x')
+# r4 = ax1.bar(index + 3*bar_width, get_data("GALE_LP", "evals"), bar_width,alpha=opacity,color='#C46D5E',error_kw=error_config, log=True,hatch='/')
+# ax1.set_yscale('log')
 # ax1.set_ylim(0, 119)
 # ax1.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
 ax1.yaxis.offsetText.set_visible(False)
@@ -119,14 +119,14 @@ ax1.text(0.5, 0.95*(bottom+top), 'Evaluations',
 # ax1.set_yticks([0, 10, 20, 48],)
 # ax1.set_yticklabels([0, 10, 20, 98.2])
 # ax1.set_yscale('log', basey=10)
-ax1.set_xticks([41, 71, 101, 131, 161, 191, 221, 251, 281])
-ax1.set_xticklabels(["POM3A", "POM3B", "POM3C", "POM3D", "X_ALL", "X_OSP", "X_O2", "X_G", "X_F"], rotation='vertical', fontsize='x-large')
+ax1.set_xticks([41, 71, 101, 131,])
+ax1.set_xticklabels(["MONRP\n50-4-5-0-110", "MONRP\n50-4-5-0-90", "MONRP\n50-4-5-4-110", "MONRP\n50-4-5-4-90"], fontsize='x-large')
 ax1.tick_params(axis='y', labelsize=15)
-ax1.set_xlim(22, 300)
+ax1.set_xlim(22, 150)
 
 
 
-plt.figlegend([r1, r2, r3, r4, r5, r6], ["NSGAII", "SPEA2", "GALE", "GALE-S-NM", "GALE-S-LP", "GALE-S-LP-I"], frameon=False, loc='upper center', bbox_to_anchor=(0.5, 1.013), fancybox=True, ncol=6, prop={'size':15})
+plt.figlegend([r1, r2, r3], ["NSGAII", "SPEA2", "SWAY4"], frameon=False, loc='upper center', bbox_to_anchor=(0.5, 1.013), fancybox=True, ncol=4, prop={'size':15})
 # f.text(0.04, 0.5, 'Time Saved(%)', va='center', rotation='vertical', fontsize=11)
 # plt.xlim(5, 125)
 f.set_size_inches(12,7)
