@@ -150,7 +150,7 @@ def initialPopulation(problem, n, path=""):
     # Save Problem
     foldername = "./ProblemData/"
     import pickle
-    pickle.dump(problem, open(foldername + problem.name, 'w'))
+    pickle.dump(problem, open(foldername + problem.name + "+" + str(n) + ".p", 'w'))
 
     #generate dataset
     dataset = []
