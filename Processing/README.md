@@ -1,1 +1,0 @@
-The scripts in this folder is used to generate the super charging population. 

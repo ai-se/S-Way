@@ -58,16 +58,27 @@ algorithms = [
             # jmoo_SWAY5()
               ]
 
-problems =[
-    # POM3A(),
-    # POM3B(), POM3C(),
-    # POM3D(),
-    # XOMO_flight(),
-    # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
-    MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
-    # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
-    ]
+# problems =[
+#     # POM3A(),
+#     # POM3B(), POM3C(),
+#     # POM3D(),
+#     # XOMO_flight(),
+#     # XOMO_all(), XOMO_ground(), XOMO_osp(), XOMO_osp2(),
+#     MONRP(50, 4, 5, 0, 90), MONRP(50, 4, 5, 0, 110), MONRP(50, 4, 5, 4, 90), MONRP(50, 4, 5, 4, 110),
+#     # NRP(50, 4, 5, 0, 90), NRP(50, 4, 5, 0, 110), NRP(50, 4, 5, 4, 90), NRP(50, 4, 5, 4, 110),
+#     ]
 
+# For MONRP, wanted to have the same constraints
+def get_problems():
+    import pickle
+    problems = []
+    problem_folder = "./ProblemData/"
+    problem_files = [problem_folder + file for file in os.listdir(problem_folder) if "+10000" in file]
+    for problem_file in problem_files:
+        problems.append(pickle.load(open(problem_file, 'r')))
+    return problems
+
+problems = get_problems()
 
 
 build_new_pop = False                                       # Whether or not to rebuild the initial population

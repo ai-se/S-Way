@@ -1,11 +1,14 @@
 from __future__ import division
 from random import choice
 import os
+import numpy as np
 
 import os,sys,inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
-sys.path.insert(0,parentdir)
+grandparentdir = os.path.dirname(parentdir)
+
+sys.path.insert(0,grandparentdir)
 
 from Problems.MONRP.monrp import MONRP
 
@@ -38,6 +41,7 @@ def get_filename(foldername):
     return choice(files)
 
 def process(filename):
+    objectives = []
     processed_filename = filename + "1.txt"
     content = ""
 
@@ -54,16 +58,41 @@ def process(filename):
 
     # Get the object of problem
     problem_name = "_".join(filename.split('/')[-3].split("_")[1:])
-    problem = object_holder[problem_name]
+    problem_filenname = "ProblemData/" + "_".join(filename.split('/')[-3].split("_")[1:]) + '+10000.p'
+    import pickle
+    problem = pickle.load(open(problem_filenname, 'r'))
+
+    f = open("./processed/" + problem_name + "-p100-d50-o3-dataset.txt", 'w')
     for _ in xrange(extra_needed):
         output_dec = problem.generateInput()
         output_obj = problem.evaluate(output_dec)
-        import pdb
-        pdb.set_trace()
+        objectives.append(output_obj)
+        merged = ",".join(map(str, output_dec + output_obj))
+        content += merged + '\n'
+
+    objs = len(objectives[0])
+
+    fitnessMedians = []
+    fitnessLows = []
+    fitnessUps = []
 
 
-    import pdb
-    pdb.set_trace()
+    for obj in xrange(objs):
+        t_obj = [o[obj] for o in objectives]
+        fitnessMedians.append(np.median(t_obj))
+        fitnessLows.append(min(t_obj))
+        fitnessUps.append(max(t_obj))
+
+    print fitnessLows
+    print fitnessMedians
+    print fitnessUps
+    print
+    for i in xrange(len(fitnessLows)):
+        print str(fitnessLows[i]) + "," + str(fitnessMedians[i]) + "," + str(fitnessUps[i])
+        content += str(fitnessLows[i]) + "," + str(fitnessMedians[i]) + "," + str(fitnessUps[i]) + "\n"
+
+    f.write(content)
+    f.close()
 
 if __name__ == "__main__":
     problems = os.listdir(data_folder)

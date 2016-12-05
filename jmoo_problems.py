@@ -41,111 +41,6 @@ def distance(in1, in2):
     return sum([abs(x-y) for x,y in zip(in1,in2)])**0.5
 
 
-def find_opposing_population(problem, dataset):
-    def find_opposite(point, center):
-        assert(len(point) == len(center)), "Something is wrong"
-        new_point = [0 for _ in xrange(len(point))]
-        for i in xrange(len(new_point)):
-            new_point[i] = center[i] + (center[i] - point[i])
-
-        if problem.validate(new_point) is False: exit()
-        return new_point
-
-    def find_center(problem):
-        center = [0 for _ in xrange(len(problem.decisions))]
-        for i, decision in enumerate(problem.decisions):
-            center[i] = decision.low + (decision.up - decision.low)/2
-        return center
-
-    CP = []
-    center = find_center(problem)
-    from random import random
-    for data in dataset:
-        opposite = find_opposite(data, center)
-        assert(len(opposite) == len(data)), "Something is wrong"
-        temp = [0 for _ in xrange(len(opposite))]
-        for count, (i, j) in enumerate(zip(data, opposite)):
-            if i <= center[count]: temp[count] = i + (j - i) * random()
-            else: temp[count] = j + (i - j) * random()
-        CP.append(temp)
-    return CP
-
-
-def center_based_sampling(problem, dataset):
-    resulting_population = []
-    opposing_dataset = find_opposing_population(problem, dataset)
-    from random import shuffle
-    shuffle(opposing_dataset)
-    shuffle(dataset)
-    opposing_fraction = 0.7
-    resulting_population.extend(opposing_dataset[:int(len(dataset) * opposing_fraction)])
-    resulting_population.extend(dataset[:int(len(dataset) * (1-opposing_fraction))])
-    for i, pop in enumerate(resulting_population):
-        assert(problem.validate(pop) is True), "Something is wrong"
-    return resulting_population
-
-
-def for_landscape(problem, n, path=""):
-    #generate dataset
-    dataset = []
-    import sys
-    for run in range(n):
-        dataset.append(problem.generateInput(center=False))
-        print ". ",
-        sys.stdout.flush()
-
-    # dataset = center_based_sampling(problem, dataset)
-
-    #write the dataset to file
-    if path == "":
-        filename = "./Data/" + problem.name + "-p" + str(n) + "-d" + str(len(problem.decisions)) + "-o" + str(len(problem.objectives)) + "-dataset.txt"
-    elif path == "unittesting":
-        filename = "../../Data/Testing-dataset.txt"
-    else:
-        print "No accounted for"
-        exit()
-
-    fo = open(filename, 'w')
-    h = problem.buildHeader() #the header row
-    fo.write(h + "\n")
-    for data in dataset: #each row of actual Data
-        temp_data = data + problem.evaluate(data)
-        fo.write(str(temp_data).strip("[]") + "\n")
-
-    # print "Dataset generated for " + problem.name + " in " + filename + "."
-
-
-    print "Dataset generated for " + problem.name + " in " + filename + "."
-    fo.close()
-
-
-def applyNoveltySearch(problem, n, path=""):
-
-    assert(0<=problem.percentage<1), "something is wrong"
-    # find theshold
-    lows = [decision.low for decision in problem.decisions]
-    highs = [decision.up for decision in problem.decisions]
-    normalize = [[low,high] for low, high in zip(lows, highs)]
-    maxvalue = len(problem.decisions)**0.5
-
-    k = 10
-    limit = 10000
-    threshold = problem.percentage * maxvalue
-
-    # create the object
-    NS = NoveltySearch(k, limit, threshold, normalize)
-
-    # generate random points and add them to archive
-    while NS.getArchiveSize() != n:
-        if NS.getArchiveSize() % 100 == 0: print ">> ", NS.getArchiveSize()
-        p = problem.generateInput()
-        temp = NS.addToArchive(p)
-        if  temp != 1: print '#',
-        else: print ".",
-        sys.stdout.flush()
-    return NS.getArchive()
-
-
 def initialPopulation(problem, n, path=""):
     # Save Problem
     foldername = "./ProblemData/"
@@ -159,9 +54,6 @@ def initialPopulation(problem, n, path=""):
         dataset.append(problem.generateInput(center=False))
         print ". ",
         sys.stdout.flush()
-
-    # dataset = center_based_sampling(problem, dataset)
-    # dataset = applyNoveltySearch(problem, n)
 
     #write the dataset to file
     if path == "":
