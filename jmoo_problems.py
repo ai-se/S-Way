@@ -147,6 +147,11 @@ def applyNoveltySearch(problem, n, path=""):
 
 
 def initialPopulation(problem, n, path=""):
+    # Save Problem
+    foldername = "./ProblemData/"
+    import pickle
+    pickle.dump(problem, open(foldername + problem.name, 'w'))
+
     #generate dataset
     dataset = []
     import sys
