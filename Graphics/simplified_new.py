@@ -44,9 +44,8 @@ def find_files(problem, pop_size):
     content = []
     for files in file_list:
         df = pd.read_csv(files, header=None)
-        y = df[df.columns[-1 * len(problem.objectives):]]
-        temp_content = y.values.tolist()
-        assert(len(temp_content) == len(df)), "something is wrong"
+        df_list = df.values.tolist()
+        temp_content = [tc[-1 * len(problem.objectives):] for tc in df_list if problem.evalConstraints(tc) is True]
         content.extend(temp_content)
 
     return_list = []
@@ -86,8 +85,9 @@ def get_performance_measures(problem, pop_size):
 
     for filtered_file in filtered_list:
         df = pd.read_csv(filtered_file, header=None)
-        y = df[df.columns[-1 * len(problem.objectives):]]
-        content = y.values.tolist()
+        df_list = df.values.tolist()
+        content = [tc[-1 * len(problem.objectives):] for tc in df_list if problem.evalConstraints(tc) is True]
+
         normalized_content = []
         assert(len(normalizing_values) == len(content[0])), "Something is wrong"
         for c in content:

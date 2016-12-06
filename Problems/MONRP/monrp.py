@@ -70,7 +70,7 @@ class MONRP(jmoo_problem):
         for i, y in enumerate(y_i):
             if y != 0:
                 assert(self.requirement[y].id == y), "Indexing Error!"
-                assert(x_i[i] <= self.treleases)
+                assert(x_i[i] <= self.treleases), "release"
                 cost[x_i[i]] += self.requirement[i].cost
         # print cost, [b.budget for b in self.release], sum(cost), sum([b.budget for b in self.release])
         extra = 0
